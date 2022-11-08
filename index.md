@@ -3,7 +3,7 @@ layout: course-page
 title: Bueler's Math F615 in Spring 2023 at UAF
 ---
 
-**UNDER CONSTRUCTION!!**
+**UNDER CONSTRUCTION!!  MANY BROKEN LINKS!!**
 
 Welcome to the homepage of **Math F615 Numerical Analysis of Differential Equations**, Spring 2023, in the [Dept. of Mathematics and Statistics](http://www.uaf.edu/dms/) at the [University of Alaska Fairbanks](http://www.uaf.edu/).
 
@@ -31,7 +31,7 @@ Log in to [canvas.alaska.edu/courses/FIXME]() for Homework and Exam solutions, a
 
 FIXME: ADD SOME IMAGES; COMPARE opt/
 
-* See the one-page [advertisement (PDF)](assets/general/F22/advert.pdf) for this course.
+* See the one-page [advertisement (PDF)](assets/general/S23/advert.pdf) for this course.
 
 ---
 _Site design derived from [coordinated Calc I](https://uaf-math251.github.io/), an original [Jekyll](https://jekyllrb.com/) design by [David Maxwell](https://damaxwell.github.io/)._

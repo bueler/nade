@@ -1,0 +1,119 @@
+\documentclass[12pt]{amsart}
+%\pagestyle{empty} 
+\setlength{\topmargin}{-0.4in} % usually -0.25in
+\addtolength{\textheight}{1.45in} % usually 1.25in
+\addtolength{\oddsidemargin}{-0.8in}
+\addtolength{\evensidemargin}{-0.8in}
+\addtolength{\textwidth}{1.5in} %\setlength{\parindent}{0pt}
+
+% macros
+\usepackage{wrapfig,caption,palatino,tabularx}
+\usepackage{amssymb,xspace}
+\usepackage[final]{graphicx}
+\usepackage[colorlinks=true]{hyperref}
+
+\newcommand{\regfigure}[3]{\includegraphics[height=#2in,width=#3in]{#1.eps}}
+
+\newtheorem*{lem*}{Lemma}
+
+\newcommand{\mtt}{\texttt}
+\newcommand{\mtl}[1]{{\texttt{>>#1}}}
+\usepackage{alltt}
+\usepackage{verbatim} % for "comment" environment
+\newcommand{\mfile}[1]
+{\medskip\begin{quote} \begin{alltt}\input{C:/MATLABR11/work/#1.m}\end{alltt} \end{quote}\medskip}
+
+\newcommand{\CC}{{\mathbb{C}}}
+\newcommand{\RR}{{\mathbb{R}}}
+\newcommand{\eps}{\epsilon}
+\newcommand{\ZZ}{{\mathbb{Z}}}
+\newcommand{\ZZn}{{\mathbb{Z}}_n}
+\newcommand{\NN}{{\mathbb{N}}}
+\newcommand{\bu}{\mathbf{u}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\ip}[2]{\mathrm{\left<#1,#2\right>}}
+\newcommand{\erf}{\operatorname{erf}}
+\newcommand{\spn}{\operatorname{span}}
+
+\newcommand{\Matlab}{\textsc{Matlab}\xspace}
+\newcommand{\Octave}{\textsc{Octave}\xspace}
+\newcommand{\pylab}{\textsc{pylab}\xspace}
+\newcommand{\MOP}{\textsc{Matlab}\big|\textsc{Octave}\big|\textsc{pylab}\xspace}
+
+\newcommand{\prob}[1]{\bigskip\bigskip\noindent\large\textbf{#1.} \normalsize}
+\newcommand{\bookprob}[1]{\bigskip\bigskip\noindent\large\textbf{Exercise #1.} \normalsize}
+\newcommand{\ppart}[1]{\medskip\noindent\large\textbf{\emph{#1})}\normalsize}
+
+\begin{document}
+
+\begin{center}
+\LARGE Math 615 Numerical Analysis \\ of Differential Equations
+
+\large \medskip
+Spring 2023, UAF
+\end{center}
+
+\thispagestyle{empty}
+\bigskip\bigskip
+
+\noindent \emph{instructor:} \begin{minipage}[t]{0.5\textwidth} Ed Bueler \\ \texttt{elbueler\@@alaska.edu} \end{minipage} \hfill \emph{CRN:}\, \begin{minipage}[t]{0.25\textwidth} 34643 (in-person) \\ 36848 (sync zoom) \end{minipage}
+
+\medskip
+\noindent \emph{course website:} \href{https://bueler.github.io/nade/}{\texttt{bueler.github.io/nade/}} \hfill \emph{room \& time:} \begin{minipage}[t]{0.25\textwidth} Brooks 302 \\ MWF 10:30--11:30 am \end{minipage}
+
+\medskip
+\noindent \emph{textbook:} \begin{minipage}[t]{0.6\textwidth} R.~J.~LeVeque, \emph{Finite Difference Methods for Ordinary and Partial Differential Equations}, SIAM Press 2007 {\footnotesize (ISBN-13: 978-0-898716-29-0)} \end{minipage}
+
+\bigskip
+\noindent \emph{practical prerequisites:} Linear algebra, some analysis or differential equations, some computer programming, and graduate standing or permission of instructor.
+
+\noindent \emph{official prerequisites:} CS 201, Math 314, Math 426, Math 432.
+
+%\vspace{-16mm}
+\hfill \includegraphics[height=38mm]{../../images/GitHub-Mark-32px.png}
+
+\vspace{5mm}
+
+\begin{wrapfigure}{l}{0.40\textwidth}
+  \centering
+    \includegraphics[width=0.38\textwidth]{../../images/GitHub-Mark-32px.png}
+\end{wrapfigure}
+
+Numerical approximations of partial differential equations (PDEs) and ordinary differential equations (ODEs) and related problems on computers.  PDEs are the underlying structure for fluid flow, electric/magnetic fields, thermodynamics, elastic deformation, quantum mechanics and chemistry, finance, and so on, and ODEs are even more universal.  Emphasis on finite difference methods for PDEs, but also on understanding ODE numerical schemes more deeply than in an undergraduate course.
+
+\smallskip
+Every homework assignment includes numerical experimentation using Matlab, Python, Julia, or other language of your choice.  There is a student-chosen project and two
+in-class exams.
+
+\smallskip
+At the end of the course you will be able to evaluate and use numerical tools for solving many scientific and engineering problems.  You will be able to code basic methods, for prototyping, and evaluate modeling software.  You will have the mathematical start needed for learning other approaches like the finite element method and spectral methods.
+
+\smallskip
+While the course is delivered hybrid, in-person attendance is recommended!
+
+\bigskip \noindent 
+\begin{minipage}[t]{0.55\textwidth} \emph{Topics:}
+\begin{itemize}
+\item 
+\end{itemize}
+
+\bigskip
+\emph{Applications:}
+\begin{itemize}
+\item classical heat, wave, and potential equations
+\item dynamical systems
+\item fluids
+\item quantum mechanics
+\item electric and magnetic fields
+\item elasticity of solids
+\end{itemize}
+\end{minipage}
+\begin{minipage}[t]{0.45\textwidth}
+\smallskip
+
+\centering
+\includegraphics[height=52mm]{../../images/GitHub-Mark-32px.png}
+\end{minipage}
+
+\end{document}
+
