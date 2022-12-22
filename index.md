@@ -13,7 +13,7 @@ Email me at [elbueler@alaska.edu](mailto:elbueler@alaska.edu).  I hold [office h
 
 ### Canvas course page
 
-Log in to [canvas.alaska.edu/courses/FIXME]() for Homework and Exam solutions, and to see your grades.
+Log in to [canvas.alaska.edu/courses/13208](https://canvas.alaska.edu/courses/13208) for Homework and Exam solutions, and to see your grades.
 
 ### Getting Started
 
@@ -27,9 +27,7 @@ Log in to [canvas.alaska.edu/courses/FIXME]() for Homework and Exam solutions, a
 
 * Homework and projects will require some programming in Matlab/Octave or some other suitable scientific computing language.  See the [Computing](computing.html) tab and [_Programming languages compared_ (PDF)](https://bueler.github.io/compareMOP.pdf) for recommended languages.
 
-* There are [two Exams](exams.html), a Midterm and a Final.  Both are in class, and the Final will happen at the scheduled time (FIXME).  See the [Exams](exams.html) tab for the sections covered, and old exams for review.
-
-FIXME: ADD SOME IMAGES; COMPARE opt/
+* There are [two Exams](exams.html), a Midterm and a Final.  Both are in class, and the Final will happen at the scheduled time.  See the [Exams](exams.html) tab for the sections covered, and old exams for review.
 
 * See the one-page [advertisement (PDF)](assets/general/S23/advert.pdf) for this course.
 
