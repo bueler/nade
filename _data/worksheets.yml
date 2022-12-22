@@ -1,0 +1,8 @@
+semester: Spring 2023
+home: assets/worksheets/S23
+worksheets:
+- name: FIXMEdate
+  description: FIXMEworksheet
+  #blank: x.pdf
+  #solutions: convexity-solns.pdf
+  #more: see <a href="https://en.wikipedia.org/wiki/Revised_simplex_method">revised simplex method wiki page</a>
