@@ -35,8 +35,8 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy} 
 %\chead{\large\sf\textbf{}}
-\lhead{\large\sf\textbf{Syllabus}}
-\rhead{\large\sf\textbf{MATH F615 Numer.~Analysis of Diff.~Eqns., Spring 2023}}
+\lhead{\large\sf\textbf{Syllabus MATH F615 NADE}}
+\rhead{\large\sf\textbf{Spring 2023}}
   
 \newcommand{\localhead}[1]{\par\smallskip\textbf{#1} \smallskip\nobreak\\}%
 \def\heading#1{\localhead{\large\emph{#1}}}
@@ -54,11 +54,13 @@
 
 \vskip -12pt
 \strut\hbox to \hsize{\tableindent\vtop{\halign{#\hfill\ts&#\hfil\cr
+{\emph{Course Title}} & Numerical Analysis of Differential Equations \cr
+\strut & \cr
 {\emph{Instructor}} & Ed Bueler \quad \href{mailto:elbueler@alaska.edu}{\texttt{elbueler\@@alaska.edu}} \cr
 \strut & \cr
 {\emph{Class meeting}} & MWF 10:30--11:30 pm, Brooks 302 \cr
 \strut & \cr
-{\emph{CRNs}} & in-person:\, 34643 \quad online: 36848\cr
+{\emph{CRNs}} & in-person:\, 34643 \quad online: 36848 \href{https://canvas.alaska.edu/courses/13208}{(zoom link on Canvas site)}\cr
 \strut & \cr
 {\emph{Public website}} & \href{https://bueler.github.io/nade/}{\texttt{bueler.github.io/nade/}}\cr
 \strut & \cr
@@ -73,85 +75,78 @@
 \hfil}}
 
 \heading{Description}
-This course covers numerical approximations of partial differential equations (PDEs) and ordinary differential equations (ODEs) on computers.  PDEs are the underlying structure for fluid flow, electric/magnetic fields, thermodynamics, elastic deformation, quantum mechanics and chemistry, finance, and so on.  ODEs are even more universal, sometimes as a part of a PDE problem.  The course will include both linear and nonlinear examples.
+This course covers numerical approximations of partial and ordinary differential equations on computers.  PDEs are the underlying structure for fluid flow, electric/magnetic fields, thermodynamics, elastic deformation, quantum mechanics and chemistry, and even financial mathematics.  ODEs are even more universal, sometimes as parts of PDE problems.  The course will include both linear and nonlinear examples.
 
-The emphasis will be on finite difference methods for PDEs, but also on understanding ODE numerical schemes more deeply than in an undergraduate course.  We will not be satisfied with seeing pretty pictures coming from the computer.  Rather, how well do our numbers correctly approximate the intended differential equation?  We use mathematical analysis on numerical methods:  How are these methods implemented?  How are they verified and tested?  When are they stable?  Do we know in advance that they converge?
+The emphasis will be on finite difference methods for PDEs.  However, we will also understand ODE numerical schemes more deeply than from the brief introduction in an undergraduate differential equations course like MATH 302.
 
-Homework assignments and a student-chosen project will require actual implementations in Matlab, Python, or another suitable language of your choice.  (I will support Matlab but you may use other languages for assignments and the project.)  Lectures will include Matlab demonstrations, plus getting-started help.  However, if you have not done it before then you will need to show initiative in learning numerical computation.
+We will not be satisfied with seeing pretty pictures coming from the computer, so we will use mathematical analysis on numerical methods.  How well do our numbers correctly approximate the intended differential equation?  How are these methods implemented and  verified?  When are they stable?  Do we know in advance that they converge?
+
+Homework assignments and a student-chosen project will require actual implementations in Matlab, Python, or another suitable language of your choice.  I will support Matlab but you may use other languages for assignments and the project.  Lectures will include Matlab demonstrations, plus getting-started help.  However, if you have not done it before then you will need to show initiative in learning numerical computation.
 
 
 \heading{Course Goals and Student Learning Outcomes}
-At the end of the course you will be able to evaluate and use numerical tools for solving scientific and engineering problems involving differential equations.  You will be able to code some of the basic methods (prototyping more serious solutions), and you will have the mathematical start needed for learning other approaches like the finite element method and spectral methods.  Student competence with actual scientific computing is a goal of the course; you will be comfortable using Matlab, Python, or a similar language for programming standard mathematial algorithms.
+At the end of the course you will be able to evaluate and use numerical tools for solving scientific and engineering problems involving differential equations.  You will be able to code some of the basic methods and you will have the mathematical start needed for learning other approaches like the finite element method and spectral methods.  Student competence with actual scientific computing is a goal of the course; you will be comfortable using Matlab, Python, or a similar language for programming standard mathematial algorithms.
 
 
 \heading{Schedule and Online Materials}
-The \href{https://bueler.github.io/nade/}{public course website} includes a \href{https://bueler.github.io/nade/assets/general/schedule.pdf}{schedule} listing the textbook sections to be covered during each lecture, the due date of each homework Assignment, and the dates for the Midterm and Final Exams.  Please consult this schedule frequently; it is subject to change and will be kept up to date.
+The \href{https://bueler.github.io/nade/}{public course website} includes a \href{https://bueler.github.io/nade/assets/general/S23/schedule.pdf}{schedule} listing the textbook sections to be covered during each lecture, the due date of each homework Assignment, and the dates for the Midterm and Final Exams.  Please consult this schedule frequently; it is subject to change and will be kept up to date.
 
-Most course materials (syllabus, schedule, homework Assignments, code examples, project description, etc.) will be posted on the \href{https://bueler.github.io/nade/}{public course webpage}.  Some course materials (student grades, homework and exam solutions, etc.) will go on the \href{https://canvas.alaska.edu/courses/13208}{Canvas site}.
-
-The zoom link for getting the lecture online is also on the \href{https://canvas.alaska.edu/courses/13208}{Canvas site}.
+Most course materials (syllabus, schedule, homework Assignments, code examples, project description, etc.) will be posted on the \href{https://bueler.github.io/nade/}{public website}.  Some course materials (student grades, homework and exam solutions, etc.) will go on the \href{https://canvas.alaska.edu/courses/13208}{Canvas site}.
 
 
 \heading{Office Hours and Communication}
 My Office Hours are shown online at \href{http://bueler.github.io/OffHrs.htm}{\texttt{bueler.github.io/OffHrs.htm}}; I hold office hours in Chapman 306C.  Students can also schedule meetings with me outside of regular office hours.  I will use Canvas to send announcements.  If I need to contact you outside of class times, I'll try to email via Canvas, so please set your email address in Canvas to one that you check regularly!
 
-
-FIXME from here
-
+\medskip
 \heading{Evaluation and Grades}
-Grades are determined as follows.
+\vskip -10pt
 
 \begin{tabular}{|c|c|c|}
 \hline
 Homework & nearly weekly & 50\% \\
 \hline
-Project Part I & due Friday 11 November & 5\%  \\
+Project: proposal & due Monday 3 April & 5\%  \\
 \hline
-Project Part II & due Monday 12 December & 15\%  \\
+Project: completed & due Monday 1 May & 15\%  \\
 \hline
-Midterm Exam & in-class Friday 28 October & 20\%  \\
+Midterm Exam & in-class Friday 24 March & 20\%  \\
 \hline
-Final Exam & \, in-class \emph{Friday 16 December}, 3:15--5:15pm \, & 10\% \\
+Final Exam & \, in-class \emph{Thursday 4 May, 10:15--12:15} \, & 10\% \\
 \hline
 total & & 100\% \, \\
 \hline
 \end{tabular}
 
-Scores for specific assignments/projects/exams may be adjusted based on the actual difficulty of the work and/or on average class performance.  Any such adjustments will be applied to all students equally.  The scores of the various parts will be summed and the final course grade will be assigned as follows.
+Scores for specific assessments may be adjusted based on the actual difficulty of the work and/or on average class performance, and adjustments will be applied to all students equally.  The scores of the various parts will be summed and the final course grade will be assigned as follows.
 
-\begin{tabular}{llll}
-A  & 93--100\%& C  & 68--75\%  \\
-A- & 90--92\% & C- & not given \\
-B+ & 87--89\% & D+ & 65--67\%  \\
-B  & 82--86\% & D  & 60--65\%  \\
-B- & 79--81\% & D- & 57--59\%  \\
-C+ & 76--78\% & F  & $\le$ 56\%
+\begin{tabular}{llllll}
+A  & 93--100\% & B- & 79--81\%  & D+ & 65--67\%  \\
+A- & 90--92\%  & C+ & 76--78\%  & D  & 60--64\%  \\
+B+ & 87--89\%  & C  & 68--75\%  & D- & 57--59\%  \\
+B  & 82--86\%  & C- & not given & F  & $\le$ 56\%
 \end{tabular}
 
 These ranges are a guarantee and a lower bound.  I reserve the right to increase your grade above these ranges based on the actual difficulty of the work and/or on average class performance.  Any such increases will preserve grade ordering by weighted total score.
 
 
-\clearpage\newpage
-\strut\vspace{-10pt}
-
 \heading{Homework}
-The homework consists of by-hand computations, design and analysis of numerical algorithms, computer implementation of those algorithms, by-hand and computer visualization of functions and sets, rigorously-justified examples and counter-examples, and some proofs.
+Homework is due at the start of class.  \emph{Late homework is not accepted.}  If you have unavoidable circumstances which do not allow you to turn in an Assignment on time then please contact me (\href{mailto:elbueler@alaska.edu}{\texttt{elbueler\@@alaska.edu}}) in advance.
 
-Examples in lecture and exercises on the homework will use Matlab/Octave, both as a supercalculator and as a programming language, and help will be given to learn Matlab/Octave.  While Matlab/Octave is well-suited to implementing optimization algorithms, other languages are accepted for all student work.  However, only Matlab/Octave is fully instructor-supported, so, for example, codes on homework solutions will only be in Matlab.  See the separate document \textsl{Programming languages compared} (\href{https://bueler.github.io/compareMOP.pdf}{\texttt{bueler.github.io/compareMOP.pdf}}) for other recommended scientific computing languages.
+The homework consists of by-hand computations, design and analysis of numerical algorithms, computer implementation of those algorithms, by-hand and computer visualization, rigorously-justified examples and counter-examples, and some proofs.
 
-Homework assignments and their due dates will regularly be posted at the \href{https://bueler.github.io/nade/}{\texttt{public website}}.  The site also has a daily schedule of topics.  The schedule will be updated on an ongoing basis to reflect which topics were actually covered each day, so it is subject to change.  The public website will also have links to a growing list of short Matlab codes; this is a good resource for coding examples.
+Exercises on the homework will require Matlab, or another suitable language, both as a supercalculator and for writing programs.  Help will be given to learn Matlab, including examples in lecture.  Codes on homework solutions will only be in Matlab.  See the separate document \textsl{Programming languages compared} (\href{https://bueler.github.io/compareMOP.pdf}{\texttt{bueler.github.io/compareMOP.pdf}}) for other recommended scientific computing languages.
 
-Late Assignments will not be accepted.  If you have unavoidable circumstances which do not allow you to turn in an Assignment on time then please contact me (\href{mailto:elbueler@alaska.edu}{\texttt{elbueler\@@alaska.edu}}) in advance.
+Homework assignments and their due dates will regularly be posted at the \href{https://bueler.github.io/nade/}{\texttt{public website}}.  The site also has a daily schedule of topics.  The schedule will be updated on an ongoing basis to reflect which topics were actually covered each day, so it is subject to change.  The public website will also link a growing list of short Matlab codes; this is a good resource for coding examples.
 
-Problems very similar to, or shortened versions of, Homework problems will appear on the in-class Exams.
+Problems very similar to, or shortened versions of, Homework problems will appear on the in-class Midterm Exam.
+
 
 \heading{Project}
-The project is in two parts, with the first part due midsemester and the second due just before final exams (dates above).  The topic will mostly be up to you, but I will make suggestions, and I reserve veto power on choice of topics.  The project must include both theory and practical computation.  A detailed handout will appear on Monday 31 October, outlining how you might choose a project, and what are the expectations.
+The project is in two parts, with the first part due midsemester and the second due just before final exams (dates above).  The topic will mostly be up to you, but I will make suggestions, and I reserve veto power on choice of topics.  The project must include both theory and practical computation.  A detailed handout will appear on Monday 27 March, outlining how you might choose a topic, and what are the expectations.
+
 
 \heading{Exams}
-There will be one in-class Midterm Exam covering mostly basic concepts and definitions. The in-class Final Exam will have similar problems from the whole semester, but weighted toward the latter half of the course.
-
-A make-up Midterm will be given only for documented extenuating circumstances, at my discretion.  Department policy (below) does not allow me to move the time of the Final Exam.
+There will be one in-class Midterm Exam covering mostly basic concepts and definitions. The in-class Final Exam will require you to be familiar with two of the methods we have studied.  A make-up Midterm will be given only for documented extenuating circumstances, at my discretion.  Department policy (below) does not allow me to move the time of the Final Exam.
 
 
 \heading{Rules and Policies}
@@ -166,8 +161,6 @@ Incomplete (I) will only be given in
   the course during the regular term. Negligence or indifference are
   not acceptable reasons for granting an incomplete grade.
 
-\clearpage\newpage
-\strut\vspace{-10pt}
 \subheading{Late Withdrawals} 
 A withdrawal after the deadline from a DMS course will
   normally be granted only in cases where the student is performing
