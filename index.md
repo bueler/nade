@@ -3,7 +3,7 @@ layout: course-page
 title: Bueler's Math F615 in Spring 2023 at UAF
 ---
 
-**UNDER CONSTRUCTION!!  MANY BROKEN LINKS!!**
+**UNDER CONSTRUCTION!!**
 
 Welcome to the homepage of **Math F615 Numerical Analysis of Differential Equations**, Spring 2023, in the [Dept. of Mathematics and Statistics](http://www.uaf.edu/dms/) at the [University of Alaska Fairbanks](http://www.uaf.edu/).
 
@@ -28,6 +28,8 @@ Log in to [canvas.alaska.edu/courses/13208](https://canvas.alaska.edu/courses/13
 * Homework and projects will require some programming in Matlab/Octave or some other suitable scientific computing language.  See the [Computing](computing.html) tab and [_Programming languages compared_ (PDF)](https://bueler.github.io/compareMOP.pdf) for recommended languages.
 
 * There are [two Exams](exams.html), a Midterm and a Final.  Both are in class, and the Final will happen at the scheduled time.  See the [Exams](exams.html) tab for the sections covered, and old exams for review.
+
+FIXME images
 
 * See the one-page [advertisement (PDF)](assets/general/S23/advert.pdf) for this course.
 

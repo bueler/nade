@@ -2,8 +2,8 @@ sidenavtitle: 'MATH F615'
 
 docs:
 
-- title: Advertisement
-  url: assets/general/S23/advert.pdf  # delete once course started
+#- title: Advertisement
+#  url: assets/general/S23/advert.pdf  # delete once course started
 
 - title: Syllabus
   url: assets/general/S23/syllabus.pdf  # rebuild by "make syllabus.pdf" in assets/general/S23/
