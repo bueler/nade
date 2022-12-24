@@ -29,7 +29,7 @@ Log in to [canvas.alaska.edu/courses/13208](https://canvas.alaska.edu/courses/13
 
 * There are [two Exams](exams.html), a Midterm and a Final.  Both are in class, and the Final will happen at the scheduled time.  See the [Exams](exams.html) tab for the sections covered, and old exams for review.
 
-FIXME images
+<!-- FIXME images /-->
 
 * See the one-page [advertisement (PDF)](assets/general/S23/advert.pdf) for this course.
 
