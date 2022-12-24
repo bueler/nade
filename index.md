@@ -29,7 +29,7 @@ Log in to [canvas.alaska.edu/courses/13208](https://canvas.alaska.edu/courses/13
 
 * There are [two Exams](exams.html), a Midterm and a Final.  Both are in class, and the Final will happen at the scheduled time.  See the [Exams](exams.html) tab for the sections covered, and old exams for review.
 
-<!-- FIXME images /-->
+[<img src="assets/images/leveque.jpg" height="250">](https://my.siam.org/Store/Product/viewproduct/?ProductId=998 "the textbook") &nbsp; &nbsp; &nbsp; &nbsp; [<img src="assets/images/stencil.png" height="250">](https://en.wikipedia.org/wiki/Finite_difference_method "finite difference method") &nbsp; &nbsp; &nbsp; &nbsp; [<img src="assets/images/Starship-simul-3.png" height="250">](https://en.wikipedia.org/wiki/Computational_fluid_dynamics "computational fluid dynamics")
 
 * See the one-page [advertisement (PDF)](assets/general/S23/advert.pdf) for this course.
 
