@@ -2,16 +2,16 @@ semester: Spring 2023
 home: assets/exams/S23
 exams:
 - name: Midterm Exam
-  date: FIXMEdate
+  date: Friday 24 March
   info: <b>in class</b>, Brooks 302
   #reviewsheet: midreview.pdf
-  sections: FIXME
-  #cont: 5.1-5.4 (no tableaus), 6.1-6.2, 9.1-9.3,
-  #contcont: 11.1-11.2, Appendices A.1-A.7, B.1-B.7
+  #sections: FIXME
+  #cont: FIXME
+  #contcont: FIXME
   #blank: mid.pdf
   #solutions: midsolns.pdf
 - name: Final Exam
-  date: FIXMEdate
-  info: <b>in class</b>, Brooks 302, FIXMEtime
+  date: Thursday 4 May, 10:15-12:15
+  info: <b>in class</b>, Brooks 302
   #doc: finalessays.pdf
   #rubric: finalrubric.pdf
