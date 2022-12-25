@@ -1,7 +1,7 @@
 semester: Spring 2023
 home: assets/homework/S23
 homework:
-#- name: FIXME Assignment 1
-  #due: FIXME
-  #blank: FIXME A1.pdf
+- name: Assignment 1
+  due: Friday 27 January
+  blank: A1.pdf
   #sections: FIXME
