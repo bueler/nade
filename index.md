@@ -29,6 +29,14 @@ Log in to [canvas.alaska.edu/courses/13208](https://canvas.alaska.edu/courses/13
 
 [<img src="assets/images/leveque.jpg" height="250">](https://my.siam.org/Store/Product/viewproduct/?ProductId=998 "the textbook") &nbsp; &nbsp; &nbsp; &nbsp; [<img src="assets/images/stencil.png" height="250">](https://en.wikipedia.org/wiki/Finite_difference_method "finite difference method") &nbsp; &nbsp; &nbsp; &nbsp; [<img src="assets/images/Starship-simul-3.png" height="250">](https://en.wikipedia.org/wiki/Computational_fluid_dynamics "computational fluid dynamics")
 
+* What are we studying?  Check out these Wikipedia pages:
+
+    * [partial differential equations (PDEs)](https://en.wikipedia.org/wiki/Partial_differential_equation)
+    * [ordinary differential equations (ODEs)](https://en.wikipedia.org/wiki/Ordinary_differential_equation)
+    * [numerical methods for PDEs](https://en.wikipedia.org/wiki/Numerical_methods_for_partial_differential_equations)
+    * [numerical methods for ODEs](https://en.wikipedia.org/wiki/Numerical_methods_for_ordinary_differential_equations)
+    * [finite difference methods](https://en.wikipedia.org/wiki/Finite_difference_method)
+
 * See the one-page [advertisement (PDF)](assets/general/S23/advert.pdf) for this course.
 
 ---
