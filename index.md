@@ -15,6 +15,8 @@ Log in to [canvas.alaska.edu/courses/13208](https://canvas.alaska.edu/courses/13
 
 ### Getting Started
 
+* Attend lectures: MWF 10:30--11:30am in Brooks 302.
+
 * Read the [Syllabus (PDF)](assets/general/S23/syllabus.pdf).
 
 * See the [Schedule (PDF)](assets/general/S23/schedule.pdf).  Check it often for due dates, and for which topics come next!
