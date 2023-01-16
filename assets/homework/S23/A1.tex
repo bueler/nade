@@ -2,9 +2,9 @@
 %prepared in AMSLaTeX, under LaTeX2e
 \addtolength{\oddsidemargin}{-.6in} 
 \addtolength{\evensidemargin}{-.6in}
-\addtolength{\topmargin}{-.4in}
+\addtolength{\topmargin}{-.5in}
 \addtolength{\textwidth}{1.2in}
-\addtolength{\textheight}{.6in}
+\addtolength{\textheight}{1.0in}
 
 \renewcommand{\baselinestretch}{1.05}
 
@@ -85,14 +85,14 @@ width=#3in]{#1.eps}}
 \large
 \bigskip
 
-\centerline{\textbf{Due Friday, 27 January 2023, at the start of class}}
+\centerline{\textbf{Due Wednesday, 25 January 2023, at the start of class}}
 \bigskip
 \normalsize
 
 \thispagestyle{empty}
 
 \bigskip
-Please read sections 1.1--1.4 and 2.1--2.6 from the textbook.\footnote{R.~J.~LeVeque, \emph{Finite Difference Methods for Ordinary and Partial Differential Equations}, SIAM Press 2007}  The Problems on this assignment are designed to encourage additional review of certain important topics.  In fact, please find three representative textbooks:
+Please read sections 1.1--1.4 and 2.1--2.4 from the textbook.\footnote{R.~J.~LeVeque, \emph{Finite Difference Methods for Ordinary and Partial Diff.~Eqns.}, SIAM Press 2007}  The Problems on this assignment are designed to encourage review of certain important prerequisite topics.  In fact, please find three prerequisite textbooks:
 \begin{itemize}
 \item Find a \textbf{calculus book}.
 \item Find an introductory textbook on \textbf{ordinary differential equations} (ODEs).
@@ -105,25 +105,27 @@ You will need these references throughout the semester.  In particular, for this
 \end{itemize}
 
 \medskip
-\prob{Problem P1.}  Calculate $257^{\,1/8}$ to within $10^{-5}$ of the exact value \emph{without} any computing machinery except a pencil or pen.    Prove that your answer has this accuracy.  (\emph{You should use a computer to \emph{check} your by-hand value!  Hint: $f(x)=x^{1/4}$.})
+\prob{Problem P1.}  Calculate $257^{\,1/8}$ to within $10^{-5}$ of the exact value \emph{without} any computing machinery except a pencil or pen.    Prove that your answer has this accuracy.  (\emph{You should use a computer to \emph{check} your by-hand value!  Hint: Taylor on $f(x)=x^{1/8}$.})
 
 \prob{Problem P2.}  Assume $f'$ is continuous.  Derive the remainder formula
 \begin{equation}\label{lhrule}
 \int_0^a f(x)\,dx = a f(0) + \frac{1}{2} a^2 f'(\nu)
 \end{equation}
-for some (unknown) $\nu$ between zero and $a$.  (\emph{Hint:  Start by showing $f(x)=f(0)+f'(\xi)x$ where $\xi=\xi(x)$ is some number between $0$ and $x$.})  Use two sentences to explain the meaning of \eqref{lhrule} as an approximation to the integral.  That is, answer the question ``What properties of $f(x)$ or $a$ would make the left-endpoint rule $\int_0^a f(x)\,dx \approx a f(0)$ inaccurate?''
+for some (unknown) $\nu$ between zero and $a$.  (\emph{Hint:  Start by showing $f(x)=f(0)+f'(\xi)x$ where $\xi=\xi(x)$ is some number between $0$ and $x$.})  Use two sentences to explain the meaning of \eqref{lhrule} as an approximation to the integral.  That is, answer the question ``What properties of $f(x)$ or $a$ make the left-endpoint rule $\int_0^a f(x)\,dx \approx a f(0)$ more inaccurate?''
 
-\prob{Problem P3.}  Get started in the programming language of your choice.\footnote{\Matlab/\Octave or \Python or \Julia.}  Now work at the command line to compute a finite sum approximation to
+\prob{Problem P3.}  Get started in the programming language of your choice.\footnote{Recommended: \Matlab/\Octave or \Python or \Julia.}  Now work at the command line to compute a finite sum approximation to
 	$$\sum_{n=1}^\infty \frac{\sin n}{n^3+1}.$$
-Compute at least three partial (finite) sums, with increasing numbers of terms $N$.  Turn your command-line work into a function \texttt{mysum(N)}, defined in a file  \texttt{mysum.m}, and show that it works.  Turn in both the command line session and the code.  (\emph{Hint:  These can be very brief.})  Do you think you are getting close to the infinite sum, and if so, why?
+Compute the partial (finite) sums for $N=10$ and $N=100$ terms.  Turn your command-line work into a function \texttt{mysum(N)}, defined in a file  \texttt{mysum.m}, and check that it works.  Turn in both the command line session and the code.  (\emph{Hint:  These can be very brief.})  Speaking informally, how close do you think the $N=100$ partial sum is to the infinite sum?
 
 \prob{Problem P4.}  Solve, by hand,
 \begin{equation}\label{ODE}
 y'' + y' - 6 y = 0, \quad y(2)=0, \quad y'(2)=-1,
 \end{equation}
-for the solution $y(t)$.  Then find $y(4)$.  (\emph{This is a \emph{prediction} of the outcome at $t=4$, given initial data at $t=2$ and a precise ``law'' about how $y(t)$ evolves in time, namely the differential equation itself.})  Give a reasonable by-hand sketch on $t,y$ axes which shows the initial values, the solution, and the value $y(4)$.  
+for the solution $y(t)$.  Then find $y(4)$.  Give a reasonable by-hand sketch on $t,y$ axes which shows the initial values, the solution, and the value $y(4)$.
 
-\prob{Problem P5.}  Using Euler's method for approximately solving ODEs, write your own program to solve initial value problem \eqref{ODE} to find $y(4)$.  A first step is to convert the second-order ODE into a system of two first-order ODEs.  Use a few different step sizes, decreasing as needed, so that you get apparent three-digit accuracy.  (\emph{Hint:  You can use a black-box ODE solver to \emph{check} your work, but this is not required.})
+\emph{Note you have made a \emph{prediction} of $y(t)$ at $t=4$, given initial data at $t=2$ and a precise ``law'' about how $y(t)$ evolves in time, namely the differential equation itself.}
+
+\prob{Problem P5.}  Using Euler's method for approximately solving ODEs, write your own program to solve initial value problem \eqref{ODE} to find $y(4)$.  A first step is to convert the second-order ODE into a system of two first-order ODEs.  Use a few different step sizes, decreasing as needed, so that you get apparent three-digit accuracy.  (\emph{Hint:  You may use a black-box ODE solver to \emph{check} your work, but this is not required.})
 %Matlab soln:
 %  f = @(t,w) [w(2); 6*w(1) - w(2)]
 %  [t,v] = ode45(f,[2 4],[0 -1]');

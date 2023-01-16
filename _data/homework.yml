@@ -4,8 +4,8 @@ homework:
 - name: Assignment 1
   due: Friday 27 January
   blank: A1.pdf
-  #sections: FIXME
+  sections: 1.1-1.4, 2.1-2.4
 - name: Assignment 2
   due: Mon 13 February
   blank: A2.pdf
-  sections: 1.1-1.4, 2.1-2.10
+  sections: 2.5-2.10
