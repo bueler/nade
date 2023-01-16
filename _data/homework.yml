@@ -5,3 +5,7 @@ homework:
   due: Friday 27 January
   blank: A1.pdf
   #sections: FIXME
+- name: Assignment 2
+  due: Mon 13 February
+  blank: A2.pdf
+  sections: 1.1-1.4, 2.1-2.4
