@@ -2,7 +2,7 @@ semester: Spring 2023
 home: assets/homework/S23
 homework:
 - name: Assignment 1
-  due: Friday 27 January
+  due: Wed 25 January
   blank: A1.pdf
   sections: 1.1-1.4, 2.1-2.4
 - name: Assignment 2
