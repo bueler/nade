@@ -11,7 +11,7 @@ Email me at [elbueler@alaska.edu](mailto:elbueler@alaska.edu).  I hold [office h
 
 ### Canvas course page
 
-Log in to [canvas.alaska.edu/courses/13208](https://canvas.alaska.edu/courses/13208) for Homework and Exam solutions, and to see your grades.
+Log in to [canvas.alaska.edu/courses/13208](https://canvas.alaska.edu/courses/13208) for the Zoom lecture link, Homework solutions, and to see your grades.
 
 ### Getting Started
 
