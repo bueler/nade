@@ -1,6 +1,10 @@
 semester: Spring 2023
 home: assets/worksheets/S23
 worksheets:
+- name: Why Finite Difference Methods Work
+  description: A one-page summary of stages which prove convergence.
+  blank: whyitworks.pdf
+  more: See Chapter 2 of the textbook.  The <a href="https://en.wikipedia.org/wiki/Lax_equivalence_theorem">Lax equivalence theorem wiki page</a> gives the executive summary.
 #- name: FIXMEdate
   #description:
   #blank: x.pdf
