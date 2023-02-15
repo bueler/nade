@@ -10,3 +10,6 @@ worksheets:
   #blank: x.pdf
   #solutions: convexity-solns.pdf
   #more: see <a href="https://en.wikipedia.org/wiki/Revised_simplex_method">revised simplex method wiki page</a>
+- name: Worksheet on section 2.17
+  description: 1st-versus-2nd order equations, and singular perturbations
+  blank: singular.pdf
