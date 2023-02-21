@@ -12,3 +12,5 @@ title: Matlab/Octave Codes
   * [steadyheat.m](assets/codes/steadyheat.m)
   * [verifysh.m](assets/codes/verifysh.m) generates [this convergence figure](assets/codes/verifysh.png)
   * [bothneumann.m](assets/codes/bothneumann.m)
+  * [heat2d.m](assets/codes/heat2d.m)
+  * [testheat2d](assets/codes/testheat2d.m)
