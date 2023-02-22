@@ -14,3 +14,22 @@ title: Matlab/Octave Codes
   * [bothneumann.m](assets/codes/bothneumann.m)
   * [heat2d.m](assets/codes/heat2d.m)
   * [testheat2d](assets/codes/testheat2d.m)
+
+## from homework solutions
+
+From Assignment #1:
+
+  * [mysum.m](assets/codes/mysum.m)
+  * [p5euler.m](assets/codes/p5euler.m)
+
+From Assignment #2:
+
+  * [fdrates.m](assets/codes/fdrates.m)
+
+From Assignment #3:
+
+  * [richardson.m](https://github.com/bueler/slide-teach/blob/master/iterative/richardson.m)
+  * [jacobi.m](https://github.com/bueler/slide-teach/blob/master/iterative/jacobi.m)
+  * [gs.m](https://github.com/bueler/slide-teach/blob/master/iterative/gs.m)
+  * [bvpq.m](assets/codes/bvpq.m)
+  * [newtonex.m](assets/codes/newtonex.m)
