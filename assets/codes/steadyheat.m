@@ -12,7 +12,7 @@ function [x,U] = steadyheat(m,f,alpha,beta)
 %   >> f = @(x) 2 - 12 * x + 12 * x.^2;
 %   >> [x,U] = steadyheat(20,f,0.0,0.0);
 %   >> uexact = @(x) x.^2 .* (1 - x).^2;
-%   >> plot(x,U,x,'o',uexact(x),'-')
+%   >> plot(x,U,'o',x,uexact(x),'-')
 %   >> xlabel x,  legend('numerical','exact')
 % Example 2:  See VERIFYSH.
 
