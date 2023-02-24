@@ -69,7 +69,7 @@
 \newcommand{\ds}{\displaystyle}
 
 \begin{document}
-\scriptsize \noindent Math 615 NADE (Bueler) \hfill 30 January 2023 \quad \fbox{\emph{Not turned in!}}
+\scriptsize \noindent Math 615 NADE (Bueler) \hfill 24 February 2023 (revised) \quad \fbox{\emph{Not turned in!}}
 \normalsize\medskip
 
 \Large\centerline{\textbf{Summary: Why Finite Difference Methods Work}}
@@ -99,7 +99,7 @@
 \prob{Stage 3.  LTE and error equation}  Let $\hat U^h_j = u(x_j)$ be the grid values of the exact solution $u(x)$ of your DE.  (You may not know $u(x)$!)  Define the \emph{local truncation error} (LTE) as the residual from the scheme, when it is applied to the exact solution:
    $$\tau^h = A^h \hat U^h - F^h = O(h^p)$$
 Taylor's theorem generates the \emph{order of accuracy} $p$, and if $p>0$ then the scheme is \emph{consistent}.  Defining the \emph{numerical error} $E^h = U^h - \hat U^h$, get:
-   $$E^h U^h = -\tau^h \qquad \implies \qquad E^h = - (A^h)^{-1} \tau^h$$
+   $$A^h E^h = -\tau^h \qquad \implies \qquad E^h = - (A^h)^{-1} \tau^h$$
 
 \vfill
 \prob{Stage 4.  Apply stability to show convergence}  Show \emph{stability}: there is $C>0$ so that $\|(A^h)^{-1}\| \le C$ for all $h>0$.  (Stability may be difficult to show!)  Because $\|\tau^h\| = O(h^p)$, get \emph{convergence} at rate $p$:
