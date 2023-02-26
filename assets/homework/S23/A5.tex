@@ -1,0 +1,185 @@
+\documentclass[12pt]{amsart}
+%prepared in AMSLaTeX, under LaTeX2e
+\addtolength{\oddsidemargin}{-.6in} 
+\addtolength{\evensidemargin}{-.6in}
+\addtolength{\topmargin}{-.4in}
+\addtolength{\textwidth}{1.2in}
+\addtolength{\textheight}{.6in}
+
+\renewcommand{\baselinestretch}{1.05}
+
+\usepackage{verbatim,fancyvrb}
+\usepackage{soul}
+\usepackage{palatino}
+
+\newtheorem*{thm}{Theorem}
+\newtheorem*{defn}{Definition}
+\newtheorem*{example}{Example}
+\newtheorem*{problem}{Problem}
+\newtheorem*{remark}{Remark}
+
+\newcommand{\mtt}{\texttt}
+\usepackage{alltt,xspace}
+\newcommand{\mfile}[1]
+{\medskip\begin{quote}\scriptsize \begin{alltt}\input{#1.m}\end{alltt} \normalsize\end{quote}\medskip}
+
+\usepackage[final]{graphicx}
+\newcommand{\mfigure}[1]{\includegraphics[height=2.5in,
+width=3.5in]{#1.eps}}
+\newcommand{\regfigure}[2]{\includegraphics[height=#2in,
+keepaspectratio=true]{#1.eps}}
+\newcommand{\widefigure}[3]{\includegraphics[height=#2in,
+width=#3in]{#1.eps}}
+
+\usepackage{amssymb}
+
+\usepackage[pdftex, colorlinks=true, plainpages=false, linkcolor=black, citecolor=red, urlcolor=red]{hyperref}
+
+% macros
+\newcommand{\br}{\mathbf{r}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\by}{\mathbf{y}}
+
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+
+\newcommand{\eps}{\epsilon}
+\newcommand{\grad}{\nabla}
+\newcommand{\lam}{\lambda}
+\newcommand{\lap}{\triangle}
+
+\newcommand{\ip}[2]{\ensuremath{\left<#1,#2\right>}}
+
+%\renewcommand{\det}{\operatorname{det}}
+\newcommand{\onull}{\operatorname{null}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\range}{\operatorname{range}}
+
+\newcommand{\Julia}{\textsc{Julia}\xspace}
+\newcommand{\Matlab}{\textsc{Matlab}\xspace}
+\newcommand{\Octave}{\textsc{Octave}\xspace}
+\newcommand{\Python}{\textsc{Python}\xspace}
+
+\newcommand{\prob}[1]{\bigskip\noindent\textbf{#1}\quad }
+
+\newcommand{\chapexers}[2]{\prob{Chapter #1, pages #2, Exercises:}}
+\newcommand{\exer}[2]{\prob{Exercise #1}}
+
+\newcommand{\pts}[1]{(\emph{#1 pts}) }
+\newcommand{\epart}[1]{\medskip\noindent\textbf{#1)}\quad }
+\newcommand{\ppart}[1]{\,\textbf{#1)}\quad }
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=ellipse,draw,inner sep=2pt] (char) {#1};}}
+
+
+\begin{document}
+\scriptsize \noindent Math 615 NADE (Bueler) \hfill 27 February, 2023
+\normalsize
+
+\medskip\bigskip
+
+\Large\centerline{\textbf{Assignment \#5}}
+\large
+\bigskip
+
+\centerline{\textbf{Due Monday, 20 March 2023, at the start of class}}
+\bigskip
+\normalsize
+
+\thispagestyle{empty}
+
+\bigskip
+Please read textbook\footnote{R.~J.~LeVeque, \emph{Finite Difference Methods for Ordinary and Partial Diff.~Eqns.}, SIAM Press 2007} sections 5.1--5.8, plus Appendices C and D.
+
+These problems are mostly about eigenvalues.  I assume you have had an undergraduate course in linear algebra, and so this should be a review topic, but I start here with a quick summary.  Appendices C and D cover more advanced eigen-topics.
+
+By definition, a \emph{nonzero} vector $v\in \RR^m$ is an \emph{eigenvector} of a square matrix $A \in \RR^{m\times m}$ if it has the property that multiplication by $A$ merely lengthens or shortens it:
+\begin{equation}
+    A v = \lambda v.  \label{eig}
+\end{equation}
+The number $\lambda$ is called the \emph{eigenvalue} corresponding to $v$.  (\emph{``eigen'' means something like ``property of''.  That is, $v$ and $\lambda$ are in some sense ``owned'' by $A$.})  Now, if \eqref{eig} is true then the matrix
+    $$\lambda I - A$$
+has a vector in its \emph{null space}.  That is, there are nonzero vectors, at least $v$ and nonzero multiples of $v$, that $\lambda I - A$ sends to zero:
+    $$(\lambda I - A) v = 0.$$
+This equation is true, by a fundamental equivalence in linear algebra, if and only if $\lambda I - A$ is not invertible.
+
+In particular, $\det(\lambda I - A) = 0$, which is a polynomial equation with real coefficients:
+    $$p(\lambda) = \det(\lambda I - A).$$
+(\emph{Recall we assumed $A$ had real entries.})  Finding all the eigenvalues is equivalent to finding all the roots of this polynomial.  Some of these roots may be complex:
+    $$\text{in general, } \lambda\in \CC.$$
+However, because the coefficients of the polynomial are real, if $\lambda$ is not real then its conjugate $\bar \lambda$ is also a root of the polynomial and thus an eigenvalue of $A$.
+
+Now suppose $\lambda$ is an eigenvalue of $A$.  Finding a corresponding eigenvector is the task of finding a vector in the null space of a matrix.  In particular, the row operations of Gauss elimination will convert the equation $(\lambda I - A) v = 0$ into an upper triangular equation $U v = 0$ where $U$ is both upper triangular and has at least one row of zeros.  (\emph{This is because $\lambda I - A$ is not invertible.})  The matrix equation $U v = 0$ can be used to generate every eigenvector corresponding to $\lambda$, the \emph{eigenspace} for $\lambda$.  This eigenspace has dimension at least one.
+
+\medskip
+\prob{Problem P22.}  \ppart{a}  Compute \emph{by hand} the eigenvalues and eigenvectors of
+    $$A = \begin{bmatrix} 2 & -1 & -1 \\
+                         -1 & 0  & 1 \\
+                         -1 & 1  & 0  \end{bmatrix}.$$
+Show all your work.  (\emph{Hint: As you expand the determinant, watch for a factor to appear.  You may \emph{check} your work with \Matlab.})
+
+\epart{b}  Continuing with the same matrix $A$, do the following using $\Matlab$ etc., and show the command-line session or code:  Choose a vector $u\in\RR^3$ at random, for instance \texttt{u = randn(3,1)}.  Apply $A$ to it 50 times: $w = A^{50} u$.  Now compute $\|A w\|_2/\|w\|_2$.  You will get the number $3.0000$.  Why?  Explain in several sentences, using equations to make it clear.
+
+\medskip
+\noindent \emph{Hint.}  If an $m\times m$ matrix has $m$ distinct eigenvalues then the corresponding eigenvectors form a basis.  Any vector can be written in this basis.  On the other hand, multiplication by this $A$ stretches one basis vector the most.
+
+\epart{c}  Note that $w = A^{50} u$ from part \textbf{(b)} is very large in norm.  Why?  For a random $u$, give an estimate of the norm of the vector $A^k u$ for large $k$.
+
+
+\prob{Problem P23.}  \emph{The purpose of this problem is to give you a visual sense of what can happen to the eigenvalues of non-symmetric real matrices.}
+
+\epart{a}  Consider this matrix-valued function of $x$:
+    $$M(x) = \begin{bmatrix} 2 & x & x \\
+                            -1 & 0  & 1 \\
+                            -1 & 1  & 0  \end{bmatrix}.$$
+Note that $M(-1)=A$ from \textbf{P22}.  Also note that if $x\ne -1$ then $M(x)$ is not symmetric.
+
+Use \Matlab to generate a single clear figure showing all the eigenvalues of all matrices $M(x)$ for $x\in [-1,5]$.  Label this figure in an attempt to clarify how the eigenvalues depend on $x$.
+% see eigpath.m
+
+\epart{b}  By doing a by-hand calculation, at what $x$ value in the interval $[-1,5]$ do non-real eigenvalues first appear?  (\emph{Hint.}  Your answer will be compatible with your figure if you have done everything right.)
+% p(lam) = (lam + 1) (lam^2 - 3 lam + 2 + x)
+% in solving quadratic  lam^2 - 3 lam + 2 + x = 0, the discriminant is
+%  b^2-4ac = 1 - 8x
+% this is zero, giving a repeated root, at x=1/8
+
+
+\bigskip
+\prob{Problem P24.}  Check that the solution $u(t)$ given by Duhamel's principle, equation (5.8) in the textbook, satisfies ODE (5.6) and the initial condition $u(t_0)=\eta$.
+
+\medskip
+\noindent \emph{Hint.}  Look up the Leibniz rule for differentiating an integral?  To understand and explain the simple result of differentiating the matrix exponential, note you can differentiate the absolutely-convergent Taylor series (D.31), in Appendix D, term by term.
+
+
+\clearpage \newpage
+Regarding the next two Problems, recall $A$ is diagonalizable if there is an \emph{invertible} matrix $R$ and a diagonal matrix $\Lambda$ so that $AR = R\Lambda$ or equivalently $\Lambda = R^{-1} A R$.  The diagonal entries in $\Lambda$ are the eigenvalues of $A$ and the columns of $R$ are eigenvectors.  Though $R,\Lambda$ can be determined from \Matlab by the command \texttt{[R,Lambda] = eig(A)}, clarity in the next two Problems requires doing the eigenvalue calculations by hand.  Feel free to check via \Matlab that you have the correct eigenvalues!
+
+\medskip
+\prob{Problem P25.}  Consider the ODE system
+\begin{align*}
+u_1' &= 2 u_1, \\
+u_2' &= 3 u_1 - 2 u_2
+\end{align*}
+with some initial conditions at $t=0$: $u_1(0) = a, u_2(0) = b$.
+
+Solve this system two ways:
+
+\epart{a} Solve the first equation.  Then insert this into the second equation to get a nonhomogeneous linear ODE for $u_2$.  Solve this using Duhamel's principle.
+
+\epart{b} Write the system as $u'=Au$, compute the matrix exponential, and get the solution in the form of equation (D.30) in Appendix D.
+
+\medskip
+\noindent \emph{Hint.}  The diagonalization of $A$ in \textbf{(b)} can and should be done by hand.  Simplify the results of each part enough to see they give the same solution.
+
+\prob{Problem P26.}  The ODE IVP
+    $$v'' = - 9 v, \quad v(0) = v_0, \quad v'(0) = w_0$$
+has solution
+    $$v(t) = v_0 \cos(3 t) + \frac{w_0}{3} \sin(3t).$$
+Verify this.
+
+Construct this solution by first rewriting the ODE as a first-order system $u' = A u$.  Then compute the solution $u(t) = e^{At} u(0)$ by using equation (D.30) in Appendix D.
+
+\end{document}
