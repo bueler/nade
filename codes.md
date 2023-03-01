@@ -33,3 +33,13 @@ From Assignment #3:
   * [gs.m](https://github.com/bueler/slide-teach/blob/master/iterative/gs.m)
   * [bvpq.m](assets/codes/bvpq.m)
   * [newtonex.m](assets/codes/newtonex.m)
+
+From Assignment #4:
+
+  * [linpend.m](assets/codes/linpend.m)
+  * [testlinpend.m](assets/codes/testlinpend.m)
+  * [pendulum.m](assets/codes/pendulum.m)
+  * [p19figures.m](assets/codes/p19figures.m)
+  * [genlinp.m](assets/codes/genlinp.m)
+  * [poisson.m](assets/codes/poisson.m)
+  * [poissonconv.m](assets/codes/poissonconv.m)
