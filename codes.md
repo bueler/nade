@@ -14,7 +14,7 @@ title: Matlab/Octave Codes
   * [bothneumann.m](assets/codes/bothneumann.m) solves u''(x) = f(x) with Neumann boundary conditions
   * [heat2d.m](assets/codes/heat2d.m) solves u_xx + u_yy = f on a square, with mixed boundary conditions
   * [testheat2d](assets/codes/testheat2d.m) calls [heat2d.m](assets/codes/heat2d.m) to demonstrate convergence
-  * [eulerboth.m](assets/codes/eulerboth.m) generates 2 figures: [k=1](assets/codes/figs/eulerbothone.png) and [k=0.5,0.2](assets/codes/figs/eulerbothsmaller.png) 
+  * [eulerboth.m](assets/codes/eulerboth.m) generates 3 figures for different step sizes k: [k=1](assets/codes/figs/eulerbothone.png) and [k=0.5,0.2](assets/codes/figs/eulerbothsmaller.png) and [k=0.1,0.05](assets/codes/figs/eulerbothgood.png)
 
 ## from homework solutions
 

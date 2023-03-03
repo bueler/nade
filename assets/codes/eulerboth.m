@@ -43,5 +43,25 @@ hold off
 legend('Euler','backward Euler','Euler','backward Euler','exact solution')
 xlabel t, ylabel('u(t)')
 axis([0 2 -3 3])
-title('time step sizes k=0.5,0.2')
+title('time step sizes k=0.5, 0.2')
 print -dpng eulerbothsmaller.png
+
+
+% k = 0.1, 0.05 step sizes
+figure(3)
+hold on
+for k = [0.1 0.05]
+    t = 0:k:T;
+    N = T / k;
+    uEULER = 2 * (1 - 4*k).^(0:N);
+    uBE    = 2 * (1/(1 + 4*k)).^(0:N);
+    plot(t,uEULER,'bo-',t,uBE,'ro-')
+end
+hold on
+plot(tt,uexact,'k','linewidth',2.0)
+hold off
+legend('Euler','backward Euler','Euler','backward Euler','exact solution')
+xlabel t, ylabel('u(t)')
+axis([0 2 -1 3])
+title('time step sizes k=0.1, 0.05')
+print -dpng eulerbothgood.png
