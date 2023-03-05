@@ -15,7 +15,8 @@ title: Matlab/Octave Codes
   * [heat2d.m](assets/codes/heat2d.m) solves u_xx + u_yy = f on a square, with mixed boundary conditions
   * [testheat2d](assets/codes/testheat2d.m) calls [heat2d.m](assets/codes/heat2d.m) to demonstrate convergence
   * [eulerboth.m](assets/codes/eulerboth.m) generates 3 figures for different step sizes k: [k=1](assets/codes/figs/eulerbothone.png) and [k=0.5,0.2](assets/codes/figs/eulerbothsmaller.png) and [k=0.1,0.05](assets/codes/figs/eulerbothgood.png)
-  * [taylor2.m](assets/codes/taylor2.m) Taylor O(k^2) method, generates [this figure](assets/codes/figs/taylor2.png)
+  * [taylor2.m](assets/codes/taylor2.m) Taylor O(k^2) method; generates [this figure](assets/codes/figs/taylor2.png)
+  * [rungekutta.m](assets/codes/rungekutta.m) compare O(k^1), O(k^2), and O(k^4) Runge-Kutta methods; generates [this figure](assets/codes/figs/rungekutta.png)
 
 ## from homework solutions
 
