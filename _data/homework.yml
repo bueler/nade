@@ -22,4 +22,8 @@ homework:
 - name: Assignment 5
   due: Mon 20 March
   blank: A5.pdf
-  sections: 5.1--5.8, Appendices C, D
+  sections: 5.1--5.2, Appendices C, D
+- name: Assignment 6
+  due: Wed 28 March
+  blank: A6.pdf
+  sections: 5.3--5.8, 6.1--6.4

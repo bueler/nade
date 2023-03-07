@@ -1,0 +1,188 @@
+\documentclass[12pt]{amsart}
+%prepared in AMSLaTeX, under LaTeX2e
+\addtolength{\oddsidemargin}{-.6in} 
+\addtolength{\evensidemargin}{-.6in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textwidth}{1.2in}
+\addtolength{\textheight}{1.0in}
+
+\renewcommand{\baselinestretch}{1.05}
+
+\usepackage{verbatim,fancyvrb}
+\usepackage{soul}
+\usepackage{palatino}
+
+\newtheorem*{thm}{Theorem}
+\newtheorem*{defn}{Definition}
+\newtheorem*{example}{Example}
+\newtheorem*{problem}{Problem}
+\newtheorem*{remark}{Remark}
+
+\newcommand{\mtt}{\texttt}
+\usepackage{alltt,xspace}
+\newcommand{\mfile}[1]
+{\medskip\begin{quote}\scriptsize \begin{alltt}\input{#1.m}\end{alltt} \normalsize\end{quote}\medskip}
+
+\usepackage[final]{graphicx}
+\newcommand{\mfigure}[1]{\includegraphics[height=2.5in,
+width=3.5in]{#1.eps}}
+\newcommand{\regfigure}[2]{\includegraphics[height=#2in,
+keepaspectratio=true]{#1.eps}}
+\newcommand{\widefigure}[3]{\includegraphics[height=#2in,
+width=#3in]{#1.eps}}
+
+\usepackage{amssymb}
+
+\usepackage[pdftex, colorlinks=true, plainpages=false, linkcolor=black, citecolor=red, urlcolor=red]{hyperref}
+
+% macros
+\newcommand{\br}{\mathbf{r}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\by}{\mathbf{y}}
+
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+
+\newcommand{\eps}{\epsilon}
+\newcommand{\grad}{\nabla}
+\newcommand{\lam}{\lambda}
+\newcommand{\lap}{\triangle}
+
+\newcommand{\ip}[2]{\ensuremath{\left<#1,#2\right>}}
+
+%\renewcommand{\det}{\operatorname{det}}
+\newcommand{\onull}{\operatorname{null}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\range}{\operatorname{range}}
+
+\newcommand{\Julia}{\textsc{Julia}\xspace}
+\newcommand{\Matlab}{\textsc{Matlab}\xspace}
+\newcommand{\Octave}{\textsc{Octave}\xspace}
+\newcommand{\Python}{\textsc{Python}\xspace}
+
+\newcommand{\prob}[1]{\bigskip\noindent\textbf{#1}\quad }
+
+\newcommand{\chapexers}[2]{\prob{Chapter #1, pages #2, Exercises:}}
+\newcommand{\exer}[2]{\prob{Exercise #1}}
+
+\newcommand{\pts}[1]{(\emph{#1 pts}) }
+\newcommand{\epart}[1]{\medskip\noindent\textbf{#1)}\quad }
+\newcommand{\ppart}[1]{\,\textbf{#1)}\quad }
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=ellipse,draw,inner sep=2pt] (char) {#1};}}
+
+
+\begin{document}
+\scriptsize \noindent Math 615 NADE (Bueler) \hfill 6 March, 2023
+\normalsize
+
+\medskip\bigskip
+
+\Large\centerline{\textbf{Assignment \#6}}
+\large
+\bigskip
+
+\centerline{\textbf{Due Wednesday, 28 March 2023, at the start of class}}
+\bigskip
+\normalsize
+
+\thispagestyle{empty}
+
+\bigskip
+Please read textbook\footnote{R.~J.~LeVeque, \emph{Finite Difference Methods for Ordinary and Partial Diff.~Eqns.}, SIAM Press 2007} sections 5.3--5.8 and 6.1--6.4.
+
+
+\medskip
+\prob{Problem P27.}  \ppart{a}  In preparation for problem \textbf{P29} below, write two solvers
+
+\centerline{\texttt{function [tt,zz] = feuler(f,eta,t0,tf,N)}}
+
+\centerline{\texttt{function [tt,zz] = rk4(f,eta,t0,tf,N)}}
+
+\noindent which implement schemes (5.19) and (5.33), respectively, to solve the ODE IVP in (5.1) and (5.2).  The first input to these solvers is \texttt{function z = f(t,u)}.\footnote{Use the \Matlab and \texttt{scipy.integrate.ode} variable order here not the book order ``$f(u,t)$.''}  The other inputs are a vector of initial values \texttt{eta} $= u(t_0)$, the initial time \texttt{t0}, the final time \texttt{tf}, and the number of equal-length steps (subintervals) \texttt{N}; the time step is $\Delta t = k = (t_f-t_0)/N$.  Each solver outputs the entire trajectory, so \texttt{tt} is a 1D array of length $N+1$ starting with $t_0$ and ending with $t_f$.  If $\eta\in\RR^s$ then \texttt{zz} is a 2D array with $s$ rows and $N+1$ columns; each column $i$ gives the solution $u(t)$ at the $i$th time in \texttt{tt}.
+
+\epart{b}  Solve the following simple problem exactly:
+    $$x'' + x = 0, \qquad x(0)=1, \quad x'(0)=0.$$
+
+\medskip
+\noindent \emph{Hint.}  You will need to find the exact solution, and also write this as a first order system for setting-up a numerical solution in part \textbf{c)}.
+
+\epart{c} The problem in \textbf{b)}, for example on the interval $[t_0,t_f] = [0,2]$, makes a good test case.  Demonstrate that the final-time numerical error of each solver in \textbf{(a)} converges at the expected rate as the timestep $k\to 0$.
+
+\medskip
+\noindent \emph{Hint.} What is the expected rate is for each method?  There is no need to compute local truncation errors yourself, but you must know their orders.
+
+
+\prob{Problem P28.}  Compute the leading term in the local truncation error of the following methods.  In particular, please follow the style of Example 5.9,\footnote{For the multistep midpoint rule (5.23), Example 5.9 finds $\tau^n = \frac{1}{6} k^2 u'''(t_n) + O(k^4)$.  The simpler statement $\tau^n=O(k^2)$ is also true, but I am asking for a bit more.} so that you know the coefficient in the leading order term.
+
+\epart{a} the 2-step BDF method (5.25).
+
+\medskip
+\noindent \emph{Hint.}  Expand around $t_{n+1}$, to get $\tau^{n+1}$.
+
+\epart{b} the trapezoidal method (5.22).
+
+\medskip
+\noindent \emph{Hint.}  Expand around the ``half-way'' time $t^* = t_n+\frac{1}{2}k$, to get $\tau^*$.
+
+\epart{c} the explicit trapezoid method,
+    $$U^{n+1} = U^n + \frac{k}{2} \Big(f(U^n) + f\big(U^n + k f(U^n)\big)\Big).$$
+
+\medskip
+\noindent \emph{Hint.}  Note how scheme (5.30), the explicit midpoint rule, is handled.
+
+
+\prob{Problem P29.}  \emph{This is a real application.  Perhaps it will help you appreciate our abstract notation for ODE systems, vector data types in our languages, and higher-order explicit ODE schemes.  This problem has an exact solution,\footnote{See, for example: {\scriptsize\url{https://www.diva-portal.org/smash/get/diva2:630427/FULLTEXT01.pdf}}} but it is not used here.}
+
+Consider the problem of two massive bodies (particles) with masses $m_1$ and $m_2$.  They are attracted by gravity only.  They travel in a plane so their positions are given by vectors $\bx_i(t) = (x_i(t),y_i(t))$ for $i=1,2$.  Newton's second law and Newton's law of gravity combine to say:
+\begin{align}
+m_1 \bx_1'' &= - G m_1 m_2 \frac{\bx_1 - \bx_2}{|\bx_1 - \bx_2|^3} \label{twobody} \\
+m_2 \bx_2'' &= - G m_1 m_2 \frac{\bx_2 - \bx_1}{|\bx_1 - \bx_2|^3} \notag
+\end{align}
+
+We will consider the Earth and the Moon in isolation as our example.  Thus the constants are
+\begin{align*}
+m_1 &= 5.972 \times 10^{24} \,\text{kg}, \\
+m_2 &= 7.348 \times 10^{22} \,\text{kg}, \\
+G &= 6.674 \times 10^{-11}\,\text{m}^3\,\text{kg}^{-1}\,\text{s}^{-2},
+\end{align*}
+and we measure $t$ in seconds and $x_i,y_i$ in meters.  (\emph{Though this will not be graded, please confirm that the units balance in equations} (1).)
+
+\epart{a} By using notation $v_i=x_i', w_i=y_i'$ for $i=1,2$, write system (1) as a first-order ODE system of dimension $s=8$, with solution column vector $u(t)\in\RR^8$.  Use the standard component ordering
+\begin{align*}
+u(t) &= \begin{bmatrix} x_1(t) & y_1(t) & x_2(t) & y_2(t) & v_1(t) & w_1(t) & v_2(t) & w_2(t) \end{bmatrix}^\top \\
+     &= \begin{bmatrix} u_1(t) & u_2(t) & u_3(t) & u_4(t) & u_5(t) & u_6(t) & u_7(t) & u_8(t) \end{bmatrix}^\top.
+\end{align*}
+That is, write system \eqref{twobody} in the form of (5.1) in the book:\footnote{In fact the right side of this ODE system does not have explicit dependence on $t$.  Please again use the \Matlab and \texttt{scipy.integrate.ode} variable ordering.} $u'(t) = f(t,u(t))$.  Then implement a single function
+
+\centerline{\texttt{function z = fearthmoon(t,u)}}
+
+\noindent which computes the right-hand-side function $f(t,u)$ of the ODE system.
+
+\epart{b}  For initial conditions which are vaguely like what they are in reality,\footnote{I searched ``earth moon distance meters'' and ``mean orbital velocity moon.''} at least if you turned off all the gravity of other bodies and start the Earth stationary at the origin, suppose $t_0=0$ and $x_1(0)=0,y_1(0)=0,v_1(0)=0,w_1(0)=0$ and $x_2(0)=3.844\times 10^8$ meters, $y_2(0)=0$, $v_2(0)=0$, $w_2(0)=1.022\times 10^3 \,\text{m}\,\text{s}^{-1}$.  Use these initial conditions to generate approximate solutions with $t_f=40$ days.\footnote{Convert to seconds!}
+
+Now use each of the solvers from problem \textbf{P27} with $N=40$ and $N=960$, i.e.~daily and hourly time steps, respectively.  Also use \texttt{ode45()}, or other black-box solver, using the default accuracy.  That is, generate five numerical solutions.
+
+Do not, of course, show me lots of numbers.  Make basic plots of the computed trajectories, i.e.~the $x_i,y_i$ values.  Describe in a few words what you see, and how these results relate to the local truncation error of the schemes in \textbf{P27}.
+
+\epart{c}  How long is a lunar month, if we used your computations in part \textbf{b)}?  
+
+
+\begin{comment}
+FIXME PUT THESE ON LATER ASSIGNs
+
+\prob{Problem PXX.}  How can we verify the Earth-Moon calculations in \textbf{P29}?  That is, how does one understand how big are the errors made in these ``real'' computations?
+
+One way is to measure the degree to which energy is conserved.\footnote{One might address other conserved quantities as well.}  Let $U(\br) = - G m_1 m_2 (|\br|)^{-1}$ be the potential energy of gravitation in this case.  Then it is a theorem---\emph{a bit of extra credit for a proof}---that the total energy, the scalar function
+    $$E(t) = \frac{1}{2} m_1 |\bx_1'(t)|^2 + \frac{1}{2} m_2 |\bx_2'(t)|^2 + U(|\bx_1(t)-\bx_2(t)|)$$
+is conserved.  That is, $E(t)$ is actually constant and independent of time if $\bx_i(t)$ are the exact solutions of (1).
+
+Start by computing the value $E(0)$ exactly from the initial conditions.  (\emph{What are the units?})  Then compute, without modifying your \textbf{P27} solvers, a 1D array \texttt{EE}, the scalar energy values $E(t)$ computed at the $N+1$ times, from the results in \textbf{P29 b)}.  Plot the five energy curves from the five runs in one figure.  Explain and comment.  Compute an ``energy error norm'' which is small if the solution is of high accuracy, and report the values for the four runs.
+
+\prob{Problem PYY.}  USE FIRST-ORDER ADAMS-BASHFORTH AND SECOND-ORDER ADAMS-BASHFORTH AND SECOND-ORDER ADAMS-MOULTON TO BUILD A METHOD.  APPLY THIS TO $u'=\lambda u$ AND DETERMINE $R(z)$ with $z=\lambda k$.  PLOT STABILITY REGION AND DETERMINE TRUNCATION ERROR BY AGREEMENT $R(z) \approx e^z$
+\end{comment}
+
+\end{document}
