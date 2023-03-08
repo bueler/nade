@@ -163,7 +163,7 @@ That is, write system \eqref{twobody} in the form of (5.1) in the book:\footnote
 
 \noindent which computes the right-hand-side function $f(t,u)$ of the ODE system.
 
-\epart{b}  For initial conditions which are vaguely like what they are in reality,\footnote{I searched ``earth moon distance meters'' and ``mean orbital velocity moon.''} at least if you turned off all the gravity of other bodies and start the Earth stationary at the origin, suppose $t_0=0$ and $x_1(0)=0,y_1(0)=0,v_1(0)=0,w_1(0)=0$ and $x_2(0)=3.844\times 10^8$ meters, $y_2(0)=0$, $v_2(0)=0$, $w_2(0)=1.022\times 10^3 \,\text{m}\,\text{s}^{-1}$.  Use these initial conditions to generate approximate solutions with $t_f=40$ days.\footnote{Convert to seconds!}
+\epart{b}  For initial conditions which are vaguely like what they are in reality,\footnote{I searched ``earth moon distance meters'' and ``mean orbital velocity moon.''} at least if you turned off all the gravity of other bodies and start the Earth at the origin, suppose $t_0=0$ and $x_1(0)=0,y_1(0)=0,v_1(0)=0,w_1(0)=0$ and $x_2(0)=3.844\times 10^8$ meters, $y_2(0)=0$, $v_2(0)=0$, $w_2(0)=1.022\times 10^3 \,\text{m}\,\text{s}^{-1}$.  Use these initial conditions to generate approximate solutions with $t_f=40$ days.\footnote{Convert to seconds!}
 
 Now use each of the solvers from problem \textbf{P27} with $N=40$ and $N=960$, i.e.~daily and hourly time steps, respectively.  Also use \texttt{ode45()}, or other black-box solver, using the default accuracy.  That is, generate five numerical solutions.
 
