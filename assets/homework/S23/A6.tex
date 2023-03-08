@@ -76,7 +76,7 @@ width=#3in]{#1.eps}}
 
 
 \begin{document}
-\scriptsize \noindent Math 615 NADE (Bueler) \hfill 6 March, 2023
+\scriptsize \noindent Math 615 NADE (Bueler) \hfill version 2: 8 March, 2023
 \normalsize
 
 \medskip\bigskip
@@ -116,7 +116,7 @@ Please read textbook\footnote{R.~J.~LeVeque, \emph{Finite Difference Methods for
 \noindent \emph{Hint.} What is the expected rate is for each method?  There is no need to compute local truncation errors yourself, but you must know their orders.
 
 
-\prob{Problem P28.}  Compute the leading term in the local truncation error of the following methods.  In particular, please follow the style of Example 5.9,\footnote{For the multistep midpoint rule (5.23), Example 5.9 finds $\tau^n = \frac{1}{6} k^2 u'''(t_n) + O(k^4)$.  The simpler statement $\tau^n=O(k^2)$ is also true, but I am asking for a bit more.} so that you know the coefficient in the leading order term.
+\prob{Problem P28.}  Compute the leading term in the local truncation error of the following methods.  For parts \textbf{a)} and \textbf{b)}, please follow the style of Example 5.9,\footnote{For the multistep midpoint rule (5.23), Example 5.9 finds $\tau^n = \frac{1}{6} k^2 u'''(t_n) + O(k^4)$.  The simpler statement $\tau^n=O(k^2)$ is also true, but in \textbf{a)} and \textbf{b)} I am asking for a bit more.} wherein you learn the coefficient in the leading order term.  For part \textbf{c)} you can follow the style of Example 5.11, which gets the simpler fact $\tau^n=O(k^2)$, without knowing the leading-order coefficient.
 
 \epart{a} the 2-step BDF method (5.25).
 
@@ -132,12 +132,13 @@ Please read textbook\footnote{R.~J.~LeVeque, \emph{Finite Difference Methods for
     $$U^{n+1} = U^n + \frac{k}{2} \Big(f(U^n) + f\big(U^n + k f(U^n)\big)\Big).$$
 
 \medskip
-\noindent \emph{Hint.}  Note how scheme (5.30), the explicit midpoint rule, is handled.
+\noindent \emph{Hint.}  Note how Example 5.11 handles scheme (5.30), the explicit midpoint rule.
 
 
 \prob{Problem P29.}  \emph{This is a real application.  Perhaps it will help you appreciate our abstract notation for ODE systems, vector data types in our languages, and higher-order explicit ODE schemes.  This problem has an exact solution,\footnote{See, for example: {\scriptsize\url{https://www.diva-portal.org/smash/get/diva2:630427/FULLTEXT01.pdf}}} but it is not used here.}
 
-Consider the problem of two massive bodies (particles) with masses $m_1$ and $m_2$.  They are attracted by gravity only.  They travel in a plane so their positions are given by vectors $\bx_i(t) = (x_i(t),y_i(t))$ for $i=1,2$.  Newton's second law and Newton's law of gravity combine to say:
+\medskip
+Consider the problem of two massive bodies (particles) with masses $m_1$ and $m_2$.  They are attracted by gravity only.  They travel in a plane so their positions are given by vector-valued functions $\bx_i(t) = (x_i(t),y_i(t))$ for $i=1,2$.  Newton's second law and Newton's law of gravity combine to say:
 \begin{align}
 m_1 \bx_1'' &= - G m_1 m_2 \frac{\bx_1 - \bx_2}{|\bx_1 - \bx_2|^3} \label{twobody} \\
 m_2 \bx_2'' &= - G m_1 m_2 \frac{\bx_2 - \bx_1}{|\bx_1 - \bx_2|^3} \notag
@@ -151,12 +152,12 @@ G &= 6.674 \times 10^{-11}\,\text{m}^3\,\text{kg}^{-1}\,\text{s}^{-2},
 \end{align*}
 and we measure $t$ in seconds and $x_i,y_i$ in meters.  (\emph{Though this will not be graded, please confirm that the units balance in equations} (1).)
 
-\epart{a} By using notation $v_i=x_i', w_i=y_i'$ for $i=1,2$, write system (1) as a first-order ODE system of dimension $s=8$, with solution column vector $u(t)\in\RR^8$.  Use the standard component ordering
+\epart{a} By using notation $v_i=x_i', w_i=y_i'$ for $i=1,2$, write system (1) as a first-order ODE system of dimension $s=8$, with solution column vector $u(t)\in\RR^8$.  Use the component ordering
 \begin{align*}
 u(t) &= \begin{bmatrix} x_1(t) & y_1(t) & x_2(t) & y_2(t) & v_1(t) & w_1(t) & v_2(t) & w_2(t) \end{bmatrix}^\top \\
      &= \begin{bmatrix} u_1(t) & u_2(t) & u_3(t) & u_4(t) & u_5(t) & u_6(t) & u_7(t) & u_8(t) \end{bmatrix}^\top.
 \end{align*}
-That is, write system \eqref{twobody} in the form of (5.1) in the book:\footnote{In fact the right side of this ODE system does not have explicit dependence on $t$.  Please again use the \Matlab and \texttt{scipy.integrate.ode} variable ordering.} $u'(t) = f(t,u(t))$.  Then implement a single function
+That is, write system \eqref{twobody} in the form of (5.1) in the book:\footnote{In fact the right side of this ODE system does not have explicit dependence on $t$, but, to avoid confusion in the implementation, use the \Matlab and \texttt{scipy.integrate.ode} variable ordering.} $u'(t) = f(t,u(t))$.  Then implement a single function
 
 \centerline{\texttt{function z = fearthmoon(t,u)}}
 
