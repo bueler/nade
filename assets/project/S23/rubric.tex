@@ -1,0 +1,128 @@
+\documentclass[11pt]{amsart}
+%prepared in AMSLaTeX, under LaTeX2e
+\addtolength{\oddsidemargin}{-.65in}
+\addtolength{\evensidemargin}{-.65in}
+\addtolength{\topmargin}{-.6in}
+\addtolength{\textwidth}{1.4in}
+\addtolength{\textheight}{1.3in}
+\newcommand{\normalspacing}{\renewcommand{\baselinestretch}{1.05}
+        \tiny\normalsize}
+
+\newtheorem*{thm}{Theorem}
+\newtheorem*{lem}{Lemma}
+\newtheorem*{defn}{Definition}
+\newtheorem*{example}{Example}
+\newtheorem*{problem}{Problem}
+\newtheorem*{remark}{Remark}
+
+\usepackage{amssymb,fancyvrb,alltt,xspace}
+
+\VerbatimFootnotes
+
+\newcommand{\mtt}{\texttt}
+
+\usepackage{fancyvrb}
+\newcommand{\mfile}[1]{
+\begin{quote}
+\bigskip
+%\VerbatimInput[frame=single]{#1}
+\VerbatimInput[frame=single,label=\fbox{\normalsize \textsl{\,#1\,}},fontfamily=courier,fontsize=\scriptsize]{#1}
+\end{quote}
+}
+
+\usepackage[final]{graphicx}
+\newcommand{\mfigure}[1]{\includegraphics[width=3.2in,
+keepaspectratio=true]{#1.eps}}
+\newcommand{\widefigure}[2]{\includegraphics[width=#2in,
+keepaspectratio=true]{#1.eps}}
+
+
+% macros
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\Div}{\nabla\cdot}
+\newcommand{\eps}{\epsilon}
+\newcommand{\grad}{\nabla}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\ip}[2]{\ensuremath{\left<#1,#2\right>}}
+\newcommand{\lam}{\lambda}
+\newcommand{\lap}{\triangle}
+\newcommand{\RR}{\mathbb{R}}
+
+\newcommand{\tb}{\textsc{Morton \& Mayers 2nd ed}}
+\newcommand{\pexer}[2]{\bigskip\noindent\textbf{#1.} (Exercise #2 in \tb.)}
+\newcommand{\prob}[1]{\bigskip\noindent\large\textbf{#1.}\normalsize }
+\newcommand{\apart}[1]{\quad \textbf{(#1)} \quad }
+\newcommand{\ppart}[1]{\medskip\noindent\textbf{(#1)} \quad }
+\newcommand{\note}[1]{[\scriptsize #1 \normalsize]}
+
+\newcommand{\Matlab}{\textsc{Matlab}\xspace}
+\newcommand{\Octave}{\textsc{Octave}\xspace}
+\newcommand{\pylab}{\textsc{pylab}\xspace}
+\newcommand{\MOP}{\textsc{MOP}\xspace}
+
+
+\begin{document}
+\scriptsize \phantom{bob} \vspace{-0.3in}
+\noindent Math 615 Numerical Analysis of DEs; \today \hfill \Large Name:\underline{\phantom{DLFJD SFLKJSD sdfa}}
+
+\thispagestyle{empty}
+\bigskip
+
+\Large\centerline{\textbf{Project Evaluation}}
+\normalsize\normalspacing
+
+\bigskip
+
+\begin{quote}
+As announced, Version 1.0 is 5\% and Version 2.0 is 10\% of your course grade.
+\end{quote}
+
+\vspace{0.3in}
+
+\noindent\rule{\textwidth}{0.7mm}
+\bigskip
+
+\large\centerline{\textbf{VERSION 1.0}}
+\bigskip
+
+\noindent \underline{5 points: format (\emph{5 to 10 pages, required section headings, 3 references})}
+\vfill
+
+\noindent \underline{5 points: coverage (\emph{drafted the major parts: intro of problem, num.~analysis, computation})}
+\vfill
+
+\noindent \underline{5 points: correctness/reasonableness of plan}
+\vfill
+
+\noindent \underline{5 points: quality of material so far}
+\vfill
+
+\hfill TOTAL = \phantom{foo bar} / 20
+
+\newpage
+
+
+\large\centerline{\textbf{SUGGESTIONS FOR V2.0}}
+\bigskip
+
+\vspace{3.0in}
+
+\noindent\rule{\textwidth}{0.7mm}
+\bigskip
+
+\large\centerline{\textbf{VERSION 2.0}}
+\bigskip
+
+\noindent \underline{15 points: correctness and quality of numerical analysis}
+\vfill
+
+\noindent \underline{15 points: correctness and quality of practical computation}
+\vfill
+
+\noindent \underline{10 points: everything else (\emph{esp.~exposition of context, format})}
+\vfill
+
+\hfill TOTAL = \phantom{foo bar} / 40
+
+\end{document}
+
