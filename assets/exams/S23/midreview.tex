@@ -1,9 +1,9 @@
 \documentclass[12pt]{amsart}
 \addtolength{\topmargin}{-0.6in} % usually -0.25in
-\addtolength{\textheight}{1.1in} % usually 1.25in
-\addtolength{\oddsidemargin}{-0.7in}
-\addtolength{\evensidemargin}{-0.7in}
-\addtolength{\textwidth}{1.5in} %\setlength{\parindent}{0pt}
+\addtolength{\textheight}{1.25in} % usually 1.25in
+\addtolength{\oddsidemargin}{-0.8in}
+\addtolength{\evensidemargin}{-0.8in}
+\addtolength{\textwidth}{1.6in} %\setlength{\parindent}{0pt}
 
 \newcommand{\normalspacing}{\renewcommand{\baselinestretch}{1.1}\tiny\normalsize}
 \newcommand{\bigspacing}{\renewcommand{\baselinestretch}{1.15}\tiny\normalsize}
@@ -75,11 +75,11 @@
 \normalsize
 \normalspacing
 
-The Midterm Exam on 22 March will cover Chapters 1, 2, 3, and 5 of the textbook,\footnote{R.~LeVeque, \emph{Finite Difference Methods \dots}, SIAM Press 2007} and also sections 4.1 and 4.2 and some content from Appendices (see below).  The Exam is \emph{closed book} and \emph{closed notes}.
+The Midterm Exam on Friday, 24 March is \emph{closed book} and \emph{closed notes}.  Please bring nothing but a writing implement.
 
-On this Review Guide I state \emph{specific} material that will be covered, and material significantly different from this will \emph{not} be covered.
+It will cover Chapters 1, 2, 3, and 5 of the textbook,\footnote{R.~LeVeque, \emph{Finite Difference Methods \dots}, SIAM Press 2007}, plus sections 4.1 and 4.2 and some content from Appendices (see below), plus the ``\href{https://bueler.github.io/nade/assets/slides/iterative.pdf}{Classical iterative methods for linear and nonlinear systems}'' notes.  On this Review Guide I list \emph{specific} material that will be covered.  Material significantly different from what is listed below will \emph{not} be covered.  My goal is to only include topics that have appeared on homework and in lecture.
 
-My goal for the Midterm Exam is to only include topics that have appeared on homework and in lecture.  The problems will be of these types: state definitions, state theorems and formulas, explain/justify theorems and formulas, give examples with certain properties, or describe or illustrate/sketch concepts.  Note that I will \emph{not} ask you to ``state definition 2.1'' or anything like that which requires remembering locations in the book.
+The problems will be of these types: state definitions, state/derive formulas, explain/justify theorems and formulas, compute simple examples, give examples with certain properties, or describe/illustrate/sketch concepts.  You are expected to use reasonable or common notation, or at least make your notation clear.  Note that I will \emph{not} ask you to ``state definition 2.1'' or anything like that which requires remembering locations in the book.
 
 \emph{Strongly recommended}:  Get together with other students and work through this Review Guide.  Be honest with yourself about what you do and don't know.  Talk it through and learn!  Also, please ask questions about Exam content during lectures on Monday 20 March and Wednesday 22 March.
 
@@ -90,12 +90,12 @@ My goal for the Midterm Exam is to only include topics that have appeared on hom
 \begin{itemize}
 \item acronyms: ODE, PDE, IVP, BVP
 \item order of a differential equation ($=$ maximum number of derivatives in it)
-\item one-sided and centered finite difference approximations (pages 3--4)
+\item one-sided and centered finite difference approximations of derivatives $u'(x)$ and $u''(x)$ (pages 3--4)
 \item absolute and relative error (Appendix A.1)
 \item $O(h^p)$ and other ``big-oh'' notation (Appendix A.2)
 \item vector norm (Appendix A.3)
 \item errors in grid functions (Appendix A.4)
-\item local truncation error (sections 2.5, 3.4, and 5.4: $\tau^h$ is the result of applying the scheme to the exact solution)
+\item local truncation error (sections 2.5, 3.4, and 5.4: $\tau^h$ is the residual from applying the scheme to the exact solution)
 \item global or numerical error (section 2.6: $E_j = U_j - u(x_j)$ or $E = U - \hat U$)
 \item stable method (definition 2.1 in section 2.7)
 \item consistent method (section 2.8)
@@ -106,38 +106,39 @@ My goal for the Midterm Exam is to only include topics that have appeared on hom
 \item spectral radius (Appendix C)
 \item diagonalizable matrix (Appendix C.2)
 \item matrix exponential (Appendix D.3)
-\item strictly diagonally-dominant matrix (Assignment \#3 and ``Classical iterative \dots'' slides)
-\item Richardson iteration for linear system $Ax=b$ (same)
-\item Jacobi and Gauss-Seidel iterations (same, \emph{and} sections 4.1, 4.2)
-\item Newton iteration (same, \emph{and} section 2.16)
+\item Richardson, Jacobi, and Gauss-Seidel iterations for a linear system $Ax=b$ (Assignment \#3 and ``Classical iterative methods \dots'' slides, \emph{and} sections 4.1, 4.2)
+\item Newton iteration (Assignment \#3 and ``Classical iterative methods \dots'' slides, \emph{and} section 2.16)
 \item $f(u,t)$ is Lipschitz continuous in $u$ (formula (5.15) in section 5.2)
 \item forward Euler, backward Euler, and trapezoid methods (section 5.3)
+\item explicit midpoint and explicit trapezoid methods (section 5.6; EM is (5.30)), as examples of Runge-Kutta methods
 \end{itemize}
 
 \bigskip
 
-\noindent \textbf{Formulas, Theorems, and Lemmas}.  Understand and remember.  Be able to illustrate theorems/lemmas with an example, or give a sketch.  Use the formula as appropriate to the situation.
+\noindent \textbf{Formulas, Theorems, and Lemmas}.  Understand and remember.
 \begin{itemize}
-\item Taylor series (page 5)
-\item fundamental theorem of finite difference methods (statement (2.22), section 2.9)
+\item Taylor series (page 5) and Taylor's theorem with remainder
+\item fundamental theorem of finite difference methods (statement (2.22), section 2.9), which is essentially the Lax equivalence theorem
 \item convergence lemma for iterations $y_{k+1} = M y_k + c$ (Assignment \#3 and ``Classical iterative \dots'' slides)
+\item definitions of the matrix exponential (Appendix D.3)
 \end{itemize}
 
 \bigskip
 
-\noindent \textbf{Techniques}.  Understand and remember.  Be able to illustrate with an example.  Use the technique as appropriate to the situation.
+\noindent \textbf{Techniques}.  Understand and remember.  Be able to illustrate with an example.  Be able to take a single step, or do a single iteration, on a simple example.
 \begin{itemize}
 \item derive a finite difference approximation by the method of undetermined coefficients (page 7)
-\item set up a finite difference scheme for a first, second, third, or fourth-order ODE BVP (sections 2.4, 2.14, 2.15, 2.16.1)
-\item Newton's method (section 2.16.1)
+\item set up a finite difference scheme for a general, possibly nonlinear, second-order ODE BVP (sections 2.4, 2.15, 2.16.1)
+\item Newton's method (section 2.16.1, ``Classical iterative methods \dots'' slides)
 \item set up a finite difference scheme for Poisson equation in 2D (sections 3.2, 3.3)
-\item implement Neumann boundary conditions for ODE BVPs (section 2.12)
+\item implement a Neumann boundary condition for an ODE BVP FD scheme (section 2.12)
 \item convert a higher-order scalar ODE into a system of first-order ODEs (example given in section 5.1)
-\item take a step of Forward Euler, Backward Euler, Trapezoid, or Explicit Midpoint methods (sections 5.3 and 5.6; Explicit Midpoint = (5.30))
+\item take a step of the forward Euler, backward Euler, trapezoid, explicit midpoint, or explicit trapezoid method (sections 5.3 and 5.6; EM is (5.30))
+\item draw an explanatory sketch or cartoon of a Runge-Kutta method, from its formulas (as done in lecture)
 \end{itemize}
 
 \medskip
-\noindent \emph{Make sure you can do these techniques!}  Practice a few examples.  During the Exam the emphasis will, be on quickly setting-up or explaining techniques on paper, and not, of course, doing many steps.
+\noindent \emph{Make sure you can do these techniques!}  Practice explaining/showing examples to another person.  During the Exam the emphasis will be on quickly stating definitions, or setting-up or explaining techniques, or doing brief computations, all on paper and considering only easy examples.  Pseudocodes will be requested in some cases, but you will \emph{not}, of course, be asked to do many steps of anything.
 \vfill
 
 

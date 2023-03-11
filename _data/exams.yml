@@ -4,7 +4,7 @@ exams:
 - name: Midterm Exam
   date: Friday 24 March
   info: <b>in class</b>, Brooks 302
-  #reviewguide: midreview.pdf
+  reviewguide: midreview.pdf
   #blank: mid.pdf
   #solutions: midsolns.pdf
 - name: Final Exam
