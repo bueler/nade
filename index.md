@@ -21,13 +21,13 @@ Log in to [canvas.alaska.edu/courses/13208](https://canvas.alaska.edu/courses/13
 
 * See the [Schedule (PDF)](assets/general/S23/schedule.pdf).  Check it often for due dates, and for which topics come next!
 
-* Check out the weekly [homework Assignments](homework.html).
+* Check out the near-weekly [homework Assignments](homework.html).
 
-* You will do a [two-part project](project.html) on a topic of your choice.  See the [Project](project.html) tab for details.
+* There are two Exams, a Midterm and a Final.  Both are in class, and the Final will happen at the scheduled time.  See the [Exams](exams.html) tab for review guides.
+
+* You will do a Project on a topic of your choice, starting with a Proposal.  Please read the materials on the [Project](project.html) tab before you turn in anything.
 
 * Homework and projects will require some programming in Matlab/Octave or some other suitable scientific computing language.  See the [Computing](computing.html) tab and [_Programming languages compared_ (PDF)](https://bueler.github.io/compareMOP.pdf) for recommended languages.
-
-* There are [two Exams](exams.html), a Midterm and a Final.  Both are in class, and the Final will happen at the scheduled time.  See the [Exams](exams.html) tab for the sections covered, and old exams for review.
 
 [<img src="assets/images/leveque.jpg" height="250">](https://my.siam.org/Store/Product/viewproduct/?ProductId=998 "the textbook") &nbsp; &nbsp; &nbsp; &nbsp; [<img src="assets/images/stencil.png" height="250">](https://en.wikipedia.org/wiki/Finite_difference_method "finite difference method") &nbsp; &nbsp; &nbsp; &nbsp; [<img src="assets/images/Starship-simul-3.png" height="250">](https://en.wikipedia.org/wiki/Computational_fluid_dynamics "computational fluid dynamics")
 
