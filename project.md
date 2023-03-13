@@ -5,11 +5,6 @@ title: Project
 
 ## Project
 
-Information about your project will appear here in due course.
-
-<!--
-  * [About your project (PDF)](assets/project/description.pdf)
-  * [example LaTeX file you may use for your project (.tex)](assets/project/blank.tex) and the [PDF it produces](assets/project/blank.pdf)
-  * [form (rubric) for grading Part I (PDF)](assets/project/rubricI.pdf)
-  * [form (rubric) for grading Part II (PDF)](assets/project/rubricII.pdf)
-/-->
+  * Read this first: [your Math 615 Project (PDF)](assets/project/S23/your-project.pdf)
+  * You can use this optional [example LaTeX file for your project (.tex)](assets/project/S23/blankproject.tex).  See the [PDF it produces](assets/project/S23/blankproject.pdf).
+  * Here is the [feedback and grading rubric (PDF)](assets/project/S23/rubric.pdf) I will use twice, first for the Proposal and then for the completed Project.
