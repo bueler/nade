@@ -38,6 +38,13 @@ Log in to [canvas.alaska.edu/courses/13208](https://canvas.alaska.edu/courses/13
     * [numerical methods for PDEs](https://en.wikipedia.org/wiki/Numerical_methods_for_partial_differential_equations)
     * [numerical methods for ODEs](https://en.wikipedia.org/wiki/Numerical_methods_for_ordinary_differential_equations)
     * [finite difference methods](https://en.wikipedia.org/wiki/Finite_difference_method)
+    * [Poisson equation](https://en.wikipedia.org/wiki/Poisson%27s_equation)
+    * [diffusion](https://en.wikipedia.org/wiki/Diffusion_equation) and [heat](https://en.wikipedia.org/wiki/Heat_equation) equations
+    * [advection equations](https://en.wikipedia.org/wiki/Advection)
+    * [stiff differential equations](https://en.wikipedia.org/wiki/Stiff_equation)
+    * [explicit versus implicit methods](https://en.wikipedia.org/wiki/Explicit_and_implicit_methods)
+    * [Runge-Kutta methods](https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods)
+    * [Lax equivalence theorem](https://en.wikipedia.org/wiki/Lax_equivalence_theorem) for finite difference methods
 
 * See the one-page [advertisement (PDF)](assets/general/S23/advert.pdf) for this course.
 
