@@ -47,3 +47,7 @@ From Assignment #4:
   * [genlinp.m](assets/codes/genlinp.m)
   * [poisson.m](assets/codes/poisson.m)
   * [poissonconv.m](assets/codes/poissonconv.m)
+
+From Assignment #5:
+
+  * [eigpath.m](assets/codes/eigpath.m)
