@@ -76,7 +76,7 @@ width=#3in]{#1.eps}}
 
 
 \begin{document}
-\scriptsize \noindent Math 615 NADE (Bueler) \hfill 28 March 2023
+\scriptsize \noindent Math 615 NADE (Bueler) \hfill version 2: 28 March 2023
 \normalsize
 
 \medskip\bigskip
@@ -92,13 +92,13 @@ width=#3in]{#1.eps}}
 \thispagestyle{empty}
 
 \bigskip
-Please read textbook\footnote{R.~J.~LeVeque, \emph{Finite Difference Methods for Ordinary and Partial Diff.~Eqns.}, SIAM Press 2007} Chapters 6 and 7.  Within this material we are de-emphasizing the discussion of multistep methods, so full understanding of sections 5.9, 6.4, 7.3, and 7.6.1 is not expected.  However, \emph{actually reading} these Chapters is going to be important to success on this and later Assignments.
+Please read textbook\footnote{R.~J.~LeVeque, \emph{Finite Difference Methods for Ordinary and Partial Diff.~Eqns.}, SIAM Press 2007} Chapters 6 and 7.  Within this material we are de-emphasizing the discussion of multistep methods, so full understanding of sections 5.9, 6.4, 7.3, and 7.6.1 is not expected.  Basically, full understanding of the other sections \emph{is} expected.  In any case, \emph{actually reading} these Chapters is going to be important to success on this and later Assignments.
 
 
 \medskip
 \prob{Problem P30.}  Consider the ``$\theta$-methods'' for $u' = f(t,u)$, namely
    $$U^{n+1} = U^n + k\Big[(1-\theta)f(t_n,U^n) + \theta f(t_{n+1},U^{n+1})\Big],$$
-where $0\le \theta \le 1$ is a fixed parameter.  I did all parts of this problem by hand.
+where $0\le \theta \le 1$ is a fixed parameter.\footnote{Note that I did all parts of this problem \textbf{P30} by hand.}
 
 \epart{a} Cases $\theta = 0,1/2,1$ are all familiar methods.  Name them.
 
@@ -119,7 +119,14 @@ The first stage is backward Euler to determine an approximation to the value at 
 \epart{b}  Determine the stability region.  Is this method A-stable?  Is it L-stable?
 
 
-\prob{Problem P32.}  Subsection 5.9.4 explains why the explicit trapezoid rule (5.53) is sometimes called a \emph{predictor-corrector} method.  A full Euler step is used to estimate (``predict'') the new solution value, and then a formerly-implicit method, the original trapezoid method, is used to actually take the step, which ``corrects'' the prediction.  This problem attempts to construct a predictor-corrector method with higher order.
+\prob{Problem P32.}  Reproduce Table 7.1.  In particular, consider the scalar ODE IVP
+	$$u'(t) = \lambda \left( u(t) - \cos(t) \right) - \sin(t), \qquad u(0)=1,$$
+with the particular value $\lambda=-2100$.  Use an implementation of forward Euler, for example from your or my solutions to \textbf{Assignment \#6}, to compute approximations of $u(T)$ for $T=2$, for the given values of $k$, and report the final-time numerical errors $|U^N - u(T)|$ as in the Table.  Confirm by this experiment\footnote{Of course, the book explains the effect logically, which is the major point of Chapter 7, at least as it applies to forward Euler: $|1+k\lambda| \le 1$ only if $k|\lambda|<2$ or equivalently $k < 2/|\lambda| = 2/2100 = 0.00095238$.} that there is a critical value of $k$ around 0.00095 where the error finally drops from enormous values to something comparable to, then much smaller than, the solution magnitude itself.
+
+
+
+\begin{comment} MOVE THE FOLLOWING TO A8 or A8
+\prob{Problem PYY.}  Subsection 5.9.4 explains why the explicit trapezoid rule (5.53) is sometimes called a \emph{predictor-corrector} method.  A full Euler step is used to estimate (``predict'') the new solution value, and then a formerly-implicit method, the original trapezoid method, is used to actually take the step, which ``corrects'' the prediction.  This problem attempts to construct a predictor-corrector method with higher order.
 
 \epart{a}  On page 132 (section 5.9) there is a list of explicit Adams-Bashforth and implicit Adams-Moulton multistep methods.  Suppose we cut a step into two parts, with stage steps $k/2$.  From $U^n$ suppose we take a  forward Euler step of length $k/2$ to give $U^*$ at $t_n+k/2$.  Then we use $U^n$ and $U^*$ in the second-order (``2-step'') Adams-Bashforth scheme to give $U^\dagger$ at $t_n+k=t_{n+1}$.  The value $U^\dagger$ is the predicted value at $t_{n+1}$.  Then we use the second-order (``2-step'') Adams-Moulton scheme, using known values $U^n,U^*,U^\dagger$ on the right-hand side, as the corrector to give $U^{n+1}$.  Write down these formulas.  (You don't need to implement this scheme, but your formulas should make it clear how to do so.)
 
@@ -128,7 +135,7 @@ The first stage is backward Euler to determine an approximation to the value at 
 \epart{c}  Following what is described at the beginning of section 7.6.2, apply the scheme in part \textbf{(a)} to the test equation $u'=\lambda u$ and write the scheme as $U^{n+1} = R(z) U^n$ for $z=\lambda k$.  What is $R(z)$?  From the form of $R(z)$, what is the order of the truncation error?  (That is, what is $p$ in $\tau=O(k^p)$?)  Would you recommend this method?
 
 \epart{d} Generate a plot of the stability region of the method; see the advice in section 7.6.2 on how to do this.
-
+\end{comment}
 
 \prob{Problem P33.}  For a famously stiff problem, consider the heat PDE
 \begin{equation}
@@ -147,5 +154,8 @@ where $U(t) \in \RR^m$ and $A$ is \emph{exactly} the matrix in the textbook's eq
 
 \epart{a}  Implement both forward and backward Euler on \eqref{mol}.  For BE, store $A$ using \texttt{sparse} storage and solve the equation using backslash or another linear solver which will automatically detect that the matrix is tridiagonal and solve it efficiently.
 
-\epart{b}  Now consider the $m=100$ case.  For BE, compute and show the solution using $N=100$ time steps.  For FE, $N=100$ will generate extraordinary explosion.  (Confirm this but don't show it.)  Determine the largest-possible absolutely-stable time step $k$ from the eigenvalues of $A$ and the stability region of FE.  Finally, compare the computational costs of the two runs by counting floating-point multiplications.\footnote{For an $m\times m$ tridiagonal matrix $A$, $A v$ costs $3m$ multiplications while $A\backslash v$ costs $5m$ multiplications.}  You will conclude that an implicit is indeed effective in this case.
+\epart{b}  Now consider the $m=99$ case, so $h=0.01$, and let $k=t_f/N=1/N$ be the time step length.  For BE, compute and show the solution using $N=100$ time steps.  For FE, $N=100$ will generate extraordinary explosion.  (Confirm this but don't show it.)  Determine the largest-possible absolutely-stable time step $k$ from the eigenvalues of $A$ and the stability region of FE.  Finally, compare the computational costs of the two runs by counting floating-point multiplications.\footnote{For an $m\times m$ tridiagonal matrix $A$, $A v$ costs $3m$ multiplications while $A^{-1} v$ costs $5m$ multiplications.}  You will conclude that an implicit is indeed effective in this case.
+
+\epart{1 point of extra credit}  Find the exact solution, presumably using a Fourier sine series.  Plot it beside the $N=100$ BE solution.  BE looks pretty good on this problem!
+
 \end{document}
