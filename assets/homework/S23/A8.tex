@@ -122,9 +122,7 @@ This is called the \emph{Richardson} method.  (\emph{L.~F.~Richardson did many t
 
 \epart{b} Derive the method by applying the midpoint ODE method, equation (5.23), to the MOL ODE system (9.10).   Also, find the region of absolute stability of the midpoint method (5.23); it is in the textbook.  Is the method likely to generate reasonable results?  Why or why not?
 
-\epart{c} Implement the method on the same problem as in \textbf{P34}.  Was this successful?
-
-\epart{d} Do a von Neumann stability analysis of this scheme.  What do you conclude?
+\epart{c} Do a von Neumann stability analysis of this scheme.  What do you conclude?
 
 
 \prob{Problem P36.}  Consider the Jacobi iteration\footnote{The Jacobi iteration, equation (4.4) in the textbook, was covered in the ``Classical iterative methods'' slides \quad \href{https://bueler.github.io/nade/assets/slides/iterative.pdf}{\texttt{bueler.github.io/nade/assets/slides/iterative.pdf}}} for the linear system $A\bu=\bb$ arising from a centered FD approximation of the boundary value problem $u''(x) = f(x)$.  Here $A$ is the matrix in equation (2.10); there is \emph{no} need to rederive it.  Show that this iteration can be interpreted as forward Euler time-stepping applied to a heat equation MOL system like (9.10), but \emph{with time step} $k = \frac{1}{2} h^2$.  Specifically, the MOL equations are those arising from a centered \emph{spatial} FD discretization of $u_t(t,x) = u_{xx}(t,x) - f(x)$.
