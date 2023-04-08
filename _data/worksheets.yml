@@ -5,12 +5,12 @@ worksheets:
   description: 1-page summary of convergence proof
   blank: whyitworks.pdf
   more: See Chapter 2 and <a href="https://en.wikipedia.org/wiki/Lax_equivalence_theorem">Lax equiv thm wiki page</a>
-#- name: FIXMEdate
-  #description:
-  #blank: x.pdf
-  #solutions: convexity-solns.pdf
-  #more: see <a href="https://en.wikipedia.org/wiki/Revised_simplex_method">revised simplex method wiki page</a>
-- name: Worksheet on section 2.17
+- name: Worksheet for section 2.17
   description: 1st-vs-2nd order eqns; singular perturbations
   blank: singular.pdf
   solutions: singular-solns.pdf
+- name: Worksheet for sections 9.6 and 10.5
+  description: von Neumann analysis; plug and chug
+  blank: vonneumann.pdf
+  #solutions: vonneumann-solns.pdf
+
