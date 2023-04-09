@@ -51,3 +51,12 @@ From Assignment #4:
 From Assignment #5:
 
   * [eigpath.m](assets/codes/eigpath.m)
+
+From Assignment #6:
+
+  * [feuler.m](assets/codes/feuler.m)
+  * [rk4.m](assets/codes/rk4.m)
+  * [oderates.m](assets/codes/oderates.m)
+  * [fearthmoon.m](assets/codes/fearthmoon.m)
+  * [twobody.m](assets/codes/twobody.m)
+  * [lunarmonth.m](assets/codes/lunarmonth.m)
