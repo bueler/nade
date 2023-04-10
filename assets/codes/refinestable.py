@@ -82,10 +82,10 @@ writeout()
 
 # refinement path figure
 fig = plt.figure()
-plt.xlabel(r'$k$')
-plt.ylabel(r'$h$')
+plt.xlabel(r'$h$')
+plt.ylabel(r'$k$')
 plt.grid(True)
-box = [-0.005, 0.05, -0.02, 0.3]
+box = [-0.02, 0.3, -0.005, 0.05]
 plt.plot(box[0:2],[0.0, 0.0],'C0')
 plt.plot([0.0, 0.0], box[2:],'C0')
 plt.axis(box)
@@ -93,7 +93,7 @@ m = np.array([3, 4, 9, 19, 39],dtype=float)
 h = 1.0 / (m + 1)
 lamleft = (2.0/h**2) * (np.cos(m*np.pi*h) - 1.0)
 k = 2.0 / (-lamleft)
-plt.plot(k,h,'--o',color='C5',markersize=8)
+plt.plot(h,k,'--o',color='C5',markersize=8)
 plt.title('refinement path')
 #plt.show()
 writeout()
