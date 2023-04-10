@@ -62,3 +62,8 @@ From Assignment #6:
   * [fearthmoon.m](assets/codes/fearthmoon.m)
   * [twobody.m](assets/codes/twobody.m)
   * [lunarmonth.m](assets/codes/lunarmonth.m)
+
+From Assignment #7:
+
+  * [stabtable.m](assets/codes/stabtable.m)
+  * [heatcompare.m](assets/codes/heatcompare.m)
