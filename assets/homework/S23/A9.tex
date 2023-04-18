@@ -100,19 +100,62 @@ Please read textbook\footnote{R.~J.~LeVeque, \emph{Finite Difference Methods for
 
 
 \medskip
-\prob{Problem P37.}  x
+\prob{Problem P37.}  Consider the following method for solving the advection equation
+$u_t + a u_x = 0$, where $a$ is constant
+    $$U_i^{n+1} = U_i^{n-1} - \frac{ak}{h}(U_{i-1}^n - U_{i+1}^n).$$
+This applies centered differences to all derivatives; it is the \emph{leapfrog} method.
 
-\epart{a}  x
+\epart{a} Determine the order of accuracy of the truncation error of this method.  The answer will be in form $\tau(x,t) = O(k^p + h^q)$; determine $p,q$.
 
-\epart{b}  x
+\epart{b} Apply a von Neumann analysis.  (\emph{This can be brief!  See the appropriate Worksheet solutions.})
+
+\epart{c} State the MOL ODE system $U(t)' = A U(t)$ from which the above method comes.  Assuming periodic boundary conditions on the interval $x\in[0,1]$, what are the eigenvalues of $A$?  Then derive the method by applying the midpoint ODE method to it.  By looking up the stability region of the midpoint method, explain what is understood about the stability of this PDE method.  (\emph{You may extract most of this answer from the book; give specific references and be brief.})
+
+\epart{d} Implement this leapfrog method on the following \emph{periodic boundary condition} problem:  $x\in[0,1]$, $a = 0.5$, $t_f = 10$, $u(x,0)=\sin(6\pi x)$.  To make the implementation work you will have to compute the first step by some other scheme; describe and justify what you do.
+
+\epart{e} Noting that the final time is $t_f=10$, the exact solution in part \textbf{d)} is $u(x,t_f) = \sin(6\pi x)$; explain why.  Then use $h=0.1,0.05,0.02,0.01,0.005,0.002$ and $k=h$ and show a log-log convergence plot using the infinity norm for the error.  What $O(h^p)$ do you expect for the rate of convergence, and what do you measure?
 
 
-\prob{Problem P38.}   x
+\prob{Problem P38.}  \ppart{a}  Consider the nonlinear Poisson equation in 2D
+\begin{equation}
+    u_{xx} + u_{yy} + \gamma\, u^3 = f(x,y)  \label{nonlinpoisson}
+\end{equation}
+on the unit square $(x,y) \in [0,1]\times [0,1]$, subject to zero Dirichlet boundary conditions.  We can manufacture a solution because we are free to choose the right-hand side $f(x,y)$.  Let
+\begin{equation}
+    u(x,y) = \sin(\pi x) \sin(2\pi y).  \label{nonlinmanu}
+\end{equation}
+Compute $f(x,y)$ so that \eqref{nonlinmanu} is an exact solution of \eqref{nonlinpoisson}; note that the formula for $f$ will depend on $\gamma$ as well as $x$ and $y$.
 
-\epart{a} x
+\epart{b}  Based on the \Matlab program \texttt{heat2d.m}, for example, which is online at
 
-\epart{b} x
+\centerline{\href{https://bueler.github.io/nade/assets/codes/heat2d.m}{\texttt{bueler.github.io/nade/assets/codes/heat2d.m}},}
 
-\prob{Problem P39.}  
+\noindent or a similar code for the 2D linear Poisson equation, solve \eqref{nonlinpoisson}.  Use this approach:
+\begin{itemize}
+\item Use centered differences, and spacing $h_x=h_y=1/(m+1)$ to set up a nonlinear system
+\begin{equation}
+    F(U) = 0  \label{nonlinalgebraic}
+\end{equation}
+which approximates \eqref{nonlinpoisson}.  Here $U \in \RR^N$ is the solution of the algebraic equations, $N=m^2$, and $F(V)$ is the \emph{residual} for a current estimate $V$.
+\item Solve the algebraic equations \eqref{nonlinalgebraic} by Newton's method.  Use $V=0$ as the initial iterate.
+\item Stop the Newton iteration when the residual norm is reduced by $10^{-9}$ of the initial residual norm.
+\item Observe that when you set $\gamma=0$ your code should solve the linear Poisson problem $u_{xx} + u_{yy} = f(x,y)$ by doing one Newton step.
+\end{itemize}
+
+\epart{c}  Show, using the exact solution from part \textbf{a)}, that with both $\gamma=0$ (linear Poisson equation) and $\gamma = 10$ (a nonlinear case) your code exhibits the expected $O(h^2)$ convergence.
+
+
+\prob{Problem P39.}  \ppart{a}  For the linear ODE system
+\begin{equation}
+U(t)' = A U(t) \qquad \text{where} \quad A = \begin{bmatrix} 0 & 1 & 1 \\ -1 & 0 & 1 \\ 0 & 0 & -200 \end{bmatrix}, \label{linodesys}
+\end{equation}
+with initial value $U(0)=[1\quad 1\quad 1]^\top$, find the exact solution.  For this task you \emph{may} use Wolfram alpha or other symbolic computation, but it can be done by hand as well.  Specifically, find the exact value of $U(1)$.
+
+\epart{b}  Implement the TR-BDF2 scheme, equation (8.6) in the textbook, for this problem.  Note that the scheme is implicit but your implementation can assume that the ODE system is linear, autonomous, and homogeneous, i.e.~in the form of equation \eqref{linodesys}, so you will not need Newton's method.
+
+\epart{c}  By using the exact solution, give a convergence graph which shows convincingly that your implementation converges at the expected rate, namely $O(k^2)$.
+
+\medskip
+\noindent  \emph{Comment.}  One can show that the scheme is more efficient than an explicit RK2 method, such as explicit trapezoid, if one seeks only moderate precision.  (\emph{E.g.~five-digit-accurate results for $U(1)$.})  While each TR-BDF2 step requires more work, because the problem is reasonably stiff, application of conditionally-stable RK2 requires a much larger number of time steps.
 
 \end{document}
