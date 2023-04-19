@@ -67,3 +67,9 @@ From Assignment #7:
 
   * [stabtable.m](assets/codes/stabtable.m)
   * [heatcompare.m](assets/codes/heatcompare.m)
+
+From Assignment #8:
+
+  * [beheat.m](assets/codes/beheat.m)
+  * [cnheat.m](assets/codes/cnheat.m)
+  * [testheats.m](assets/codes/testheats.m)
