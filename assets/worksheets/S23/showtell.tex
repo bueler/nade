@@ -72,12 +72,12 @@
 
 
 \bigskip
-\noindent \textbf{Examples from my book.}  I wrote a book called \emph{PETSc for Partial Differential Equations} which was published by SIAM Press in 2021.  The C and Python codes for the book's examples are at \,\href{https://github.com/bueler/p4pdes}{\texttt{github.com/bueler/p4pdes}}.  I'll show examples from Chapters 5, 11, and 14.
+\noindent \textbf{Examples from my book.}  I wrote a book called \emph{PETSc for Partial Differential Equations} which was published by SIAM Press in 2021.  The C and Python codes for the book's examples are at \,\href{https://github.com/bueler/p4pdes}{\texttt{github.com/bueler/p4pdes}}.  In this demonstration I'll show examples from Chapters 5, 11, and 14.
 
 \medskip
-\noindent \textbf{What is PETSc?}  The \emph{Portable, Extensible Toolkit for Scientific computing} is an open and free C library of numerical software from Argonne National Laboratory.  Documentation and download is at \,\href{https://petsc.org/}{\texttt{petsc.org}}.
+\noindent \textbf{What is PETSc?}  The \emph{Portable, Extensible Toolkit for Scientific computing} is an open and free C library of numerical software, especially linear algebra, mesh management, and ODE IVP solvers, from Argonne National Laboratory.  Starting in about 1990, PETSc co-evolved with MPI (= \emph{Message Passing Interface}), also from Argonne, as the fundamental infrastructure for doing science and engineering simulations and computations on supercomputers, the largest of which have more than a million processors (cores).  MPI and PETSc are essential ``software stack'' for most large-scale \emph{parallel} computations.
 
-PETSc co-evolved with MPI (= \emph{Message Passing Interface}), also from Argonne, starting in about 1990, as the fundamental infrastructure for doing science and engineering simulations and computations on supercomputers.  MPI and PETSc are core ``software stack'' for large-scale parallel computations on supercomputers, the largest of which have more than a million processors (cores).
+Documentation and download is at \,\href{https://petsc.org/}{\texttt{petsc.org}}.
 
 \bigskip
 \noindent \textbf{Example 1.}  Chapter 5 solves a pair of \emph{coupled diffusion-reaction equations} on $(x,y) \in (0,2.5)\times (0,2.5)$ and $t>0$:
@@ -85,11 +85,11 @@ PETSc co-evolved with MPI (= \emph{Message Passing Interface}), also from Argonn
 u_t &= D_u \grad^2 u - u v^2 + \phi (1 - u) \\
 v_t &= D_v \grad^2 v + u v^2 - (\phi + \kappa) v
 \end{align*}
-where $D_u,D_v,\phi,\kappa$ are constants.  This is a model for pattern generation, for instance as an explanation of how animal skins can end up spotted.
+where $D_u,D_v,\phi,\kappa$ are constants and $u(t,x,y),v(t,x,y)$ are chemical concentrations.  This is a model for pattern generation, for instance as an explanation of how animal skins can end up spotted.
 
-The C code \texttt{pattern.c} calls the PETSc library for time-stepping, grid management, and solving linear systems.  The spatial derivatives are approximated with a 9-point-stencil version of our usual centered finite difference scheme for $\nabla^2$, which generates an MOL system.  Time-stepping is an adaptive method which is implicit for the stiff diffusion part and explicit for the non-stiff, nonlinear reaction terms, but other methods can be chosen at run-time, for instance by \texttt{-ts\_type beuler}, and so on.
+The C code \texttt{pattern.c} calls the PETSc library for time-stepping, parallel grid management, and parallel, iterative solvers for linear systems.  The spatial derivatives are approximated with a 9-point-stencil centered finite difference scheme for $\nabla^2$, which generates an MOL system.  Default time-stepping (\texttt{ts\_}) is by an adaptive method which is implicit for the stiff diffusion part and explicit for the non-stiff, nonlinear reaction terms.  Other methods can be chosen at run-time, for instance by \texttt{-ts\_type beuler}, and so on.
 
-Here is how to build and run it in parallel, on 4 cores:
+Here is how to build it, and run it in parallel (4 cores) on a $96\times 96$ spatial grid:
 
 \medskip
 \begin{Verbatim}[fontsize=\small]
@@ -98,15 +98,12 @@ $ mpiexec -n 4 ./pattern -da_refine 5 -ts_max_time 5000 -ts_monitor \
     -ts_monitor_solution draw
 \end{Verbatim}
 
-\medskip
-\noindent Note that the initial condition is four dots near the middle.
-
 \bigskip
-\noindent \textbf{Example 2.}  Chapter 11 solves a scalar \emph{advection equation} in 2D, on $(x,y) \in (-1,1)\times (-1,1)$, with periodic boundary conditions, for $t>0$:
+\noindent \textbf{Example 2.}  The \texttt{advect.c} code in Chapter 11 takes a finite volume approach, to generate the MOL ODE system, for solving a scalar \emph{advection equation} in 2D, on $(x,y) \in (-1,1)\times (-1,1)$, with periodic boundary conditions, for $t>0$:
     $$u_t + \nabla \cdot (\mathbf{a} u) = 0$$
-The velocity field is rotational: $\mathbf{a}(x,y) = (y, -x)$.
+The velocity field in this example is rotational: $\mathbf{a}(x,y) = \left<y, -x\right>$.
 
-Here is an example run of this C code \texttt{advect.c}, which takes a finite volume approach to generate the MOL ODE system:
+Here is an example run (4 cores, $160\times 160$ spatial grid):
 
 \medskip
 \begin{Verbatim}[fontsize=\small]
@@ -116,7 +113,7 @@ $ mpiexec -n 4 ./advect -da_refine 5 -adv_problem rotation \
 \end{Verbatim}
 
 \medskip
-The initial condition $u(x,y,0)$ would look like a cone and a square tower if you did a surface plot.  The spatial derivatives are approximated with finite differences and a flux-limited higher-order upwind scheme.  The time-stepping is by a 3rd-order adaptive Runge-Kutta method, quite suitable for such hyperbolic problems if the fluxes are discretized appropriately.  The time-dependent solution rotates the initial picture.  We see that numerical diffusion causes the sharp edges to smooth out.  
+A surface plot of the initial condition $u(x,y,0)$ would look like a cone and a square tower.  The spatial derivatives are approximated with finite differences and a flux-limited higher-order upwind scheme.  The time-stepping is by a 3rd-order adaptive Runge-Kutta method, quite suitable for such hyperbolic problems if the fluxes are discretized appropriately.  The time-dependent solution rotates the initial picture.  We see that numerical diffusion causes the sharp edges to smooth out.  
 
 \bigskip
 \noindent \textbf{Example 3.}  The last example is the Python code in Chapter 14 which solves a Stokes problem for a steady flow of a 2D viscous, incompressible fluid with velocity $\bu$, pressure $p$, and viscosity $\mu$.  The equations are
