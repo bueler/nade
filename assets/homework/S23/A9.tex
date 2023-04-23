@@ -4,7 +4,7 @@
 \addtolength{\evensidemargin}{-.6in}
 \addtolength{\topmargin}{-.5in}
 \addtolength{\textwidth}{1.2in}
-\addtolength{\textheight}{1.0in}
+\addtolength{\textheight}{1.1in}
 
 \renewcommand{\baselinestretch}{1.05}
 
@@ -80,7 +80,7 @@ width=#3in]{#1.eps}}
 
 
 \begin{document}
-\scriptsize \noindent Math 615 NADE (Bueler) \hfill 19 April 2023
+\scriptsize \noindent Math 615 NADE (Bueler) \hfill \emph{corrected version:} 22 April 2023
 \normalsize
 
 \medskip\bigskip
@@ -100,9 +100,9 @@ Please read textbook\footnote{R.~J.~LeVeque, \emph{Finite Difference Methods for
 
 
 \medskip
-\prob{Problem P37.}  Consider the following method for solving the advection equation
+\prob{Problem P37.}  Consider the following (\emph{corrected}) method for solving the advection equation
 $u_t + a u_x = 0$, where $a$ is constant
-    $$U_i^{n+1} = U_i^{n-1} - \frac{ak}{h}(U_{i-1}^n - U_{i+1}^n).$$
+    $$U_i^{n+1} = U_i^{n-1} - \frac{ak}{h}(U_{i+1}^n - U_{i-1}^n).$$
 This applies centered differences to all derivatives; it is the \emph{leapfrog} method.
 
 \epart{a} Determine the order of accuracy of the truncation error of this method.  The answer will be in form $\tau(x,t) = O(k^p + h^q)$; determine $p,q$.
