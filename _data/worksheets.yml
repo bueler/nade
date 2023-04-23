@@ -13,4 +13,6 @@ worksheets:
   description: von Neumann analysis plug and chug
   blank: vonneumann.pdf
   solutions: solns/vonneumann.pdf
-
+- name: Show-and-tell with PETSc and Firedrake
+  description: Using <a href="https://github.com/bueler/p4pdes">C and Python codes from my book</a>.
+  blank: showtell.pdf

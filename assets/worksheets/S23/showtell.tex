@@ -75,7 +75,7 @@
 \noindent \textbf{Examples from my book.}  I wrote a book called \emph{PETSc for Partial Differential Equations} which was published by SIAM Press in 2021.  The C and Python codes for the book's examples are at \,\href{https://github.com/bueler/p4pdes}{\texttt{github.com/bueler/p4pdes}}.  In this demonstration I'll show examples from Chapters 5, 11, and 14.
 
 \medskip
-\noindent \textbf{What is PETSc?}  The \emph{Portable, Extensible Toolkit for Scientific computing} is an open and free C library of numerical software, especially linear algebra, mesh management, and ODE IVP solvers, from Argonne National Laboratory.  Starting in about 1990, PETSc co-evolved with MPI (= \emph{Message Passing Interface}), also from Argonne, as the fundamental infrastructure for doing science and engineering simulations and computations on supercomputers, the largest of which have more than a million processors (cores).  MPI and PETSc are essential ``software stack'' for most large-scale \emph{parallel} computations.
+\noindent \textbf{What is PETSc?}  The \href{https://petsc.org/}{\emph{Portable, Extensible Toolkit for Scientific computing}} is an open and free C library of numerical software, especially linear algebra, mesh management, and ODE IVP solvers, from Argonne National Laboratory.  Starting in about 1990, PETSc co-evolved with the \href{https://www.mpich.org/}{\emph{Message Passing Interface} (MPI)}, also from Argonne, as the fundamental infrastructure for doing science and engineering simulations and computations on supercomputers, the largest of which have more than a million processors (cores).  MPI and PETSc are essential ``software stack'' for most large-scale \emph{parallel} computations.
 
 Documentation and download is at \,\href{https://petsc.org/}{\texttt{petsc.org}}.
 
@@ -99,9 +99,9 @@ $ mpiexec -n 4 ./pattern -da_refine 5 -ts_max_time 5000 -ts_monitor \
 \end{Verbatim}
 
 \bigskip
-\noindent \textbf{Example 2.}  The \texttt{advect.c} code in Chapter 11 takes a finite volume approach, to generate the MOL ODE system, for solving a scalar \emph{advection equation} in 2D, on $(x,y) \in (-1,1)\times (-1,1)$, with periodic boundary conditions, for $t>0$:
+\noindent \textbf{Example 2.}  C code \,\texttt{advect.c} in Chapter 11 takes a finite volume approach, to generate the MOL ODE system, for solving a scalar \emph{advection equation} in 2D, on $(x,y) \in (-1,1)\times (-1,1)$, with periodic boundary conditions, for $t>0$:
     $$u_t + \nabla \cdot (\mathbf{a} u) = 0$$
-The velocity field in this example is rotational: $\mathbf{a}(x,y) = \left<y, -x\right>$.
+The velocity field in this example is rotational: $\mathbf{a}(x,y) = \left<y, -x\right>$.  The spatial derivatives are approximated with finite differences and a flux-limited higher-order upwind scheme.  The time-stepping is by a 3rd-order adaptive Runge-Kutta method, quite suitable for such hyperbolic problems if the fluxes are discretized appropriately.
 
 Here is an example run (4 cores, $160\times 160$ spatial grid):
 
@@ -113,20 +113,20 @@ $ mpiexec -n 4 ./advect -da_refine 5 -adv_problem rotation \
 \end{Verbatim}
 
 \medskip
-A surface plot of the initial condition $u(x,y,0)$ would look like a cone and a square tower.  The spatial derivatives are approximated with finite differences and a flux-limited higher-order upwind scheme.  The time-stepping is by a 3rd-order adaptive Runge-Kutta method, quite suitable for such hyperbolic problems if the fluxes are discretized appropriately.  The time-dependent solution rotates the initial picture.  We see that numerical diffusion causes the sharp edges to smooth out.  
+A surface plot of the initial condition $u(x,y,0)$ would look like a cone and a square tower.  The time-dependent solution rotates the initial picture back to the same configuration at $t_f = 2\pi$, but numerical diffusion does cause the sharp edges to smooth out.  
 
 \bigskip
-\noindent \textbf{Example 3.}  The last example is the Python code in Chapter 14 which solves a Stokes problem for a steady flow of a 2D viscous, incompressible fluid with velocity $\bu$, pressure $p$, and viscosity $\mu$.  The equations are
+\noindent \textbf{Example 3.}  The last example uses a Python code in Chapter 14.  It solves a \emph{Stokes problem} for a steady flow of a 2D viscous, incompressible fluid with velocity $\bu=\left<u,v\right>$, pressure $p$, and constant viscosity $\mu>0$.  The 3 coupled scalar equations are
 \begin{align*}
 - \Div \left(2 \mu\, D \bu\right) + \grad p &= \bm{0}, \\
 \Div \bu &= 0.
 \end{align*}
-The boundary value problem has zero velocity $\bu=0$ on the bottom and sides of the unit square, but along the top we impose right-ward motion; this is called a \emph{lid-driven cavity}.
+The boundary value problem has zero velocity $\bu=\bm{0}$ on the bottom and sides of the unit square, but along the top we impose right-ward motion; this is called a \emph{lid-driven cavity}.
 
-\emph{Firedrake} (\href{https://www.firedrakeproject.org/}{\texttt{firedrakeproject.org}}) is a Python finite element library which allows us to express a PDE problem directly, independent of a choice of particular (spatial) discretization.
+\emph{Firedrake} (\href{https://www.firedrakeproject.org/}{\texttt{firedrakeproject.org}}) is a Python finite element library which allows us to express a PDE problem directly, independent of a choice of particular (spatial) discretization.  More precisely we express the \emph{weak form} of the PDE in the \href{https://fenics.readthedocs.io/projects/ufl/en/latest/}{\emph{Unified Form Language}}.  Then Firedrake will apply the finite element (FE) method and generate a linear or nonlinear system of algebraic equations, which is then solved by PETSc solvers.  For the Stokes problem we write the following core description as part of \texttt{stokes.py}:
 
 \medskip
-\begin{Verbatim}[fontsize=\small]
+\begin{Verbatim}[fontsize=\footnotesize,xleftmargin=10mm]
 V = VectorFunctionSpace(mesh, 'CG', degree=2)
 W = FunctionSpace(mesh, 'CG', degree=1)
 Z = V * W
@@ -138,6 +138,27 @@ Dv = 0.5 * (grad(v) + grad(v).T)
 F = (2.0 * args.mu * inner(Du,Dv) - p * div(v) - div(u) * q) * dx
 \end{Verbatim}
 
-FIXME
+\medskip
+The discretized problem uses a completely arbitrary triangular mesh, generated here by a custom Python script (to specify the domain) and then \href{https://gmsh.info/}{\emph{Gmsh}}.  One generates and views the mesh, solves the problem (Schur-complement multigrid over 4 cores), and visualizes the solution using \href{https://www.paraview.org/}{\emph{Paraview}} as follows:
+
+\medskip
+\begin{Verbatim}[fontsize=\small]
+$ cd python/ch14/
+$ ./lidbox.py mesh.geo
+$ gmsh -2 mesh.geo
+$ gmsh mesh.msh
+$ mpiexec -n 4 ./stokes.py -mesh mesh.msh -refine 5 -s_ksp_type gmres \
+    -schurgmg lower -schurpre selfp -s_ksp_rtol 1.0e-12 \
+    -showinfo -o solution.pvd
+$ paraview solution.pvd
+\end{Verbatim}
+
+\medskip
+\noindent The sparse linear system here has $3$ million degrees of freedom, on a mesh of $8 \times 10^5$ triangular elements.
+
+\bigskip
+A similar Stokes model for glacier ice, a fluid with nonlinear viscosity, is at
+
+\centerline{\small \href{https://github.com/bueler/stokes-ice-tutorial}{\texttt{github.com/bueler/stokes-ice-tutorial}}}
 
 \end{document}
