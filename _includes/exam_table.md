@@ -19,12 +19,17 @@
         {% endif %}
         {% if exam.doc %}
         <tr>
-            <td><a href="{{ data.home }}/{{ exam.doc }}">exam document</a></td>
+            <td><a href="{{ data.home }}/{{ exam.doc }}">exam description</a></td>
+        </tr>
+        {% endif %}
+        {% if exam.examplecs %}
+        <tr>
+            <td><a href="{{ data.home }}/{{ exam.examplecs }}">example case summary</a></td>
         </tr>
         {% endif %}
         {% if exam.rubric %}
         <tr>
-            <td><a href="{{ data.home }}/{{ exam.rubric }}">rubric</a></td>
+            <td><a href="{{ data.home }}/{{ exam.rubric }}">grading rubric</a></td>
         </tr>
         {% endif %}
       </table>
