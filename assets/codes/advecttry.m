@@ -21,14 +21,18 @@ for m = [20 80 320]
     % FTCS
     U = u0;
     for n = 1:NN
-        U = U - (nu/2) * ([U(2:m) U(1)] - [U(1:m-1) U(m)]);
+        Uright = [U(2:m) U(1)];
+        Uleft  = [U(m) U(1:m-1)];
+        U = U - (nu/2) * (Uright - Uleft);
     end
     Uftcs = U;
     % LF
     U = u0;
     for n = 1:NN
-        U = 0.5 * ([U(2:m) U(1)] + [U(1:m-1) U(m)]) ...
-            - (nu/2) * ([U(2:m) U(1)] - [U(1:m-1) U(m)]);
+        Uright = [U(2:m) U(1)];
+        Uleft  = [U(m) U(1:m-1)];
+        Uav = 0.5 * (Uleft + Uright);
+        U = Uav - (nu/2) * (Uright - Uleft);
     end
     Ulf = U;
     norm(Uftcs - uexact,2)
