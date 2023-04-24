@@ -5,9 +5,8 @@
 \addtolength{\evensidemargin}{-0.7in}
 \addtolength{\textwidth}{1.5in} %\setlength{\parindent}{0pt}
 
-\newcommand{\normalspacing}{\renewcommand{\baselinestretch}{1.05}\tiny\normalsize}
-\newcommand{\bigspacing}{\renewcommand{\baselinestretch}{1.13}\tiny\normalsize}
-\newcommand{\tablespacing}{\renewcommand{\baselinestretch}{1.0}\tiny\normalsize}
+\newcommand{\normalspacing}{\renewcommand{\baselinestretch}{1.04}\tiny\normalsize}
+
 \normalspacing
 
 % macros
@@ -66,45 +65,66 @@
 
 
 \begin{document}
-\scriptsize \noindent Math 615 NADE (Bueler) \hfill Thursday, 4 May 2023
+\scriptsize \noindent Math 615 NADE (Bueler) %\hfill Thursday, 4 May 2023
 \thispagestyle{empty}
 
 \bigskip
-\Large\textbf{\centerline{Final Exam: 2 Short Essays on Algorithms}}
+\Large\textbf{\centerline{Final Exam: 2 Short Case Summaries}}
 
-\bigskip
+\medskip
 \large\textbf{\centerline{Thursday, 4 May 2023, 10:15am--12:15pm, Brooks 302}}
 
 \normalsize
-\bigskip\bigskip
-The in-class Final Exam will be a bit different, but short.  I would like you to summarize the finite difference numerical analysis of two of the problems we have seen during the semester, that is, I would like to write two \emph{Case Summaries}.  We have covered them in lecture and homework, and so this is an exam not a project.  Each Case Summary should have length less than a page, and it should follow the structure I describe below.  In particular, please
+\bigskip
+The in-class Final Exam will be a bit different, but short.  I would like you to summarize finite difference (FD) numerical analyses of two of the DE problems we have seen during the semester.  That is, I would like you to write two \emph{Case Summaries}.
 
 \medskip
-\centerline{\textbf{\underline{choose 2 cases} from the 6 listed at the bottom.}}
+\centerline{\textbf{Please choose one ODE and one PDE problem from the lists at the bottom.}}
+
+\centerline{\textbf{For each one, write a Case Summary on a separate sheet.}}
+
+\smallskip
+\textbf{You may not bring notes to the final.}  However, you are \textbf{strongly encouraged to draft and practice your planned Case Summaries.}  Make sure to read relevant sections of the textbook for your topics.  Feel free to get feedback on your drafts from other students or faculty/friends/family/pets or me.  Then think through, in preparation, how you will remember enough detail so as to recreate the Summary during the Final Exam itself.
+
+\smallskip
+Each summary should be at most a page.  Equations are important, plus a few (at most three) sketches as needed, but please write complete sentences for the major ideas.  A Summary which is \emph{only} equations or sketches cannot achieve a good grade.
+
+\smallskip
+Except for special cases, a Summary should \textbf{state the problem} (DE and initial/boundary conditions), comment on or supply an \textbf{exact solution}, state one or two \textbf{FD discretization}(s), summarize the \textbf{truncation error}, and summarize \textbf{stability}.  Then it should consider and fill-in any relevant additional ideas for the problem and the chosen method; see ``Consider:'' below for the specific problems.  The goal is \emph{not} to prove anything, but to accurately and precisely summarize what we know---or we easily could know---about the problem and the available method(s), especially in advance of writing a code.
+
+\smallskip
+For each Summary your goal is to write something like a neat 10 or 15 minute white-board presentation of how you would solve the problem numerically, as you might give to a hypothetical fellow graduate student who has not seen that particular problem but who has taken similar-level classes.  Please \emph{do not} assume the reader/audience is an expert on the topic; remember to say the basic things!
 
 \medskip
-\noindent For each one, write a Case Summary on a separate sheet for each of your two topics.
 
-\smallskip
-\textbf{You may not bring notes to the final}, but you are \textbf{strongly encouraged to practice} your planned Case Summaries.  Make sure to read the indicated sections of the textbook for your topics.  Feel free to get feedback on your drafts from other students or faculty/friends/family/pets.  Then think through, in preparation, how you will remember enough detail so as to recreate the Summary during the Final Exam itself.
+\newcommand{\ecomment}[1]{ \hfill \mbox{\emph{#1}} }
 
-\smallskip
-Each summary should be less than a page, though perhaps close to a page if you write large, and equations will be an important part of the summary.  Please a few (e.g.~at most 4) sketches as needed to communicate the problem and the numerical method.  However, please write complete sentences for the major ideas; a Case Summary which is only equations or sketches cannot achieve a good grade.
-
-\smallskip
-Your goal is to write something like a neat white-board summary of how you would solve the problem numerically.  Don't assume the reader is an expert on the topic; the assumed audience would be something like another student in the class who had not yet seen that particular problem before.
-
-\vspace{0.2in}
-\noindent {\large \textbf{The 6 Cases.}}
-
-\newcommand{\ecomment}[1]{ \hfill \mbox{\emph{(#1)}} }
-
-\smallskip
-\renewcommand{\labelenumi}{\circled{\arabic{enumi}}}
+\renewcommand{\labelenumi}{ODE \circled{\arabic{enumi}}}
 \begin{enumerate}
 \setlength{\itemsep}{4pt}
-\item FIXME
-\item FIXME Quasi-Newton methods, with symmetric rank-one as the example. \ecomment{section 12.3}
+\item A general linear 2nd-order ODE BVP. \ecomment{eqn (2.64)}
+
+\noindent Consider: how to solve the linear system.
+\item The nonlinear 2nd-order ODE BVP for a pendulum.  \ecomment{eqn (2.77)}
+
+\noindent Consider: Newton's method, how to solve the linear Newton steps.
+\item A non-homogeneous, constant-coefficient linear ODE IVP system.  \ecomment{eqn (5.6)}
+
+\noindent Consider: matrix exponentials, compare $\ge 2$ schemes, absolute stability regions.
+\end{enumerate}
+
+\renewcommand{\labelenumi}{PDE \circled{\alph{enumi}}}
+\begin{enumerate}
+\setlength{\itemsep}{4pt}
+\item The Poisson problem PDE in 2D. \ecomment{eqn (3.5)}
+
+\noindent Consider: ordering the unknowns, how to solve the linear system.
+\item The time-dependent heat equation PDE in 1D. \ecomment{eqn (9.1)}
+
+\noindent Consider: compare $\ge 2$ schemes.
+\item The time-dependent scalar advection equation PDE in 1D.  \ecomment{eqn (10.1)}
+
+\noindent Consider: compare $\ge 2$ schemes.
 \end{enumerate}
 
 \end{document}

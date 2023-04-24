@@ -10,6 +10,6 @@ exams:
 - name: Final Exam = 2 case summaries
   date: Thursday 4 May, 10:15-12:15
   info: <b>in class</b>, Brooks 302
-  #doc: finalcases.pdf
+  doc: finalcases.pdf
   #examplecs: examplecasesummary.pdf
-  #rubric: finalrubric.pdf
+  rubric: finalrubric.pdf
