@@ -26,7 +26,7 @@ for m = [20 80 320]
         U = U - (nu/2) * (Uright - Uleft);
     end
     Uftcs = U;
-    % LF
+    % Lax-Friedrichs
     U = u0;
     for n = 1:NN
         Uright = [U(2:m) U(1)];
