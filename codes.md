@@ -21,7 +21,7 @@ title: Matlab/Octave Codes
   * [heatblackbox.m](assets/codes/heatblackbox.m) advertise MOL approach to heat equation PDE with this short code which calls `ode23`; generates [this figure](assets/codes/figs/heatblackbox.png)
   * [refinestable.py](assets/codes/refinestable.py) **[Python]** generates `.png` figures showing conditional stability for FTCS on the heat equation; here are [the figures rolled into an animated `.gif`](assets/codes/refinestable.gif)
   * [advecttry.m](assets/codes/advecttry.m) try FTCS and Lax-Friedrichs on u_t + a u_x = 0 with square-wave initial condition
-  * [advectcompare.m](assets/codes/advecttry.m) compare 4 schemes (Lax-Friedrichs, upwind, leapfrog, Lax-Wendroff) on u_t + a u_x = 0 with square-wave initial condition; generates [this figure](assets/codes/figs/advectcompare.png)
+  * [advectcompare.m](assets/codes/advectcompare.m) compare 4 schemes (Lax-Friedrichs, upwind, leapfrog, Lax-Wendroff) on u_t + a u_x = 0 with square-wave initial condition; generates [this figure](assets/codes/figs/advectcompare.png)
 
 ## from homework solutions
 
