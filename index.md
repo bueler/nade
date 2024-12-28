@@ -1,9 +1,11 @@
 ---
 layout: course-page
-title: Bueler's Math F615 in Spring 2023 at UAF
+title: Bueler's Math F615 in Spring 2025 at UAF
 ---
 
-Welcome to the public homepage of **Math F615 Numerical Analysis of Differential Equations**, Spring 2023, in the [Dept. of Mathematics and Statistics](http://www.uaf.edu/dms/) at the [University of Alaska Fairbanks](http://www.uaf.edu/).
+# WARNING: UNDER CONSTRUCTION AND WITH BROKEN LINKS!!
+
+Welcome to the public homepage of **Math F615 Numerical Analysis of Differential Equations**, Spring 2025, in the [Dept. of Mathematics and Statistics](http://www.uaf.edu/dms/) at the [University of Alaska Fairbanks](http://www.uaf.edu/).
 
 #### Instructor:  [Ed Bueler](http://bueler.github.io/)
 
@@ -11,15 +13,15 @@ Email me at [elbueler@alaska.edu](mailto:elbueler@alaska.edu).  I hold [office h
 
 ### Canvas course page
 
-Log in to [canvas.alaska.edu/courses/13208](https://canvas.alaska.edu/courses/13208) for the Zoom lecture link, Homework and Exam solutions, and to see your grades.
+Log in to [canvas.alaska.edu/courses/24194](https://canvas.alaska.edu/courses/24194) for the Zoom lecture link, Homework and Exam solutions, and to see your grades.
 
 ### Getting Started
 
-* Attend lectures: MWF 10:30--11:30am in Brooks 302.
+* Attend lectures: MWF 3:30--4:30pm in Chapman 107, and synchronously online.
 
-* Read the [Syllabus (PDF)](assets/general/S23/syllabus.pdf).
+* Read the [Syllabus (PDF)](assets/general/S25/syllabus.pdf).
 
-* See the [Schedule (PDF)](assets/general/S23/schedule.pdf).  Check it often for due dates, and for which topics come next!
+* See the [Schedule (PDF)](assets/general/S25/schedule.pdf).  Check it often for due dates, and for which topics come next!
 
 * Check out the near-weekly [homework Assignments](homework.html).
 
@@ -45,8 +47,6 @@ Log in to [canvas.alaska.edu/courses/13208](https://canvas.alaska.edu/courses/13
     * [explicit versus implicit methods](https://en.wikipedia.org/wiki/Explicit_and_implicit_methods)
     * [Runge-Kutta methods](https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods)
     * [Lax equivalence theorem](https://en.wikipedia.org/wiki/Lax_equivalence_theorem) for finite difference methods
-
-* See the one-page [advertisement (PDF)](assets/general/S23/advert.pdf) for this course.
 
 ---
 _Site design derived from [coordinated Calc I](https://uaf-math251.github.io/), an original [Jekyll](https://jekyllrb.com/) design by [David Maxwell](https://damaxwell.github.io/)._

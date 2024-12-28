@@ -1,15 +1,15 @@
-semester: Spring 2023
-home: assets/exams/S23
+semester: Spring 2025
+home: assets/exams/S25
 exams:
 - name: Midterm Exam
-  date: Friday 24 March
-  info: <b>in class</b>, Brooks 302
-  reviewguide: midreview.pdf
+  date: FIXME
+  info: <b>in class</b>
+  #reviewguide: midreview.pdf
   #blank: mid.pdf
   #solutions: midsolns.pdf
 - name: Final Exam = 2 case summaries
-  date: Thursday 4 May, 10:15-12:15
-  info: <b>in class</b>, Brooks 302
-  doc: finalcases.pdf
-  examplecs: examplecs.pdf
-  rubric: finalrubric.pdf
+  date: FIXME
+  info: <b>in class</b>
+  #doc: finalcases.pdf
+  #examplecs: examplecs.pdf
+  #rubric: finalrubric.pdf

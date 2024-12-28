@@ -1,0 +1,41 @@
+semester: Spring 2023
+home: assets/homework/S23
+homework:
+- name: Assignment 1
+  due: Wed 25 January
+  blank: A1.pdf
+  sections: 1.1-1.4, 2.1-2.4
+- name: Assignment 2
+  due: Mon 13 February
+  blank: A2.pdf
+  sections: 2.5-2.10
+- name: Assignment 3
+  due: Mon 20 February (revised)
+  blank: A3.pdf
+  sections: 4.1-4.2, 2.16
+  seealsoname: Classical iterative methods slides
+  seealsopdf: https://bueler.github.io/nade/assets/slides/iterative.pdf
+- name: Assignment 4
+  due: Wed 1 March (revised)
+  blank: A4.pdf
+  sections: 2.12--2.18, 3.1--3.4
+- name: Assignment 5
+  due: Mon 20 March
+  blank: A5.pdf
+  sections: 5.1--5.2, Appendices C, D
+- name: Assignment 6
+  due: Wed 29 March
+  blank: A6.pdf
+  sections: 5.3--5.8, 6.1--6.4
+- name: Assignment 7
+  due: Mon 10 April
+  blank: A7.pdf
+  sections: 7.1--7.6
+- name: Assignment 8
+  due: Wed 19 April
+  blank: A8.pdf
+  sections: 8.1--8.6, 9.1--9.6
+- name: Assignment 9 (corrected)
+  due: Wed 26 April
+  blank: A9.pdf
+  sections: 9.7, 10.1--10.9

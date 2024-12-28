@@ -1,18 +1,9 @@
-semester: Spring 2023
-home: assets/worksheets/S23
+semester: Spring 2025
+home: assets/worksheets/S25
 worksheets:
-- name: Why Finite Difference Methods Work
-  description: 1-page summary of convergence proof
-  blank: whyitworks.pdf
-  more: See Chapter 2 and <a href="https://en.wikipedia.org/wiki/Lax_equivalence_theorem">Lax equiv thm wiki page</a>
-- name: Worksheet for section 2.17
-  description: 1st-vs-2nd order eqns singular perturbations
-  blank: singular.pdf
-  solutions: solns/singular.pdf
-- name: Worksheet for sections 9.6 and 10.5
-  description: von Neumann analysis plug and chug
-  blank: vonneumann.pdf
-  solutions: solns/vonneumann.pdf
-- name: Show-and-tell with PETSc and Firedrake
-  description: Using <a href="https://github.com/bueler/p4pdes">C and Python codes from my book</a>.
-  blank: showtell.pdf
+- name: <i>First Worksheet</i>
+  #name: Why Finite Difference Methods Work
+  description: FIXME
+  #description: 1-page summary of convergence proof
+  #blank: whyitworks.pdf
+  #more: See Chapter 2 and <a href="https://en.wikipedia.org/wiki/Lax_equivalence_theorem">Lax equiv thm wiki page</a>
