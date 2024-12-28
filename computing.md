@@ -5,13 +5,17 @@ title: Practical computing in this course
 
 # Practical computing in this course
 
-The programming and computational portions of this course are important, and students will need to work at these parts, but I am very flexible about how you accomplish them.  You will almost certainly want to use one of the following three languages:
+The programming and computational portions of this course are important!  Students will need to make an effort at independently learning some programming, and I am very flexible about how you accomplish this.  You can turn in homework and projects using any programming language.
 
-  * [Matlab](https://matlab.mathworks.com/) or [Octave](https://www.gnu.org/software/octave/index); they are interoperable languages
+You will probably want to use one of the following three languages:
+
+  * [Matlab](https://matlab.mathworks.com/); or [Octave](https://www.gnu.org/software/octave/index) as it is essentially the same language
   * [Python](http://python.org/) with the [numpy](https://numpy.org/) and [matplotlib](http://matplotlib.org/) libraries
   * [Julia](https://julialang.org/)
 
-You can turn in homework and projects using any of these.  For a concrete comparison of the two most-common choices, namely Matlab/Octave versus Python, see my short note on [_Programming languages compared_](https://bueler.github.io/compareMOP.pdf).  Note that I will _support_ Matlab/Octave by providing lots of examples, both in-class and as solutions to exercises.  I will not support Python and Julia in this manner.
+For a concrete comparison of the two most-common choices, namely Matlab/Octave versus Python, see my short note on [_Programming languages compared_](https://bueler.github.io/compareMOP.pdf).
+
+FIXME NEED TO MAKE A DECISION!:  Note that I will _support_ Matlab/Octave by providing lots of examples, both in-class and as solutions to exercises.  I will not support Python and Julia in this manner.
 
 The above languages are all reasonably-natural for numerical computations in linear algebra, differential equations, optimization.  Tutorials are often not needed for standard tasks, but they are available online.
 
