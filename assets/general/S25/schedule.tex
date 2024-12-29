@@ -1,0 +1,100 @@
+\documentclass[12pt]{article}
+\usepackage[top=1.0in, bottom=0.5in, left=0.9in, right=1.0in]{geometry}
+
+\usepackage{tabularx,enumitem}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{palatino}
+\usepackage{fancyhdr}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+
+% commands to put defined left and right headers on the top
+% and a page number on the bottom of all pages after 1
+\pagestyle{fancy}
+\makeatletter
+\fancyfoot[C]{\ifnum \value{page} > 1\relax\thepage\fi}
+\fancyhead[L]{\ifx\@doclabel\@empty\else\@doclabel\fi}
+\fancyhead[R]{\ifx\@docdate\@empty\else\@docdate\fi}
+\headheight 15pt
+\headsep 5pt
+\def\doclabel#1{\gdef\@doclabel{#1}}
+\def\docdate#1{\gdef\@docdate{#1}}
+\makeatother
+
+%% General formatting parameters
+\parindent 0pt
+\parskip 6pt plus 1pt
+
+% header content
+\doclabel{Math 615 Numerical Analysis of Differential Equations}
+\docdate{Spring 2023 (Bueler)}
+
+% macros
+\renewcommand{\d}{\displaystyle}
+\newcommand{\wkday}[3]{\textbf{\large #1\strut}\quad #2\,--\,#3}
+\newcommand{\vacinline}[1]{{\color{OliveGreen} \textsl{#1}}}
+\newcommand{\vac}[1]{\strut \small{\vacinline{#1}}}
+\newcommand{\due}[1]{\strut {\color{BrickRed} \textsl{#1}}}
+\newcommand{\hdue}[1]{\due{#1 due}}
+\newcommand{\proj}[1]{\strut {\color{RedOrange} #1}}
+\newcommand{\ee}[1]{\strut {\color{Blue} \textbf{#1}}}
+\newcommand{\dlinline}[1]{{\color{Purple} \textbf{#1}}}
+\newcommand{\dl}[1]{{\small \dlinline{#1}}}
+\newcommand{\ch}[1]{\textbf{Ch #1}}
+
+
+\begin{document}
+\hfill \small \emph{version 1: \today} \normalsize
+
+\bigskip\bigskip
+\centerline{\Large \textbf{Weekly Schedule}}
+
+\bigskip
+\emph{This schedule is subject to changes!}  See the public course webpage
+
+\medskip
+
+\centerline{\href{https://bueler.github.io/nade/index.html}{\texttt{bueler.github.io/nade/}}}
+
+\noindent for \due{Homework}, \ee{Exams}, and \proj{Project} details, and the \href{https://bueler.github.io/nade/daily.html}{daily log}.  Planned book chapter start dates are in \textbf{black}.  Note some \dl{deadlines}.  Classes are MWF 3:30--4:30am, Chapman 107.
+
+\bigskip
+
+\begin{tabularx}{1.03\textwidth}{l|>{\raggedright\arraybackslash}X|X|X|}
+\textbf{Week} \quad Dates & M & W & F \\ \hline
+
+\wkday{1}{1/13}{1/17}   & example & \ch{1} & \\ \hline
+
+\wkday{2}{1/20}{1/24}   & \vac{AK Civil Rights Day} & \ch{2} \par \hdue{A1} & \dl{drops} \\ \hline
+
+\wkday{3}{1/27}{1/31}   &  &  &  \\ \hline
+
+\wkday{4}{2/3}{2/7}     &  &  & slides? \\ \hline
+
+\wkday{5}{2/10}{2/14}   &  &  &  \\ \hline
+
+\wkday{6}{2/17}{2/21}   & \ch{3} &  &  \\ \hline
+
+\wkday{7}{2/24}{2/28}   &  & \ch{5} &  \\ \hline
+
+\wkday{8}{3/3}{3/7}     &  &  & \ee{Midterm Exam} \\ \hline
+
+\wkday{9}{3/10}{3/14}   & \vac{Spring Break} & \vac{Spring Break} & \vac{Spring Break} \\ \hline
+
+\wkday{10}{3/17}{3/21}  &  & \ch{6} &  \\ \hline
+
+\wkday{11}{3/24}{3/28}  & \proj{Project announced} & \ch{7} & \dl{withdrawals} \\ \hline
+
+\wkday{12}{3/31}{4/4}   & \proj{Project proposal due} & \ch{8} & \\ \hline
+
+\wkday{13}{4/7}{4/11}   & \ch{9} &  &  \\ \hline
+
+\wkday{14}{4/14}{4/17}  &  &  & \ch{10} \\ \hline
+
+\wkday{15}{4/21}{4/25}  &  &  &  \\ \hline
+
+\wkday{16}{4/28}{5/2}   & \par {\scriptsize yes, a class day} \par \proj{Project due} & \ee{Final Exam} \par \ee{THURSDAY 5/1 $\to$} \par 3:15--5:15pm &  \\ \hline
+
+\end{tabularx}
+
+
+\end{document}
