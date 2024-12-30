@@ -8,6 +8,9 @@ docs:
 - title: Schedule
   url: assets/general/S25/schedule.pdf  # rebuild by "make schedule.pdf" in assets/general/S25
 
+- title: Daily Log
+  url: daily.html
+
 - title: Homework
   url: homework.html
 
@@ -16,9 +19,6 @@ docs:
 
 - title: Project
   url: project.html
-
-- title: Worksheets
-  url: worksheets.html
 
 - title: Codes
   url: codes.html

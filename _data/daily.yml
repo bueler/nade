@@ -1,0 +1,10 @@
+semester: Spring 2025
+home: assets/
+daily:
+- name: Monday 13 January
+  covered: examples to get us started
+#  otherurl: https://bueler.github.io/opt/assets/slides/F24/mon16sep.pdf
+#  otherurlname: "PDF slides: section 2.6"
+#  handout: worksheets/F24/5exs.pdf
+#  handoutname: 5 example optimization problems
+#  more: x
