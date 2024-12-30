@@ -2,8 +2,7 @@ semester: Spring 2025
 home: assets/homework/S25
 homework:
 - name: Assignment 1
-  due: FIXME
-  #blank: A1.pdf
-  #sections: 1.1-1.4, 2.1-2.4
+  due: Wednesday 22 January
+  blank: A1.pdf
   #seealsoname: Classical iterative methods slides
   #seealsopdf: https://bueler.github.io/nade/assets/slides/iterative.pdf

@@ -1,0 +1,156 @@
+\documentclass[12pt]{amsart}
+%prepared in AMSLaTeX, under LaTeX2e
+\addtolength{\oddsidemargin}{-.6in} 
+\addtolength{\evensidemargin}{-.6in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textwidth}{1.2in}
+\addtolength{\textheight}{1.0in}
+
+\renewcommand{\baselinestretch}{1.05}
+
+\usepackage{verbatim,fancyvrb}
+\usepackage{soul}
+\usepackage{palatino}
+
+\newtheorem*{thm}{Theorem}
+\newtheorem*{defn}{Definition}
+\newtheorem*{example}{Example}
+\newtheorem*{problem}{Problem}
+\newtheorem*{remark}{Remark}
+
+\newcommand{\mtt}{\texttt}
+\usepackage{alltt,xspace}
+\newcommand{\mfile}[1]
+{\medskip\begin{quote}\scriptsize \begin{alltt}\input{#1.m}\end{alltt} \normalsize\end{quote}\medskip}
+
+\usepackage[final]{graphicx}
+\newcommand{\mfigure}[1]{\includegraphics[height=2.5in,
+width=3.5in]{#1.eps}}
+\newcommand{\regfigure}[2]{\includegraphics[height=#2in,
+keepaspectratio=true]{#1.eps}}
+\newcommand{\widefigure}[3]{\includegraphics[height=#2in,
+width=#3in]{#1.eps}}
+
+\usepackage{amssymb}
+
+\usepackage[pdftex, colorlinks=true, plainpages=false, linkcolor=black, citecolor=red, urlcolor=red]{hyperref}
+
+% macros
+\newcommand{\br}{\mathbf{r}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\by}{\mathbf{y}}
+
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+
+\newcommand{\eps}{\epsilon}
+\newcommand{\grad}{\nabla}
+\newcommand{\lam}{\lambda}
+\newcommand{\lap}{\triangle}
+
+\newcommand{\ip}[2]{\ensuremath{\left<#1,#2\right>}}
+
+%\renewcommand{\det}{\operatorname{det}}
+\newcommand{\onull}{\operatorname{null}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\range}{\operatorname{range}}
+
+\newcommand{\Julia}{\textsc{Julia}\xspace}
+\newcommand{\Matlab}{\textsc{Matlab}\xspace}
+\newcommand{\Octave}{\textsc{Octave}\xspace}
+\newcommand{\Python}{\textsc{Python}\xspace}
+
+\newcommand{\prob}[1]{\bigskip\noindent\textbf{#1}\quad }
+
+\newcommand{\chapexers}[2]{\prob{Chapter #1, pages #2, Exercises:}}
+\newcommand{\exer}[2]{\prob{Exercise #1}}
+
+\newcommand{\pts}[1]{(\emph{#1 pts}) }
+\newcommand{\epart}[1]{\medskip\noindent\textbf{(#1)}\quad }
+\newcommand{\ppart}[1]{\,\textbf{(#1)}\quad }
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=ellipse,draw,inner sep=2pt] (char) {#1};}}
+
+
+\begin{document}
+\scriptsize \noindent Math 615 NADE (Bueler) \hfill 13 January, 2025
+\normalsize
+
+\medskip\bigskip
+
+\Large\centerline{\textbf{Assignment \#1}}
+\large
+\bigskip
+
+\centerline{\textbf{Due Wednesday, 22 January 2023, at the start of class}}
+\bigskip
+\normalsize
+
+\thispagestyle{empty}
+
+\bigskip
+Please read sections 1.1--1.4, 2.1--2.4, and Appendix A from the textbook.\footnote{R.~J.~LeVeque, \emph{Finite Difference Methods for Ordinary and Partial Diff.~Eqns.}, SIAM Press 2007}  The Problems on this assignment are designed to encourage review of important prerequisite topics.  In fact, please find three prerequisite textbooks, or their online equivalents:
+\begin{itemize}
+\item Find a \textbf{calculus} book.
+\item Find an introductory textbook on \textbf{ordinary differential equations} (ODEs).
+\item Find an introductory textbook on \textbf{linear algebra}.
+\end{itemize}
+You will need these references throughout the semester.
+
+For this Assignment, please review these mathematical topics:
+\begin{itemize}
+  \item Taylor's theorem with the remainder formula.  This may be best explained by an introductory numerical analysis textbook.
+  \item Solution of linear, homogeneous, and constant-coefficient ODEs.
+  \item Euler's method for approximately solving first-order systems of ODEs, from an initial value.
+\end{itemize}
+This Assignment also requires that you get started in the programming language of your choice.  Recommended: \Matlab, \Octave, \Python, or \Julia.
+
+\medskip
+\prob{Problem P1.}  Calculate $129^{\,1/7}$ to within $10^{-5}$ of the exact value \emph{without} any computing machinery except a pencil or pen.  Prove that your answer has this accuracy.  (\emph{Hint: Taylor on $f(x)=x^{1/7}$, with a carefully-chosen base point.  Note $10^{-5}$ is the maximum absolute error.  Feel free to use a computer to \emph{check} your by-hand value, but otherwise this is not a computer question.})
+
+\prob{Problem P2.}  Assume $f'$ is continuous.  Derive the remainder formula
+\begin{equation}\label{lhrule}
+\int_0^a f(x)\,dx = a f(0) + \frac{1}{2} a^2 f'(\nu)
+\end{equation}
+for some (unknown) $\nu$ between zero and $a$.  (\emph{Hint:  Start by showing $f(x)=f(0)+f'(\xi)x$ where $\xi=\xi(x)$ is some number between $0$ and $x$.  Then integrate.})  Use at least two sentences to explain the meaning of \eqref{lhrule} as an approximation to the integral.  That is, answer the question ``What properties of $f(x)$ or $a$ make the left-endpoint rule $\int_0^a f(x)\,dx \approx a f(0)$ more or less accurate?''
+
+\prob{Problem P3.}  Work at the command line, in the programming language of your choice, to compute a finite sum approximation to
+	$$\sum_{n=1}^\infty \frac{\arctan(\cos n)}{n^3+1}.$$
+Compute the partial sums for $N=10$ and $N=100$ terms.  Turn your command-line work into a function \texttt{mysum(N)}, defined in a file \texttt{mysum.m} (or similar), and check that it yields the same numbers.  Turn in both the command line session and the code.  (\emph{These can be very brief.})  How close do you think the $N=100$ partial sum is to the infinite sum?
+
+% following was moved from A2
+\prob{Problem P4.}  \emph{Please do \emph{not} waste paper by turning in tables of numbers unless specifically asked!  Here, check that you have the same numbers as in Table 1.1, but don't turn in a table.}
+
+\medskip
+\noindent Reproduce Figure 1.2 on page 6 of the textbook.  In particular, write a code which generates the data in Table 1.1 by doing the calculations described by Example 1.1, with $u(x)=\sin x$ and $\bar x = 1$.  Then generate the Figure, which has logarithmic scaling on both axes.  Make sure to label the axes as shown, and also put in the labels ``$D_0$'' etc.~in approximately the right locations.  (\emph{Use} \texttt{text} \emph{in Matlab}.)  The data should be shown as markers, but the lines between can be generated however is convenient.  Turn in both the code and the figure you generate.
+
+
+\prob{Problem P5.}  \emph{Observe that you are making a \emph{prediction} of $y(t)$ at $t=4$, given initial data and a precise ``law'' about how $y(t)$ evolves in time, namely the differential equation.}
+
+\medskip
+\noindent Solve, by hand, the ODE initial value problem
+\begin{equation}\label{ODE}
+y'' + 4 y' - 5 y = 0, \quad y(2)=0, \quad y'(2)=-1,
+\end{equation}
+for the solution $y(t)$.  Then find $y(4)$.  Give a reasonable by-hand sketch on $t,y$ axes which shows the initial values, the solution, and the value $y(4)$.
+
+
+\prob{Problem P6.}  Using Euler's method for approximately solving ODEs, write your own program to solve initial value problem \eqref{ODE} to find $y(4)$.  A first step is to convert the second-order ODE into a system of two first-order ODEs.  Use a few different step sizes, decreasing as needed, so that you get apparent three-digit accuracy.  (\emph{You may use a black-box ODE solver as a 3rd method to \emph{check} your work, but don't turn this in.})
+%Matlab soln:
+%  f = @(t,w) [w(2); 6*w(1) - w(2)]
+%  [t,v] = ode45(f,[2 4],[0 -1]');
+%  plot(t,v), legend("y(t)","y'(t)")
+%  hold on, plot(4,(1/5)*(exp(-6) - exp(4)),'o'), hold off
+
+% FIXME MOVE TO A2
+%\prob{Problem P6.}  Solve, by hand, the ODE boundary value problem
+%\begin{equation}\label{ODEBVP}
+%y'' + 2 y' - 3 y = 0, \quad y(0)=\alpha, \quad y(\tau)=\beta,
+%\end{equation}
+%for the solution $y(t)$.  Note that $\alpha,\beta,\tau$ are the data of the problem, so the solution will have these parameters in it.
+
+
+\end{document}
