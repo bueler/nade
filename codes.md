@@ -7,7 +7,8 @@ title: Matlab/Octave Codes
 
 ## from lecture
 
-  * [fixme.m](assets/codes/fixme.m)
+  * [lump.m](assets/codes/lump.m)
+  * [ring.m](assets/codes/ring.m)
 
 ## from homework solutions
 
