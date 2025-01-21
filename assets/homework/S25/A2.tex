@@ -1,0 +1,153 @@
+\documentclass[12pt]{amsart}
+%prepared in AMSLaTeX, under LaTeX2e
+\addtolength{\oddsidemargin}{-.6in} 
+\addtolength{\evensidemargin}{-.6in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textwidth}{1.2in}
+\addtolength{\textheight}{1.0in}
+
+\renewcommand{\baselinestretch}{1.05}
+
+\usepackage{verbatim,fancyvrb}
+\usepackage{soul}
+\usepackage{palatino}
+
+\newtheorem*{thm}{Theorem}
+\newtheorem*{defn}{Definition}
+\newtheorem*{example}{Example}
+\newtheorem*{problem}{Problem}
+\newtheorem*{remark}{Remark}
+
+\newcommand{\mtt}{\texttt}
+\usepackage{alltt,xspace}
+\newcommand{\mfile}[1]
+{\medskip\begin{quote}\scriptsize \begin{alltt}\input{#1.m}\end{alltt} \normalsize\end{quote}\medskip}
+
+\usepackage[final]{graphicx}
+\newcommand{\mfigure}[1]{\includegraphics[height=2.5in,
+width=3.5in]{#1.eps}}
+\newcommand{\regfigure}[2]{\includegraphics[height=#2in,
+keepaspectratio=true]{#1.eps}}
+\newcommand{\widefigure}[3]{\includegraphics[height=#2in,
+width=#3in]{#1.eps}}
+
+\usepackage{amssymb}
+
+\usepackage[pdftex, colorlinks=true, plainpages=false, linkcolor=black, citecolor=red, urlcolor=red]{hyperref}
+
+% macros
+\newcommand{\br}{\mathbf{r}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\by}{\mathbf{y}}
+
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+
+\newcommand{\eps}{\epsilon}
+\newcommand{\grad}{\nabla}
+\newcommand{\lam}{\lambda}
+\newcommand{\lap}{\triangle}
+
+\newcommand{\ip}[2]{\ensuremath{\left<#1,#2\right>}}
+
+%\renewcommand{\det}{\operatorname{det}}
+\newcommand{\onull}{\operatorname{null}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\range}{\operatorname{range}}
+
+\newcommand{\Julia}{\textsc{Julia}\xspace}
+\newcommand{\Matlab}{\textsc{Matlab}\xspace}
+\newcommand{\Octave}{\textsc{Octave}\xspace}
+\newcommand{\Python}{\textsc{Python}\xspace}
+
+\newcommand{\prob}[1]{\bigskip\noindent\textbf{#1}\quad }
+
+\newcommand{\chapexers}[2]{\prob{Chapter #1, pages #2, Exercises:}}
+\newcommand{\exer}[2]{\prob{Exercise #1}}
+
+\newcommand{\pts}[1]{(\emph{#1 pts}) }
+\newcommand{\epart}[1]{\medskip\noindent\textbf{(#1)}\quad }
+\newcommand{\ppart}[1]{\,\textbf{(#1)}\quad }
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=ellipse,draw,inner sep=2pt] (char) {#1};}}
+
+
+\begin{document}
+\scriptsize \noindent Math 615 NADE (Bueler) \hfill 22 January, 2025
+\normalsize
+
+\medskip\bigskip
+
+\Large\centerline{\textbf{Assignment \#2}}
+\large
+\bigskip
+
+\centerline{\textbf{Due Friday, 31 January 2023, at the start of class}}
+\bigskip
+\normalsize
+
+\thispagestyle{empty}
+
+\bigskip
+Please read sections 1.1--1.4, 2.1--2.10, and Appendix A from the textbook.\footnote{R.~J.~LeVeque, \emph{Finite Difference Methods for Ordinary and Partial Diff.~Eqns.}, SIAM Press 2007}
+
+
+\prob{Problem P7.}  Solve, by hand, the ODE boundary value problem
+\begin{equation*}
+y'' + 2 y' - 3 y = 0, \quad y(0)=\alpha, \quad y(\tau)=\beta,
+\end{equation*}
+for the solution $y(t)$.  Note that $\alpha,\beta,\tau$ are the data of the problem, so the solution will have these parameters in it.
+
+
+\prob{Problem P8.}  For $\lambda$ a real number, solve, by hand, the ODE boundary value problem
+\begin{equation*}
+y'' + \lambda y = 0, \quad y(0)=0, \quad y(1)=0,
+\end{equation*}
+for the solution $y(t)$.  For each $\lambda$, find \emph{all} solutions.  There will be some values of $\lambda$ for which there are multiple solutions $y(t)$; identify all of these exceptional $\lambda$ values.
+
+
+\prob{Problem P9.}  Suppose this table of data gives samples of a function $Z(h)$:
+
+\smallskip
+\begin{center}
+\begin{tabular}{c|l|l|l|l|l|l}
+$h$ & 1.0     & 0.5    & 0.1    & 0.05   & 0.01     & 0.005 \\ \hline
+$Z(h)$ & 56.859  & 21.694 & 1.1081 & 1.1101 & 0.096909 & 0.011051
+\end{tabular}
+\end{center}
+
+\medskip
+\noindent This data may be fitted (regression) by a function $f(h) = C h^p$ for some values $C$ and $p$.  Find the values of $C$ and $p$ by fitting a straight line to the \emph{logarithms} of the data; in \Matlab you may use \texttt{polyfit}.  Then graph the data \emph{and} show the fitted line on the same axes, using \Matlab's \texttt{loglog} or similar.
+
+\begin{comment}
+h = [1.0 0.5 0.1 0.05 0.01 0.005];
+Z = [28.43  10.747  0.5540  0.5555  0.04849  0.005521];
+q = polyfit(log(h),log(Z),1)
+loglog(h,Z,'ko',h,exp(q(2) + q(1)*log(h)),'k--')
+axis tight
+\end{comment}
+
+
+\prob{Problem P10.}  \emph{Before doing this exercise, read and understand Example 1.2 in Section 1.2.}
+
+\epart{a}  Use the method of undetermined coefficients to set up a $5\times 5$ linear system that determines the fourth-order centered finite difference approximation to $u''(x)$ based on 5 equally-spaced points, namely
+\begin{equation*}
+u''(x) = c_{-2} u(x-2h) + c_{-1} u(x-h) + c_0 u(x) + c_1 u(x+h) + c_2 u(x+2h) + O(h^4).
+\end{equation*}
+In particular, expand $u(x-2h), u(x-h), u(x+h), u(x+2h)$ in Taylor series.  Then collect terms on the right side of the above equation to generate a square linear system $A\,c=g$ in unknowns $c_{-2}, c_{-1}, c_0, c_1, c_2$.  This system will have numerical (constant) entries in the matrix $A$, but the entries of vector $g$ will depend on $h$.
+
+\epart{b}  Use \Matlab/etc.~ to solve the linear system from part \textbf{a)}.  A recommended way to do this is to use $h=1$ in the vector $g$ and solve the system numerically using the ``backslash'' method.  Then write down the answer in a form like (1.11), inserting the correct power of $h$.  Use $h=0.5$ to confirm that you have captured the correct powers.  (\emph{Feel free to use LeVeque's} \texttt{fdstencil} \emph{to check your work, but it is not required.})
+
+
+\prob{Problem P11.}  \emph{In Section 2.4 the textbook uses finite differences to convert the boundary value problem $u''(x) = f(x)$, $u(0) = \alpha$, $u(1) = \beta$ into matrix equation $AU=F$, with $A$ and $F$ given in (2.10).  For any integer $m\ge 1$, this method is based on a grid with $h=1/(m+1)$ and $x_j=jh$.  There are $m$ unknowns $U_1,U_2,\dots,U_m$, located at the interior nodes $x_1,\dots,x_m$.  Note that finite difference approximation $D^2$ from equation (1.13) is used for the $u''$ term.  This problem asks you to generalize this scheme.}
+
+\medskip
+\noindent Assume $q,x_L,x_R$ are real numbers with $x_L<x_R$.  Similar to the method in Section 2.4, create a finite difference approximation for the problem
+\begin{equation*}
+u''(x) + q\, u(x) = f(x), \quad u(x_L) = \alpha, \quad u(x_R) = \beta. \end{equation*}
+Use the same approximation $D^2$ for $u''$.  Use the same grid indexing with $m$ unknowns $U_1,\dots,U_m$, and give the new formulas for $x_j$ and the mesh width $h$.  State, in detail, $A$ and $F$ in $AU=F$.  (\emph{Note that entries of $A$ will depend on $q$ as well as $h$.})  Check that, by choosing appropriate constants, you can reproduce formulas (2.10).
+
+\end{document}
