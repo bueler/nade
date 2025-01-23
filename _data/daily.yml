@@ -1,8 +1,12 @@
 semester: Spring 2025
 home: assets/
 daily:
-- name: Friday 17 January
-  covered: Chapter 1 basic finite differences
+  - name: Friday 24 January
+  covered: "Chapter 2: solve steady-state heat equation"
+  - name: Wednesday 22 January
+  covered: FD intro done
+  - name: Friday 17 January
+  covered: "Chapter 1: basic finite differences (FD)"
 - name: Wednesday 15 January
   covered: examples; Taylor's theorem; linear ODEs
 - name: Monday 13 January

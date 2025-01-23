@@ -14,4 +14,8 @@ title: Matlab/Octave Codes
 
 ## from homework solutions
 
-From Assignment #X:
+From Assignment 1:
+
+  * [mysum.m](assets/codes/S25/mysum.m)
+  * [fdrates.m](assets/codes/S25/fdrates.m)
+  * [p6euler.m](assets/codes/S25/p6euler.m)
