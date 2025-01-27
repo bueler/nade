@@ -5,12 +5,16 @@ title: Matlab/Octave Codes
 
 # Matlab/Octave Codes
 
+The first block of codes comes from examples used in lecture as demonstrations, listed in reverse chronological order.
+
 ## from lecture
 
-  * [lump.m](assets/codes/S25/lump.m)
-  * [ring.m](assets/codes/S25/ring.m)
-  * [derrors.m](assets/codes/S25/derrors.m)
+  * [second.m](assets/codes/S25/second.m)
+  * [first.m](assets/codes/S25/first.m)
   * [dcompare.m](assets/codes/S25/dcompare.m)
+  * [derrors.m](assets/codes/S25/derrors.m)
+  * [ring.m](assets/codes/S25/ring.m)
+  * [lump.m](assets/codes/S25/lump.m)
 
 ## from homework solutions
 
