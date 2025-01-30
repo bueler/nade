@@ -1,6 +1,12 @@
 semester: Spring 2025
 home: assets/
 daily:
+- name: Friday 31 January
+  covered: definition of convergent, stable; fundamental theorem
+- name: Wednesday 29 January
+  covered: definitions of LTE, consistent
+- name: Monday 27 January
+  covered: constructive FD solution of u''=f with b.c.s
 - name: Friday 24 January
   covered: "Chapter 2: solve steady-state heat equation"
 - name: Wednesday 22 January
