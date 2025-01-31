@@ -96,9 +96,9 @@ Please read sections 2.4--2.16 from the textbook.\footnote{R.~J.~LeVeque, \emph{
 
 
 \prob{Problem P12.}  \ppart{a}  Set up a finite difference method for the general linear, second-order, Dirichlet, two-point boundary value problem:
-\begin{equation*}
-u''(x) + p(x)\, u'(x) + q(x)\, u(x) = f(x), \quad u(a) = \alpha, \quad u(b) = \beta.
-\end{equation*}
+\begin{equation}
+u''(x) + p(x)\, u'(x) + q(x)\, u(x) = f(x), \quad u(a) = \alpha, \quad u(b) = \beta. \label{genbvp}
+\end{equation}
 Here $p(x),q(x),f(x)$ are all arbitrary functions.  Use approximation (1.3), namely the centered finite difference $D_0$, for the $u'$ term, and the usual centered formula $D^2$ for the $u''$ term.  State the $A$ and $F$, which appear in your linear system $AU=F$, assuming $m$ unknowns $U_1,\dots,U_m$, on an equally-spaced grid with $m$ interior points.
 
 \epart{b} Implement this method.  A recommended approach is to modify an existing, tested solver, for example:
@@ -114,7 +114,7 @@ Here $p(x),q(x),f(x)$ are all arbitrary functions.  Use approximation (1.3), nam
 
 \normalsize
 \medskip
-\noindent The answer to this part is the code itself, but please do part \textbf{(c)} to test and debug it before posting your final version.
+\noindent Turn in a listing of the code itself, but please do part \textbf{(c)} to test and debug it before posting your final version.
 
 \epart{c}  Use the method of manufactured solutions to debug and test your code, especially to verify that you are handling $p(x)$ and $q(x)$ correctly.  To avoid making things \emph{too} complicated, fix the simple values $a=0,b=1,\alpha=0,\beta=0$ for all testing.  Generate a first exact solution in the case where $q(x)=0$ but $p(x)$ is non-zero and non-constant.  Then generate a second exact solution in the case where $p(x)=0$ but $q(x)$ is non-zero and non-constant.  (\emph{In these exact solutions you will \emph{choose} $u(x)$ as a function which satisfies the boundary conditions, and \emph{choose} $p(x)$ or $q(x)$, whichever is non-zero, and then you will differentiate and simplify to get $f(x)$ from these assumptions.  You will need to make simple choices of $u(x),p(x),q(x)$, but not \emph{too} simple.})  Now compute error norms for each of the two cases, i.e.~$\|E^h\|_2=\|U^h-\hat U^h\|_2$, and produce a convergence plot showing the expected $O(h^2)$ convergence rate.
 
@@ -136,11 +136,11 @@ u''(x) +  u(x) = 0 \quad \text{for $a< x< b$}, \qquad u(a)=\alpha, \qquad u(b)=\
 \begin{equation}
 u''(x) = f(x), \qquad u'(0)=\sigma_0, \qquad u'(1)=\sigma_1,  \label{neubvp}
 \end{equation}
-which has Neumann conditions at both ends.  In the steady heat equation interpretation of \eqref{neubvp}, the values $\sigma_0$ and $\sigma_1$ are heat fluxes.
+which has Neumann conditions at both ends.  In the steady heat equation interpretation of BVP \eqref{neubvp}, the values $\sigma_0$ and $\sigma_1$ are heat fluxes.  (\emph{The Dirichlet condition values $\alpha,\beta$ in BVPs \eqref{genbvp} and \eqref{dirbvp} are temperatures.})
 
 \epart{a} Apply the ``second approach'' from Section 2.12 to BVP \eqref{neubvp}.  Show that you get linear system (2.58) as shown in the text.
 
 \epart{b} Generate $A$, the matrix from (2.58), in Matlab/etc; choose $m=10$ here for example.  (\emph{Modify existing code to do this assembly?  In that case show me your code.})  Enter the constant vector $e=[1,1,\dots,1]^\top$, and confirm numerically that $e$ is in the null space of $A$.
 
-\epart{c} The text in Section 2.13 explains a condition that $f(x)$ and $\sigma_0$ and $\sigma_1$ must satisfy so that there \emph{is} a solution to BVP \eqref{neubvp}, and then there are actually infinitely many solutions.  Choose such a case and see what happens numerically, that is, when you solve linear system (2.58) in Matlab (etc.).  Explain.
+\epart{c} The text in Section 2.13 explains a condition that $f(x)$ and $\sigma_0$ and $\sigma_1$ must satisfy so that there \emph{is} a solution to BVP \eqref{neubvp}.  If that condition is satisfied then there are actually infinitely many solutions.  Choose such a case and see what happens numerically, that is, when you solve linear system (2.58) in Matlab/etc.  Explain.
 \end{document}
