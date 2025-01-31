@@ -9,6 +9,8 @@ The first block of codes comes from examples used in lecture as demonstrations, 
 
 ## from lecture
 
+  * [secondA.m](assets/codes/S25/secondA.m)
+  * [converge.m](assets/codes/S25/converge.m)
   * [second.m](assets/codes/S25/second.m)
   * [first.m](assets/codes/S25/first.m)
   * [dcompare.m](assets/codes/S25/dcompare.m)
