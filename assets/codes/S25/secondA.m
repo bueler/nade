@@ -1,4 +1,4 @@
-function [A, x, U] = second(f, alpha, beta, m)
+function [A, x, U] = secondA(f, alpha, beta, m)
 % SECONDA  Same as SECOND, but additionally returns A
 % as the first output.
 
