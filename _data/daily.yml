@@ -1,8 +1,18 @@
 semester: Spring 2025
 home: assets/
 daily:
+- name: Monday 10 February
+  covered: convergence overview; nonlinear BVP
+  handout: worksheets/S25/whyitworks.pdf
+  handoutname: why FD methods work
+- name: Friday 7 February
+  covered: Neumann boundary conditions, well-posedness
+- name: Wednesday 5 February
+  covered: stability in 2-norm by eigenvalues
+- name: Monday 3 February
+  covered: fundamental theorem (Lax equivalence theorem)
 - name: Friday 31 January
-  covered: definition of convergent, stable; fundamental theorem
+  covered: definition of convergent, stable
 - name: Wednesday 29 January
   covered: definitions of LTE, consistent
 - name: Monday 27 January
