@@ -80,25 +80,25 @@
 \begin{quote}
 \emph{Chapter 2 of the textbook (R.~J.~LeVeque, 2007) starts with the ODE BVP example}
 	$$u''(x)=f(x), \qquad u(0)=\alpha, \quad u(1) = \beta.$$
-\emph{The book constructs a practical finite difference (FD) numerical method on this example.  Then it explains why the numerical solution will converge to the exact solution as we refine the grid ($m\to\infty$ and $h\to 0$).  The argument uses a ``consistency $+$ stability $\implies$ convergence'' strategy, the useful direction of the \emph{Lax equivalence theorem}.  This summary puts the whole strategy on one page, with details suppressed.}
+\emph{The book constructs a practical finite difference (FD) numerical method for this example.  Then the book explains why the numerical solution will converge to the exact solution as we refine the grid ($m\to\infty$ and $h\to 0$).  The argument is ``consistency $+$ stability $\implies$ convergence,'' the useful direction of the \emph{Lax equivalence theorem}.  This summary puts the argument on one page, with details suppressed.  Note that stages 1 and 2 compute a numerical solution.  Stages 3 and 4 are about why you get convergence.}
 \end{quote}
 
 \medskip
 
-\prob{Stage 1.  Apply scheme to linear DE}  Choose the grid/mesh, including number of unknowns $m$ and spacing $h$.  Apply your FD \emph{discretization} or \emph{scheme}; it creates a \emph{family} of matrices $\{A^h\}$:
+\prob{Stage 1.  Apply scheme to linear DE}  Choose the grid/mesh, including number of unknowns $m$ and spacing $h>0$.  Apply your FD \emph{discretization} or \emph{scheme}; for each $h$ you seek the values $U^h_j$ in a vector $U^h \in \RR^m$.  Your scheme creates a \emph{family} of matrices $A^h$ and right-hand sides $F^h$, thus linear systems:
    $$\begin{pmatrix} \text{differential equation (DE)} \\ \text{and boundary/initial conditions} \end{pmatrix} \qquad \to \qquad A^h U^h = F^h$$
 
 \vfill
-\prob{Stage 2.  Solve the scheme}  Numerical solution of the system of (linear) algebraic equations:
+\prob{Stage 2.  Solve the scheme}  Numerically solve the system of (linear) algebraic equations for a given $h$.  Abstractly this is:
    $$A^h U^h = F^h \qquad \to \qquad U^h = (A^h)^{-1} F^h$$
 
 \vfill
 \prob{Stage 3.  LTE and error equation}  Let $\hat U^h_j = u(x_j)$ be the grid values of the exact solution $u(x)$ of your DE.  (Note: $u(x)$ is generally unknown!)  Define the \emph{local truncation error} (LTE) as the residual from the scheme, when it is applied to the exact solution,
-   $$\tau^h = A^h \hat U^h - F^h = O(h^p),$$
-where a Taylor's theorem computation gives the \emph{order of accuracy} $p$.  If $p>0$ then the scheme is \emph{consistent}.  Define the \emph{numerical error} $E^h = U^h - \hat U^h$.  Subtract for the \emph{error equation}: $A^h E^h = -\tau^h$.
+   $$\tau^h = A^h \hat U^h - F^h.$$
+A Taylor's theorem computation gives the \emph{order of accuracy} $p$: $\|\tau^h\| = O(h^p)$.  If $p>0$ then the scheme is \emph{consistent}.  Define the \emph{numerical error} $E^h = U^h - \hat U^h$.  Subtract for the \emph{error equation}: $A^h E^h = -\tau^h$.
 
 \vfill
-\prob{Stage 4.  Apply stability to show convergence}  Show \emph{stability}: there is $C>0$ so that $\|(A^h)^{-1}\| \le C$ for all $h>0$.  (Stability may be difficult to show!)  Since $A^h$ is invertible, the error equation has a solution: $E^h = - (A^h)^{-1} \tau^h$.  Because $\|\tau^h\| = O(h^p)$, get \emph{convergence} at rate $p$:
+\prob{Stage 4.  Show stability to show convergence}  Show \emph{stability}: there is $C>0$ so that $\|(A^h)^{-1}\| \le C$ for all $h>0$.  (Stability may be difficult to show!)  Since $A^h$ is invertible, the error equation has a solution: $E^h = - (A^h)^{-1} \tau^h$.  Because $\|\tau^h\| = O(h^p)$, get \emph{convergence} at rate $p$:
 	$$\|E^h\| = \|- (A^h)^{-1} \tau^h\| \le \|(A^h)^{-1}\| \|\tau^h\| \le C O(h^p) = O(h^p)$$
 
 \vfill
