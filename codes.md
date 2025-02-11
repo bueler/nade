@@ -20,6 +20,13 @@ The first block of codes comes from examples used in lecture as demonstrations, 
 
 ## from homework solutions
 
+From Assignment 3:
+
+  * [generalbvp.m](assets/codes/S25/generalbvp.m)
+  * [verifygen.m](assets/codes/S25/verifygen.m)
+  * [p13a.m](assets/codes/S25/p13a.m)
+  * [neubvp.m](assets/codes/S25/neubvp.m)
+
 From Assignment 1:
 
   * [mysum.m](assets/codes/S25/mysum.m)
