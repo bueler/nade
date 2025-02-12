@@ -1,7 +1,7 @@
 semester: Spring 2025
 home: assets/
 daily:
-  - name: Friday 14 February
+- name: Friday 14 February
   covered: advection, boundary layer
 - name: Wednesday 12 February
   covered: nonlinear BVP
