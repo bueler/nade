@@ -1,8 +1,12 @@
 semester: Spring 2025
 home: assets/
 daily:
+  - name: Friday 14 February
+  covered: advection, boundary layer
+- name: Wednesday 12 February
+  covered: nonlinear BVP
 - name: Monday 10 February
-  covered: convergence overview; nonlinear BVP
+  covered: convergence overview; symmetric (self-adjoint) form
   handout: worksheets/S25/whyitworks.pdf
   handoutname: why FD methods work
 - name: Friday 7 February
