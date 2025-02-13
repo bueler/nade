@@ -3,6 +3,8 @@ home: assets/
 daily:
 - name: Friday 14 February
   covered: advection, boundary layer
+  handout: worksheets/S25/singular.pdf
+  handoutname: 1st-order DEs, 2nd-order DEs, singular perturbations
 - name: Wednesday 12 February
   covered: nonlinear BVP
 - name: Monday 10 February
