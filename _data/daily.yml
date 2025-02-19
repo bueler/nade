@@ -2,7 +2,8 @@ semester: Spring 2025
 home: assets/
 daily:
 - name: Wednesday 19 February
-  covered: "Chapter 3: 2D Poisson equation"
+  chapter: 3
+  covered: 2D Poisson equation
 - name: Monday 17 February
   covered: advection-diffusion
 - name: Friday 14 February
@@ -28,11 +29,13 @@ daily:
 - name: Monday 27 January
   covered: constructive FD solution of u''=f with b.c.s
 - name: Friday 24 January
-  covered: "Chapter 2: solve steady-state heat equation"
+  covered: solve steady-state heat equation
+  chapter: 2
 - name: Wednesday 22 January
   covered: FD intro done
 - name: Friday 17 January
-  covered: "Chapter 1: basic finite differences (FD)"
+  covered: basic finite differences (FD)
+  chapter: 1
 - name: Wednesday 15 January
   covered: examples; Taylor's theorem; linear ODEs
 - name: Monday 13 January
