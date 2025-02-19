@@ -9,6 +9,7 @@ The first block of codes comes from examples used in lecture as demonstrations, 
 
 ## from lecture
 
+  * [eastwind.m](assets/codes/S25/eastwind.m)
   * [secondA.m](assets/codes/S25/secondA.m)
   * [converge.m](assets/codes/S25/converge.m)
   * [second.m](assets/codes/S25/second.m)
