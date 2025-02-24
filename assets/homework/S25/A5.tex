@@ -93,8 +93,81 @@ width=#3in]{#1.eps}}
 \thispagestyle{empty}
 
 \bigskip
-Please read sections FIXME 2.12--2.18 and 3.1--3.7 from the textbook.\footnote{R.~J.~LeVeque, \emph{Finite Difference Methods for Ordinary and Partial Diff.~Eqns.}, SIAM Press 2007}
+Please read textbook\footnote{R.~J.~LeVeque, \emph{Finite Difference Methods for Ordinary and Partial Diff.~Eqns.}, SIAM Press 2007} sections 5.1–5.8, plus Appendices C and D.
 
-\prob{Problem P18.}  
+\noindent \hrulefill
+
+These problems on this Assignment use eigenvalues.  I assume you have already had a course in linear algebra, so this is a review topic.  \textbf{Here is a quick review.}
+
+By definition, a \underline{nonzero} vector $v\in \RR^m$ is an \emph{eigenvector} of a square matrix $A \in \RR^{m\times m}$ if multiplication by $A$ merely lengthens or shortens it:
+\begin{equation}
+    A v = \lambda v.  \label{eig}
+\end{equation}
+The number $\lambda$ is called the \emph{eigenvalue} corresponding to $v$.  Note that ``eigen'' means something like ``property of'', so $v$ and $\lambda$ are in some sense owned by $A$.
+
+If \eqref{eig} holds then the matrix $\lambda I - A$ has a nonzero vector in its null space.  That is, any nonzero multiple of $v$ is sent by $\lambda I - A$ to zero: $(\lambda I - A) v = 0$.  By the fundamental equivalence in linear algebra, \eqref{eig} holds if and only if $\lambda I - A$ is not invertible.
+
+In particular, $\det(\lambda I - A) = 0$, which is a polynomial equation with real coefficients:
+    $$p(\lambda) = \det(\lambda I - A).$$
+(Recall we assumed $A$ had real entries.)  Finding all the eigenvalues is equivalent to finding all the roots of the \emph{characteristic polynomial} $p(\lambda)$.  Generally, these roots are complex:
+    $$\text{in general, for real } A \in \RR^{m\times m}, \text{ we have } \lambda\in \CC.$$
+However, because the coefficients of the polynomial are real, if $\lambda$ is complex (i.e.~not real) then its conjugate $\bar \lambda$ is also a root of the polynomial and thus an eigenvalue of $A$.
+
+\emph{Fact.}  If $A$ is symmetric $A^\top = A$ then the eigenvalues of $A$ are real.
+
+Now suppose $\lambda$ is an eigenvalue of $A$.  Finding a corresponding eigenvector asks to find a vector in the null space of a matrix.  In particular, the row operations of Gauss elimination will convert the equation $(\lambda I - A) v = 0$ into an upper triangular equation $U v = 0$ where $U$ is both upper triangular and has at least one row of zeros.  (\emph{This is because $\lambda I - A$ is not invertible.})  The matrix equation $U v = 0$ can be used to generate every eigenvector corresponding to $\lambda$, the \emph{eigenspace} for $\lambda$.  This eigenspace has dimension at least one.
+
+Appendices C and D cover more advanced eigen-topics, and you will use the basic ideas in section D.3 on matrix exponentials.
+
+\noindent \hrulefill
+\clearpage \newpage
+
+
+\prob{Problem P18.}  \ppart{a}  Compute \emph{by hand} the eigenvalues and eigenvectors of
+    $$A = \begin{bmatrix} 0 & -1 & -1 \\
+                         -1 & 0  & 1 \\
+                         -1 & 1  & 0  \end{bmatrix}.$$
+Show all your work.  (\emph{Hint: The characteristic polynomial has integer roots.  You may \emph{check} your work with \Matlab.})
+
+\epart{b}  Continuing with the same matrix $A$, do the following using $\Matlab$ etc., and show the command-line session or code:  Choose a vector $u\in\RR^3$ at random, for instance \texttt{u = randn(3,1)}.  Apply $A$ to it 50 times: $w = A^{50} u$.  Now compute $\|A w\|_2/\|w\|_2$.  You will get the number $2.0000$.  Why?  Explain in several sentences, using equations to make it clear.
+
+\medskip
+\noindent \emph{Hint for} \textbf{(b)}.  \emph{The eigenvectors of a symmetric matrix form a basis.  Any vector can be written in this basis.  On the other hand, multiplication by \emph{this} $A$ stretches one basis vector the most.}
+
+\epart{c}  Note that $w = A^{50} u$ from part \textbf{(b)} is very large in norm.  Why?  For a random $u$ and \emph{this} matrix $A$, give an upper bound on the norm of the vector $A^k u$ for large $k$.
+
+
+\prob{Problem P19.}  \emph{This problem considers the eigenvalues of \emph{non-symmetric} real matrices.  Do not show me the matrices!  Your solution is your code and your percentage estimate.}
+
+\medskip \noindent
+Write a short program that computes 100 random $3\times 3$ matrices with entries which are independent, normally-distributed, mean zero, variance one random numbers.  In \Matlab, \verb| A = randn(3,3) | generates such a matrix.  FIXME
+
+
+\prob{Problem P20.}  \ppart{a} The ODE IVP
+    $$v'' = - 9 v, \quad v(0) = v_0, \quad v'(0) = w_0$$
+has solution $v(t) = v_0 \cos(3 t) + \frac{w_0}{3} \sin(3t)$.  Verify this.
+
+\epart{b}  Construct the solution a second time by first rewriting the ODE as a first-order system $u' = A u$.  Then compute the solution $u(t) = e^{At} u(0)$ by using equation (D.30) in Appendix D.  Confirm that you get the same result as in \textbf{(a)}.
+
+
+\prob{Problem P21.}  Check that the solution $u(t)$ given by Duhamel's principle, equation (5.8) in the textbook, satisfies ODE (5.6) and the initial condition $u(t_0)=\eta$.
+
+\medskip
+\noindent \emph{Hint.}  Look up the Leibniz rule for differentiating an integral?  To understand and explain the simple result of differentiating the matrix exponential, note you can differentiate the absolutely-convergent Taylor series (D.31), in Appendix D, term by term.
+
+
+\prob{Problem P22.}  Consider the ODE system
+\begin{align*}
+u_1' &= 2 u_1, \\
+u_2' &= 3 u_1 - 2 u_2
+\end{align*}
+with initial conditions at $t=0$: $u_1(0) = a, u_2(0) = b$.  Solve this system two ways as follows.
+
+\epart{a} Solve the first equation, using its initial condition.  Insert this into the second equation to get a nonhomogeneous linear ODE for $u_2$.  Solve using Duhamel's principle, equation (5.8) but in the scalar case.
+
+\epart{b} Write the system as $u'=Au$, compute the matrix exponential, and get the solution in the form of equation (D.30) in Appendix D.
+
+\medskip
+\noindent \emph{Hints. The diagonalization of $A$ can be done by hand.  Simplify the results of each part sufficiently to see the same solution.}
 
 \end{document}
