@@ -1,6 +1,11 @@
 semester: Spring 2025
 home: assets/
 daily:
+- name: Monday 24 February
+  covered: initial value problems
+  chapter: 5
+- name: Friday 21 February
+  covered: 2D linear advection-diffusion steady state problem
 - name: Wednesday 19 February
   chapter: 3
   covered: 2D Poisson equation
