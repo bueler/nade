@@ -21,6 +21,14 @@ The first block of codes comes from examples used in lecture as demonstrations, 
 
 ## from homework solutions
 
+From Assignment 4:
+
+  * [pendulum.m](assets/codes/S25/pendulum.m)
+  * [p15figures.m](assets/codes/S25/p15figures.m)
+  * [genlinp.m](assets/codes/S25/genlinp.m)
+  * [poisson.m](assets/codes/S25/poisson.m)
+  * [poissonconv.m](assets/codes/S25/poissonconv.m)
+
 From Assignment 3:
 
   * [generalbvp.m](assets/codes/S25/generalbvp.m)
