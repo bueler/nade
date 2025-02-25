@@ -63,21 +63,21 @@
 
 
 \begin{document}
-\scriptsize \noindent Math 615 NADE (Bueler) \hfill Spring 2023
+\scriptsize \noindent Math 615 NADE (Bueler) \hfill \today \,(version 1)
 \thispagestyle{empty}
 
 \bigskip
 \Large\textbf{\centerline{Review Guide for In-Class Midterm Exam}}
 
-\Large\textbf{\centerline{on Friday, 24 March 2023}}
+\Large\textbf{\centerline{on Friday, 21 March 2025}}
 
 \bigskip
 \normalsize
 \normalspacing
 
-The Midterm Exam on Friday, 24 March is \emph{closed book} and \emph{closed notes}.  Please bring nothing but a writing implement.
+The Midterm Exam on Friday, 21 March is \emph{closed book} and \emph{closed notes}.  Please bring nothing but a writing implement.
 
-It will cover Chapters 1, 2, 3, and 5 of the textbook,\footnote{R.~LeVeque, \emph{Finite Difference Methods \dots}, SIAM Press 2007}, plus sections 4.1 and 4.2 and some content from Appendices (see below), plus the ``\href{https://bueler.github.io/nade/assets/slides/iterative.pdf}{Classical iterative methods for linear and nonlinear systems}'' notes.  On this Review Guide I list \emph{specific} material that will be covered.  Material significantly different from what is listed below will \emph{not} be covered.  My goal is to only include topics that have appeared on homework and in lecture.
+It will cover Chapters 1, 2, 3, and 5 of the textbook,\footnote{R.~LeVeque, \emph{Finite Difference Methods \dots}, SIAM Press 2007}, plus sections 4.1 and 4.2 and some content from Appendices (see below), plus the ``Classical iterative methods'' slides (see the Daily Log tab).  On this Review Guide I list \emph{specific} material that will be covered.  Material different from what is listed below will \emph{not} be covered.  My goal is to only include topics that have appeared on homework and in lecture.
 
 The problems will be of these types: state definitions, state/derive formulas, explain/justify theorems and formulas, compute simple examples, give examples with certain properties, or describe/illustrate/sketch concepts.  You are expected to use reasonable or common notation, or at least make your notation clear.  Note that I will \emph{not} ask you to ``state definition 2.1'' or anything like that which requires remembering locations in the book.
 
@@ -89,28 +89,28 @@ The problems will be of these types: state definitions, state/derive formulas, e
 \noindent \textbf{Definitions and Notation}.  Be able to state and use the definition, and/or use the notation/language correctly:
 \begin{itemize}
 \item acronyms: ODE, PDE, IVP, BVP
-\item order of a differential equation ($=$ maximum number of derivatives in it)
+\item order of a differential equation
 \item one-sided and centered finite difference approximations of derivatives $u'(x)$ and $u''(x)$ (pages 3--4)
 \item absolute and relative error (Appendix A.1)
 \item $O(h^p)$ and other ``big-oh'' notation (Appendix A.2)
 \item vector norm (Appendix A.3)
 \item errors in grid functions (Appendix A.4)
-\item local truncation error (sections 2.5, 3.4, and 5.4: $\tau^h$ is the residual from applying the scheme to the exact solution)
-\item global or numerical error (section 2.6: $E_j = U_j - u(x_j)$ or $E = U - \hat U$)
+\item local truncation error: $\tau^h$ is the residual from applying the scheme to the exact solution (sections 2.5, 3.4, and 5.4)
+\item numerical error: $E_j = U_j - u(x_j)$ or $E = U - \hat U$ (section 2.6)
 \item stable method (definition 2.1 in section 2.7)
 \item consistent method (section 2.8)
 \item convergent method (section 2.9)
 \item Poisson equation, Laplace equation, Laplacian operator (page 60, section 3.1)
 \item 5-point stencil for Laplacian in 2D (section 3.2)
-\item eigenvalues and eigenvectors (see Assignment \#5: $A v = \lambda v$ where $v\ne 0$)
+\item eigenvalues and eigenvectors: $A v = \lambda v$ where $v\ne 0$ (see Assignment 5)
 \item spectral radius (Appendix C)
 \item diagonalizable matrix (Appendix C.2)
 \item matrix exponential (Appendix D.3)
-\item Richardson, Jacobi, and Gauss-Seidel iterations for a linear system $Ax=b$ (Assignment \#3 and ``Classical iterative methods \dots'' slides, \emph{and} sections 4.1, 4.2)
-\item Newton iteration (Assignment \#3 and ``Classical iterative methods \dots'' slides, \emph{and} section 2.16)
+\item Richardson, Jacobi, and Gauss-Seidel iterations for a linear system $Ax=b$ (``Classical iterative methods \dots'' slides, \emph{and} sections 4.1, 4.2)
+\item Newton iteration (section 2.16)
 \item $f(u,t)$ is Lipschitz continuous in $u$ (formula (5.15) in section 5.2)
 \item forward Euler, backward Euler, and trapezoid methods (section 5.3)
-\item explicit midpoint and explicit trapezoid methods (section 5.6; EM is (5.30)), as examples of Runge-Kutta methods
+\item early Runge-Kutta methods: explicit midpoint and explicit trapezoid methods (section 5.6; EM is (5.30))
 \end{itemize}
 
 \bigskip
@@ -119,7 +119,7 @@ The problems will be of these types: state definitions, state/derive formulas, e
 \begin{itemize}
 \item Taylor series (page 5) and Taylor's theorem with remainder
 \item fundamental theorem of finite difference methods (statement (2.22), section 2.9), which is essentially the Lax equivalence theorem
-\item convergence lemma for iterations $y_{k+1} = M y_k + c$ (Assignment \#3 and ``Classical iterative \dots'' slides)
+\item convergence lemma for iterations $y_{k+1} = M y_k + c$ (``Classical iterative \dots'' slides)
 \item definitions of the matrix exponential (Appendix D.3)
 \end{itemize}
 
@@ -129,7 +129,7 @@ The problems will be of these types: state definitions, state/derive formulas, e
 \begin{itemize}
 \item derive a finite difference approximation by the method of undetermined coefficients (page 7)
 \item set up a finite difference scheme for a general, possibly nonlinear, second-order ODE BVP (sections 2.4, 2.15, 2.16.1)
-\item Newton's method (section 2.16.1, ``Classical iterative methods \dots'' slides)
+\item Newton's method (section 2.16.1)
 \item set up a finite difference scheme for Poisson equation in 2D (sections 3.2, 3.3)
 \item implement a Neumann boundary condition for an ODE BVP FD scheme (section 2.12)
 \item convert a higher-order scalar ODE into a system of first-order ODEs (example given in section 5.1)

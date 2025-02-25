@@ -4,7 +4,7 @@ exams:
 - name: Midterm Exam
   date: Friday 21 March
   info: <b>in class</b>
-  #reviewguide: midreview.pdf
+  reviewguide: midreview.pdf
   blank: midS23.pdf
   solutions: midS23solns.pdf
 - name: Final Exam = 2 case summaries
