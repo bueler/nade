@@ -1,0 +1,146 @@
+\documentclass[12pt]{amsart}
+\addtolength{\topmargin}{-0.6in} % usually -0.25in
+\addtolength{\textheight}{1.25in} % usually 1.25in
+\addtolength{\oddsidemargin}{-0.8in}
+\addtolength{\evensidemargin}{-0.8in}
+\addtolength{\textwidth}{1.6in} %\setlength{\parindent}{0pt}
+
+\newcommand{\normalspacing}{\renewcommand{\baselinestretch}{1.1}\tiny\normalsize}
+\newcommand{\bigspacing}{\renewcommand{\baselinestretch}{1.15}\tiny\normalsize}
+\newcommand{\tablespacing}{\renewcommand{\baselinestretch}{1.0}\tiny\normalsize}
+\normalspacing
+
+% macros
+\usepackage{amssymb,xspace}
+\usepackage[pdftex,colorlinks=true]{hyperref}
+
+\usepackage[final]{graphicx}
+\newcommand{\regfigure}[3]{\includegraphics[height=#2in,width=#3in]{#1.eps}}
+
+\newtheorem*{thm}{Theorem}
+\newtheorem*{lem}{Lemma}
+
+\newcommand{\mtt}{\texttt}
+\newcommand{\mtl}[1]{{\texttt{>>#1}}}
+\usepackage{alltt}
+\usepackage{fancyvrb}
+
+\newcommand{\bu}{\mathbf{u}}
+\newcommand{\bv}{\mathbf{v}}
+
+\newcommand{\CC}{{\mathbb{C}}}
+\newcommand{\RR}{{\mathbb{R}}}
+\newcommand{\ZZ}{{\mathbb{Z}}}
+\newcommand{\ZZn}{{\mathbb{Z}}_n}
+\newcommand{\NN}{{\mathbb{N}}}
+
+\newcommand{\eps}{\epsilon}
+\newcommand{\grad}{\nabla}
+\newcommand{\lam}{\lambda}
+\newcommand{\ip}[2]{\mathrm{\left<#1,#2\right>}}
+\newcommand{\erf}{\operatorname{erf}}
+
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\Arg}{\operatorname{Arg}}
+
+\newcommand{\Span}{\operatorname{span}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\range}{\operatorname{range}}
+\newcommand{\trace}{\operatorname{tr}}
+\newcommand{\Null}{\operatorname{null}}
+
+\newcommand{\Matlab}{\textsc{Matlab}\xspace}
+\newcommand{\Octave}{\textsc{Octave}\xspace}
+\newcommand{\pylab}{\textsc{pylab}\xspace}
+\newcommand{\longMOP}{\textsc{Matlab}\big|\textsc{Octave}\big|\textsc{pylab}\xspace}
+\newcommand{\MOP}{\textsc{M}\big|\textsc{O}\big|\textsc{p}\xspace}
+
+\newcommand{\prob}[1]{\bigskip\noindent\large\textbf{#1.} \normalsize}
+\newcommand{\bookprob}[1]{\bigskip\noindent\large\textbf{Exercise #1.} \normalsize}
+\newcommand{\probpart}[1]{\smallskip\noindent\textbf{(#1)}\quad }
+\newcommand{\aprobpart}[1]{\textbf{(#1)}\quad }
+
+
+\begin{document}
+\scriptsize \noindent Math 615 NADE (Bueler) \hfill Spring 2023
+\thispagestyle{empty}
+
+\bigskip
+\Large\textbf{\centerline{Review Guide for In-Class Midterm Exam}}
+
+\Large\textbf{\centerline{on Friday, 24 March 2023}}
+
+\bigskip
+\normalsize
+\normalspacing
+
+The Midterm Exam on Friday, 24 March is \emph{closed book} and \emph{closed notes}.  Please bring nothing but a writing implement.
+
+It will cover Chapters 1, 2, 3, and 5 of the textbook,\footnote{R.~LeVeque, \emph{Finite Difference Methods \dots}, SIAM Press 2007}, plus sections 4.1 and 4.2 and some content from Appendices (see below), plus the ``\href{https://bueler.github.io/nade/assets/slides/iterative.pdf}{Classical iterative methods for linear and nonlinear systems}'' notes.  On this Review Guide I list \emph{specific} material that will be covered.  Material significantly different from what is listed below will \emph{not} be covered.  My goal is to only include topics that have appeared on homework and in lecture.
+
+The problems will be of these types: state definitions, state/derive formulas, explain/justify theorems and formulas, compute simple examples, give examples with certain properties, or describe/illustrate/sketch concepts.  You are expected to use reasonable or common notation, or at least make your notation clear.  Note that I will \emph{not} ask you to ``state definition 2.1'' or anything like that which requires remembering locations in the book.
+
+\emph{Strongly recommended}:  Get together with other students and work through this Review Guide.  Be honest with yourself about what you do and don't know.  Talk it through and learn!  Also, please ask questions about Exam content during lectures on Monday 20 March and Wednesday 22 March.
+
+\bigskip
+
+\bigspacing
+\noindent \textbf{Definitions and Notation}.  Be able to state and use the definition, and/or use the notation/language correctly:
+\begin{itemize}
+\item acronyms: ODE, PDE, IVP, BVP
+\item order of a differential equation ($=$ maximum number of derivatives in it)
+\item one-sided and centered finite difference approximations of derivatives $u'(x)$ and $u''(x)$ (pages 3--4)
+\item absolute and relative error (Appendix A.1)
+\item $O(h^p)$ and other ``big-oh'' notation (Appendix A.2)
+\item vector norm (Appendix A.3)
+\item errors in grid functions (Appendix A.4)
+\item local truncation error (sections 2.5, 3.4, and 5.4: $\tau^h$ is the residual from applying the scheme to the exact solution)
+\item global or numerical error (section 2.6: $E_j = U_j - u(x_j)$ or $E = U - \hat U$)
+\item stable method (definition 2.1 in section 2.7)
+\item consistent method (section 2.8)
+\item convergent method (section 2.9)
+\item Poisson equation, Laplace equation, Laplacian operator (page 60, section 3.1)
+\item 5-point stencil for Laplacian in 2D (section 3.2)
+\item eigenvalues and eigenvectors (see Assignment \#5: $A v = \lambda v$ where $v\ne 0$)
+\item spectral radius (Appendix C)
+\item diagonalizable matrix (Appendix C.2)
+\item matrix exponential (Appendix D.3)
+\item Richardson, Jacobi, and Gauss-Seidel iterations for a linear system $Ax=b$ (Assignment \#3 and ``Classical iterative methods \dots'' slides, \emph{and} sections 4.1, 4.2)
+\item Newton iteration (Assignment \#3 and ``Classical iterative methods \dots'' slides, \emph{and} section 2.16)
+\item $f(u,t)$ is Lipschitz continuous in $u$ (formula (5.15) in section 5.2)
+\item forward Euler, backward Euler, and trapezoid methods (section 5.3)
+\item explicit midpoint and explicit trapezoid methods (section 5.6; EM is (5.30)), as examples of Runge-Kutta methods
+\end{itemize}
+
+\bigskip
+
+\noindent \textbf{Formulas, Theorems, and Lemmas}.  Understand and remember.
+\begin{itemize}
+\item Taylor series (page 5) and Taylor's theorem with remainder
+\item fundamental theorem of finite difference methods (statement (2.22), section 2.9), which is essentially the Lax equivalence theorem
+\item convergence lemma for iterations $y_{k+1} = M y_k + c$ (Assignment \#3 and ``Classical iterative \dots'' slides)
+\item definitions of the matrix exponential (Appendix D.3)
+\end{itemize}
+
+\bigskip
+
+\noindent \textbf{Techniques}.  Understand and remember.  Be able to illustrate with an example.  Be able to take a single step, or do a single iteration, on a simple example.
+\begin{itemize}
+\item derive a finite difference approximation by the method of undetermined coefficients (page 7)
+\item set up a finite difference scheme for a general, possibly nonlinear, second-order ODE BVP (sections 2.4, 2.15, 2.16.1)
+\item Newton's method (section 2.16.1, ``Classical iterative methods \dots'' slides)
+\item set up a finite difference scheme for Poisson equation in 2D (sections 3.2, 3.3)
+\item implement a Neumann boundary condition for an ODE BVP FD scheme (section 2.12)
+\item convert a higher-order scalar ODE into a system of first-order ODEs (example given in section 5.1)
+\item take a step of the forward Euler, backward Euler, trapezoid, explicit midpoint, or explicit trapezoid method (sections 5.3 and 5.6; EM is (5.30))
+\item draw an explanatory sketch or cartoon of a Runge-Kutta method, from its formulas (as done in lecture)
+\end{itemize}
+
+\medskip
+\noindent \emph{Make sure you can do these techniques!}  Practice explaining/showing examples to another person.  During the Exam the emphasis will be on quickly stating definitions, or setting-up or explaining techniques, or doing brief computations, all on paper and considering only easy examples.  Pseudocodes will be requested in some cases, but you will \emph{not}, of course, be asked to do many steps of anything.
+\vfill
+
+
+\end{document}
+
