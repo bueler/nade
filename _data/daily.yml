@@ -1,6 +1,12 @@
 semester: Spring 2025
 home: assets/
 daily:
+- name: Monday 3 March
+  covered: Lipschitz condition, well-posedness
+- name: Friday 28 February
+  covered: eigenvalues/vectors, diagonalization
+- name: Wednesday 26 February
+  covered: examples, matrix exponential
 - name: Monday 24 February
   covered: initial value problems
   chapter: 5
