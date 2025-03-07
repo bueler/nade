@@ -1,0 +1,128 @@
+\documentclass[11pt]{amsart}
+%prepared in AMSLaTeX, under LaTeX2e
+\addtolength{\oddsidemargin}{-.65in}
+\addtolength{\evensidemargin}{-.65in}
+\addtolength{\topmargin}{-.6in}
+\addtolength{\textwidth}{1.4in}
+\addtolength{\textheight}{1.3in}
+\newcommand{\normalspacing}{\renewcommand{\baselinestretch}{1.05}
+        \tiny\normalsize}
+
+\newtheorem*{thm}{Theorem}
+\newtheorem*{lem}{Lemma}
+\newtheorem*{defn}{Definition}
+\newtheorem*{example}{Example}
+\newtheorem*{problem}{Problem}
+\newtheorem*{remark}{Remark}
+
+\usepackage{amssymb,fancyvrb,alltt,xspace}
+
+\VerbatimFootnotes
+
+\newcommand{\mtt}{\texttt}
+
+\usepackage{fancyvrb}
+\newcommand{\mfile}[1]{
+\begin{quote}
+\bigskip
+%\VerbatimInput[frame=single]{#1}
+\VerbatimInput[frame=single,label=\fbox{\normalsize \textsl{\,#1\,}},fontfamily=courier,fontsize=\scriptsize]{#1}
+\end{quote}
+}
+
+\usepackage[final]{graphicx}
+\newcommand{\mfigure}[1]{\includegraphics[width=3.2in,
+keepaspectratio=true]{#1.eps}}
+\newcommand{\widefigure}[2]{\includegraphics[width=#2in,
+keepaspectratio=true]{#1.eps}}
+
+
+% macros
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\Div}{\nabla\cdot}
+\newcommand{\eps}{\epsilon}
+\newcommand{\grad}{\nabla}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\ip}[2]{\ensuremath{\left<#1,#2\right>}}
+\newcommand{\lam}{\lambda}
+\newcommand{\lap}{\triangle}
+\newcommand{\RR}{\mathbb{R}}
+
+\newcommand{\tb}{\textsc{Morton \& Mayers 2nd ed}}
+\newcommand{\pexer}[2]{\bigskip\noindent\textbf{#1.} (Exercise #2 in \tb.)}
+\newcommand{\prob}[1]{\bigskip\noindent\large\textbf{#1.}\normalsize }
+\newcommand{\apart}[1]{\quad \textbf{(#1)} \quad }
+\newcommand{\ppart}[1]{\medskip\noindent\textbf{(#1)} \quad }
+\newcommand{\note}[1]{[\scriptsize #1 \normalsize]}
+
+\newcommand{\Matlab}{\textsc{Matlab}\xspace}
+\newcommand{\Octave}{\textsc{Octave}\xspace}
+\newcommand{\pylab}{\textsc{pylab}\xspace}
+\newcommand{\MOP}{\textsc{MOP}\xspace}
+
+
+\begin{document}
+\scriptsize
+\noindent Math 615 NADE \hfill \Large Name:\underline{\phantom{DLFJD SFLKJSD sdfa asdf  asdf}}
+
+\thispagestyle{empty}
+\bigskip
+
+\Large\centerline{\textbf{Project Evaluation}}
+\normalsize\normalspacing
+
+\bigskip
+
+\begin{quote}
+The Proposal is 5\% and the completed Project is 15\% of your course grade.
+\end{quote}
+
+\noindent\rule{\textwidth}{0.7mm}
+\bigskip
+
+\large\centerline{\textbf{PROPOSAL}}
+\bigskip
+
+\noindent \underline{5 points: format (\emph{4 to 8 pages, required section headings, 4 references})}
+\vfill
+
+\noindent \underline{5 points: coverage (\emph{drafted major parts: introduction, continuum model, numerical scheme,}}
+
+\noindent \underline{\emph{analysis, results})}
+\vfill
+
+\noindent \underline{5 points: correctness/reasonableness of plan}
+\vfill
+
+\noindent \underline{5 points: quality of material so far}
+\vfill
+
+\hfill TOTAL = \phantom{foo bar} / 20
+
+\newpage
+
+
+\large\centerline{\textbf{FURTHER SUGGESTIONS (FEEDBACK ON PROPOSAL)}}
+\bigskip
+
+\vspace{3.0in}
+
+\noindent\rule{\textwidth}{0.7mm}
+\bigskip
+
+\large\centerline{\textbf{COMPLETED PROJECT}}
+\bigskip
+
+\noindent \underline{20 points: adequacy, correctness, and quality of mathematical/numerical analysis}
+\vfill
+
+\noindent \underline{20 points: adequacy, correctness, and quality of practical computation}
+\vfill
+
+\noindent \underline{20 points: exposition/writing, figure quality, organization and readability}
+\vfill
+
+\hfill TOTAL = \phantom{foo bar} / 60
+
+\end{document}
+
