@@ -1,6 +1,10 @@
 semester: Spring 2025
 home: assets/
 daily:
+- name: Friday 7 March
+  covered: explicit midpoint, trapezoid, truncation error
+- name: Wednesday 5 March
+  covered: direction fields, forward & backward Euler
 - name: Monday 3 March
   covered: Lipschitz condition, well-posedness
 - name: Friday 28 February
@@ -36,7 +40,7 @@ daily:
 - name: Friday 31 January
   covered: definition of convergent, stable
 - name: Wednesday 29 January
-  covered: definitions of LTE, consistent
+  covered: definitions of local trucation error, consistent
 - name: Monday 27 January
   covered: constructive FD solution of u''=f with b.c.s
 - name: Friday 24 January
