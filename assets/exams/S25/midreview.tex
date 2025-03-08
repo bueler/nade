@@ -13,7 +13,7 @@
 % macros
 \usepackage{amssymb,xspace}
 \usepackage[pdftex,colorlinks=true]{hyperref}
-
+\usepackage[dvipsnames]{xcolor}
 \usepackage[final]{graphicx}
 \newcommand{\regfigure}[3]{\includegraphics[height=#2in,width=#3in]{#1.eps}}
 
@@ -63,7 +63,7 @@
 
 
 \begin{document}
-\scriptsize \noindent Math 615 NADE (Bueler) \hfill \today \,(version 1)
+\scriptsize \noindent Math 615 NADE (Bueler) \hfill {\color{BrickRed} \today \,(version 2)}
 \thispagestyle{empty}
 
 \bigskip
@@ -77,11 +77,11 @@
 
 The Midterm Exam on Friday, 21 March is \emph{closed book} and \emph{closed notes}.  Please bring nothing but a writing implement.
 
-It will cover Chapters 1, 2, 3, and 5 of the textbook,\footnote{R.~LeVeque, \emph{Finite Difference Methods \dots}, SIAM Press 2007}, plus sections 4.1 and 4.2 and some content from Appendices (see below), plus the ``Classical iterative methods'' slides (see the Daily Log tab).  On this Review Guide I list \emph{specific} material that will be covered.  Material different from what is listed below will \emph{not} be covered.  My goal is to only include topics that have appeared on homework and in lecture.
+It will cover Chapters 1, 2, 3, and 5 of the textbook.\footnote{R.~LeVeque, \emph{Finite Difference Methods \dots}, SIAM Press 2007}  On this Review Guide I list \emph{specific} material that will be covered.  Material different from what is listed below will \emph{not} be covered.  My goal is to only include topics that have appeared on homework and in lecture.
 
 The problems will be of these types: state definitions, state/derive formulas, explain/justify theorems and formulas, compute simple examples, give examples with certain properties, or describe/illustrate/sketch concepts.  You are expected to use reasonable or common notation, or at least make your notation clear.  Note that I will \emph{not} ask you to ``state definition 2.1'' or anything like that which requires remembering locations in the book.
 
-\emph{Strongly recommended}:  Get together with other students and work through this Review Guide.  Be honest with yourself about what you do and don't know.  Talk it through and learn!  Also, please ask questions about Exam content during lectures on Monday 20 March and Wednesday 22 March.
+\emph{Strongly recommended}:  Get together with other students and work through this Review Guide.  Be honest with yourself about what you do and don't know.  Talk it through and learn!  Also, please ask questions about Exam content during lectures on Monday 17 March and Wednesday 19 March.
 
 \bigskip
 
@@ -106,7 +106,6 @@ The problems will be of these types: state definitions, state/derive formulas, e
 \item spectral radius (Appendix C)
 \item diagonalizable matrix (Appendix C.2)
 \item matrix exponential (Appendix D.3)
-\item Richardson, Jacobi, and Gauss-Seidel iterations for a linear system $Ax=b$ (``Classical iterative methods \dots'' slides, \emph{and} sections 4.1, 4.2)
 \item Newton iteration (section 2.16)
 \item $f(u,t)$ is Lipschitz continuous in $u$ (formula (5.15) in section 5.2)
 \item forward Euler, backward Euler, and trapezoid methods (section 5.3)
@@ -119,7 +118,6 @@ The problems will be of these types: state definitions, state/derive formulas, e
 \begin{itemize}
 \item Taylor series (page 5) and Taylor's theorem with remainder
 \item fundamental theorem of finite difference methods (statement (2.22), section 2.9), which is essentially the Lax equivalence theorem
-\item convergence lemma for iterations $y_{k+1} = M y_k + c$ (``Classical iterative \dots'' slides)
 \item definitions of the matrix exponential (Appendix D.3)
 \end{itemize}
 
