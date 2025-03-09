@@ -22,6 +22,10 @@ The first block of codes comes from examples used in lecture as demonstrations, 
 
 ## from homework solutions
 
+From Assignment 5:
+
+  * [randrealeigs.m](assets/codes/S25/randrealeigs.m)
+
 From Assignment 4:
 
   * [pendulum.m](assets/codes/S25/pendulum.m)
