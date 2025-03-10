@@ -1,6 +1,9 @@
 semester: Spring 2025
 home: assets/homework/S25
 homework:
+- name: Assignment 6
+  due: Monday 31 March
+  blank: A6.pdf
 - name: Assignment 5
   due: Friday 7 March
   blank: A5.pdf

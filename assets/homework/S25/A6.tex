@@ -1,0 +1,173 @@
+\documentclass[12pt]{amsart}
+%prepared in AMSLaTeX, under LaTeX2e
+\addtolength{\oddsidemargin}{-.6in} 
+\addtolength{\evensidemargin}{-.6in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textwidth}{1.2in}
+\addtolength{\textheight}{1.0in}
+
+\renewcommand{\baselinestretch}{1.05}
+
+\usepackage{verbatim,fancyvrb}
+\usepackage{soul}
+\usepackage{palatino}
+\usepackage[dvipsnames]{xcolor}
+
+\newtheorem*{thm}{Theorem}
+\newtheorem*{defn}{Definition}
+\newtheorem*{example}{Example}
+\newtheorem*{problem}{Problem}
+\newtheorem*{remark}{Remark}
+
+\newcommand{\mtt}{\texttt}
+\usepackage{alltt,xspace}
+\newcommand{\mfile}[1]
+{\medskip\begin{quote}\scriptsize \begin{alltt}\input{#1.m}\end{alltt} \normalsize\end{quote}\medskip}
+
+\usepackage[final]{graphicx}
+\newcommand{\mfigure}[1]{\includegraphics[height=2.5in,
+width=3.5in]{#1.eps}}
+\newcommand{\regfigure}[2]{\includegraphics[height=#2in,
+keepaspectratio=true]{#1.eps}}
+\newcommand{\widefigure}[3]{\includegraphics[height=#2in,
+width=#3in]{#1.eps}}
+
+\usepackage{amssymb}
+
+\usepackage[pdftex, colorlinks=true, plainpages=false, linkcolor=black, citecolor=red, urlcolor=red]{hyperref}
+
+% macros
+\newcommand{\br}{\mathbf{r}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\by}{\mathbf{y}}
+
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+
+\newcommand{\eps}{\epsilon}
+\newcommand{\grad}{\nabla}
+\newcommand{\lam}{\lambda}
+\newcommand{\lap}{\triangle}
+
+\newcommand{\ip}[2]{\ensuremath{\left<#1,#2\right>}}
+
+%\renewcommand{\det}{\operatorname{det}}
+\newcommand{\onull}{\operatorname{null}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\range}{\operatorname{range}}
+
+\newcommand{\Julia}{\textsc{Julia}\xspace}
+\newcommand{\Matlab}{\textsc{Matlab}\xspace}
+\newcommand{\Octave}{\textsc{Octave}\xspace}
+\newcommand{\Python}{\textsc{Python}\xspace}
+
+\newcommand{\prob}[1]{\bigskip\noindent\textbf{#1}\quad }
+
+\newcommand{\chapexers}[2]{\prob{Chapter #1, pages #2, Exercises:}}
+\newcommand{\exer}[2]{\prob{Exercise #1}}
+
+\newcommand{\pts}[1]{(\emph{#1 pts}) }
+\newcommand{\epart}[1]{\medskip\noindent\textbf{(#1)}\quad }
+\newcommand{\ppart}[1]{\,\textbf{(#1)}\quad }
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=ellipse,draw,inner sep=2pt] (char) {#1};}}
+
+
+\begin{document}
+\scriptsize \noindent Math 615 NADE (Bueler) \hfill 10 March, 2025
+\normalsize
+
+\medskip\bigskip
+
+\Large\centerline{\textbf{Assignment \#6}}
+\large
+\bigskip
+
+\centerline{\textbf{Due Monday, 31 March 2025, at the start of class}}
+\bigskip
+\normalsize
+
+\thispagestyle{empty}
+
+\bigskip
+Please read sections 5.3--5.9 and 6.1--6.4 from the textbook (R.~J.~LeVeque, \emph{Finite Difference Methods for Ordinary and Partial Diff.~Eqns.}, SIAM Press 2007).
+
+\medskip
+
+
+\prob{Problem P24.}  For an autonomous ODE system $u'(t) = f(u(t))$, compute the leading term in the local truncation error of the following 2 methods.  For part \textbf{(a)}, please follow the style of Example 5.9.\footnote{For the multistep midpoint rule (5.23), Example 5.9 finds leading-order term $\frac{1}{6} k^2 u'''(t_n)$.}  For part \textbf{(b)} follow Example 5.11, which handles scheme (5.30), the explicit midpoint rule.  That is, for part \textbf{(b)} you should show the simpler fact $\tau^n=O(k^2)$, without finding the leading-order coefficient.
+
+\epart{a} the 2-step BDF method (5.25).
+
+\medskip
+\noindent \emph{Hint.}  Expand around $t_{n+1}$, to get $\tau^{n+1}$.
+
+\epart{b} the explicit trapezoid method,
+\begin{align*}
+U^\ast &= U^n + k f(U^n) \\
+U^{n+1} &= U^n + \frac{k}{2} \Big(f(U^n) + f(U^\ast)\Big),
+\end{align*}
+which is $U^{n+1} = U^n + \frac{k}{2} \Big(f(U^n) + f\big(U^n + k f(U^n)\big)\Big)$ when combined.
+
+
+\prob{Problem P25.}  \ppart{a}  In preparation for problem \textbf{P26} below, write two solvers
+
+\centerline{\texttt{function [tt,zz] = fe1(f,eta,t0,tf,N)}}
+
+\centerline{\texttt{function [tt,zz] = rk4(f,eta,t0,tf,N)}}
+
+\noindent which implement the forward Euler scheme $U^{n+1}=U^n+kf(t_n,U^n)$ and the classical RK4 scheme (5.33), respectively, to solve the ODE IVP in (5.1) and (5.2).  The first input to these solvers is \texttt{function z = f(t,u)}.\footnote{Please use the \Matlab and \texttt{scipy.integrate} variable order here, namely $f(t,u)$, and not the book order ``$f(u,t)$.''  Numerical libraries, and their black box solvers like \texttt{ode45} or \texttt{scipy.integrate.solve\_ivp}, generally use $f(t,u)$.  I don't know why LeVeque swapped it, but I advise against following him.}  The other inputs are a vector of initial values \texttt{eta} $= u(t_0)$, the initial time \texttt{t0}, the final time \texttt{tf}, and the number of equal-length steps (subintervals) \texttt{N}, respectively.  Note that the time step is $k = (t_f-t_0)/N$.  Each solver outputs the entire trajectory, so \texttt{tt} is a 1D array of length $N+1$ starting with $t_0$ and ending with $t_f$.\footnote{Again, this is compatible with how the \Matlab and \texttt{scipy.integrate} solvers do things.}  If $\eta\in\RR^s$ then \texttt{zz} is a 2D array with $s$ rows and $N+1$ columns; each column $i$ gives the solution $u(t)$ at the $i$th time in \texttt{tt}.
+
+\epart{b}  Solve the following problem exactly:
+    $$x'' + 4 x = 0, \qquad x(0)=1, \quad x'(0)=0.$$
+Also write this as a first order system, needed when setting-up numerical solvers.
+
+\epart{c} The problem in \textbf{(b)}, for example on the interval $[t_0,t_f] = [0,5]$, makes a good test case.  Demonstrate that the final-time, absolute numerical error of each solver in \textbf{(a)} converges at the expected rate as $k\to 0$.
+
+\medskip
+\noindent \emph{Hint.} What is the expected rate is for each method?  There is no need to compute local truncation errors yourself, but you must know their orders.
+
+
+\prob{Problem P26.}  \emph{This is a real application.  Perhaps it will help you appreciate our abstract notation for ODE systems, vector data types in our languages, and higher-order explicit ODE schemes.  This problem has an exact solution,\footnote{See, for example: {\scriptsize\url{https://www.diva-portal.org/smash/get/diva2:630427/FULLTEXT01.pdf}}} but it is not used here.}
+
+\medskip
+\noindent Consider the problem of two massive bodies (particles) with masses $m_1$ and $m_2$.  They are attracted by gravity only.  They travel in a plane so their positions are given by vector-valued functions $\bx_i(t) = (x_i(t),y_i(t))$ for $i=1,2$.  Newton's second law and Newton's law of gravity combine to say:
+\begin{align}
+m_1 \bx_1'' &= - G m_1 m_2 \frac{\bx_1 - \bx_2}{|\bx_1 - \bx_2|^3} \label{twobody} \\
+m_2 \bx_2'' &= - G m_1 m_2 \frac{\bx_2 - \bx_1}{|\bx_1 - \bx_2|^3} \notag
+\end{align}
+
+We will consider the Earth and the Moon in isolation as our example.  Thus the constants are $m_1 = 5.972 \times 10^{24} \,\text{kg}$, $m_2 = 7.348 \times 10^{22} \,\text{kg}$, and $G = 6.674 \times 10^{-11}\,\text{m}^3\,\text{kg}^{-1}\,\text{s}^{-2}$.  We measure $t$ in seconds---convert all times to seconds inside the solver!---and $x_i,y_i$ in meters.  (\emph{Please confirm that the units are consistent in system} (1).)
+
+\epart{a} By using notation $v_i=x_i', w_i=y_i'$ for $i=1,2$, write system (1) as a first-order ODE system of dimension $s=8$, with solution column vector $u(t)\in\RR^8$.  Use the component ordering
+\begin{align*}
+u(t) &= \begin{bmatrix} x_1(t) & y_1(t) & x_2(t) & y_2(t) & v_1(t) & w_1(t) & v_2(t) & w_2(t) \end{bmatrix}^\top \\
+     &= \begin{bmatrix} u_1(t) & u_2(t) & u_3(t) & u_4(t) & u_5(t) & u_6(t) & u_7(t) & u_8(t) \end{bmatrix}^\top.
+\end{align*}
+That is, write system \eqref{twobody} in the form of (5.1) in the book:\footnote{In fact the right side of this ODE system does not have explicit dependence on $t$, but, to avoid confusion in the implementation, use the \Matlab/\texttt{scipy.integrate} variable ordering.} $u'(t) = f(t,u(t))$.  Then implement a single function
+
+\centerline{\texttt{function z = fearthmoon(t,u)}}
+
+\noindent which computes the right-hand-side function $f(t,u)$ of the ODE system.
+
+\epart{b}  Here are some initial conditions which are vaguely like what they are in reality,\footnote{I searched ``earth moon distance meters'' and ``mean orbital velocity moon.''} at least if you turned off all the gravity of other bodies and start the Earth at the origin: $t_0=0$, $x_1(0)=0,y_1(0)=0,v_1(0)=0,w_1(0)=0$, $x_2(0)=3.844\times 10^8$ meters, $y_2(0)=0$, $v_2(0)=0$, $w_2(0)=1.022\times 10^3 \,\text{m}\,\text{s}^{-1}$.  Use these initial conditions to generate approximate solutions with $t_f=35$ days.
+
+Now use each of the solvers from problem \textbf{P25} with $N=40$ and $N=960$, i.e.~daily and hourly time steps, respectively.  Also use \texttt{ode45()}, or comparable dual-order, adaptive Runge-Kutta black-box solver, using the default accuracy.  That is, generate five numerical solutions.
+
+Do not, of course, show me lots of numbers.  Make basic plots of the computed trajectories, i.e.~the $x_i,y_i$ values.  Describe in a few words what you see, and how these results relate to the local truncation error of the schemes in \textbf{P25}.
+
+\epart{c}  How long in days is a lunar month, using your best computation from part \textbf{(b)}?  
+
+
+\prob{Problem P27.}  \ppart{a}  For ODE systems of form $u'(t)=Au(t)+g(t)$, where $A$ is a square matrix and $g:\RR\to\RR^s$, build a BDF2 multistep solver for the initial-value problem:
+
+\centerline{\texttt{function [tt,zz] = bdf2(A,g,eta,t0,tf,N)}}
+
+\noindent See equation (5.25).  Address the necessary linear algebra by using the default black box in your language, e.g.~backslash in Matlab, or by pre-factoring.\footnote{Either will get full credit, but the latter should be faster for large $s$.}  Also, choose a scheme for taking the first step which preserves the order of the method.
+
+\epart{b}  Solve exactly the same problem as in \textbf{P25(b)}, as a test case.  Demonstrate that the final-time numerical error converges at the expected rate as $k\to 0$.
+
+\end{document}
