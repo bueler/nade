@@ -11,6 +11,13 @@ The table below gives the date and coverage for the two Exams; also see the [Sch
 
 <div style="padding-bottom: 40px"></div>
 
+---
+### Old Exams
+
+#### Spring 2023
+
+{% include exam_table.md  data=site.data.examsS23 %}
+
 <!--
 ---
 ### Exams from Fall 2018

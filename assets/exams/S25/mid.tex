@@ -1,0 +1,197 @@
+\documentclass[11pt]{amsart}
+%\pagestyle{empty} 
+\setlength{\topmargin}{-0.5in} % usually -0.25in
+\addtolength{\textheight}{1.2in} % usually 1.25in
+\addtolength{\oddsidemargin}{-0.8in}
+\addtolength{\evensidemargin}{-0.8in}
+\addtolength{\textwidth}{1.6in} %\setlength{\parindent}{0pt}
+
+\newcommand{\normalspacing}{\renewcommand{\baselinestretch}{1.1}\tiny\normalsize}
+\normalspacing
+
+% macros
+\usepackage{amssymb,xspace,alltt,verbatim}
+\usepackage[final]{graphicx}
+\usepackage[pdftex,colorlinks=true]{hyperref}
+\usepackage{fancyvrb}
+\usepackage{tikz}
+
+\newtheorem*{lem*}{Lemma}
+
+\newcommand{\bs}{\mathbf{s}}
+\newcommand{\bu}{\mathbf{u}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\bbf}{\mathbf{f}}
+
+\newcommand{\CC}{{\mathbb{C}}}
+\newcommand{\RR}{{\mathbb{R}}}
+\newcommand{\eps}{\epsilon}
+\newcommand{\ZZ}{{\mathbb{Z}}}
+\newcommand{\ZZn}{{\mathbb{Z}}_n}
+\newcommand{\NN}{{\mathbb{N}}}
+\newcommand{\ip}[2]{\mathrm{\left<#1,#2\right>}}
+
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+
+\newcommand{\Log}{\operatorname{Log}}
+
+\newcommand{\grad}{\nabla}
+
+\newcommand{\Matlab}{\textsc{Matlab}\xspace}
+\newcommand{\Octave}{\textsc{Octave}\xspace}
+\newcommand{\pylab}{\textsc{pylab}\xspace}
+
+\newcommand{\prob}[1]{\bigskip\noindent \textbf{#1.}~}
+\newcommand{\pts}[1]{(\emph{#1 pts})}
+
+\newcommand{\probpts}[2]{\prob{#1} \pts{#2} \quad}
+\newcommand{\ppartpts}[2]{\textbf{(#1)} \pts{#2} \quad}
+\newcommand{\epartpts}[2]{\medskip\noindent \textbf{(#1)} \pts{#2} \quad}
+
+
+\begin{document}
+\hfill \Large Name:\underline{\phantom{really really really long long long name}}
+\medskip
+
+\scriptsize \noindent Math 615 NADE (Bueler) \hfill Friday, 21 March 2025
+\medskip
+
+\Large\centerline{\textbf{Midterm Exam}}
+
+\smallskip
+\large
+\begin{center}
+\textbf{In class.  No notes, textbook, or internet.  70 minutes.  100 points possible.}
+\end{center}
+
+\medskip
+
+\thispagestyle{empty}
+
+\normalsize
+\probpts{1}{10}   Use Taylor's theorem to derive the centered finite difference (FD) approximation to the first derivative $u'(x)$ for an equally-spaced grid.  (\emph{Hints.  Denote the grid spacing by $h$.  Use Taylor twice.  Combine and cancel terms.})  To state your final result, fill in the blanks at the bottom.
+\vfill
+
+{\large
+$$\hspace{2.0in} u'(x) = \frac{\boxed{\begin{matrix}  \phantom{sdkljfa sdakfl asdfklj asdf asdlfkj asdf} \\ \phantom{kjads} \end{matrix}}}{\boxed{\strut\phantom{ksdjf}}} + O\left(h^{\boxed{\phantom{jf}}}\right)$$
+}
+\bigskip
+
+
+\newpage
+\prob{2}  \ppartpts{a}{5}  Compute the eigenvalues of the matrix
+    $$A = \begin{bmatrix}
+    2 & 0 & -1 \\
+    0 & 1 & 0 \\
+    -8 & 0 & 0 
+    \end{bmatrix}. \hspace{5.0in}$$
+(\emph{Hint for checking your answer: Multiply $A$ by the unit vector $[0,1,0]^\top$.})
+\vfill
+
+\epartpts{b}{5}   Suppose $\lambda_i$ is an eigenvalue of any square matrix $A$.  Describe in several sentences how to use by-hand computations to find the corresponding eigenvectors.  Start by stating the equation satisfied by an eigenvector.  Also address what can happen if the eigenvalue has algebraic multiplicity greater than one.  Please use complete sentences!
+\vfill
+
+
+\newpage
+\prob{2} \ppartpts{a}{5}  For any square matrix $A\in\RR^{m\times m}$, define the \textbf{matrix exponential} $e^A$.
+\vspace{2.0in}
+
+\epartpts{b}{5}  Consider the following $2\times 2$ matrices:
+    $$R = \begin{bmatrix} 1 & -1 \\ 2 & 1 \end{bmatrix}, \qquad D = \begin{bmatrix} 6 & 0 \\ 0 & -9 \end{bmatrix}$$
+I assert that $R^{-1}=\begin{bmatrix} 1/3 & 1/3 \\ -2/3 & 1/3 \end{bmatrix}$; there is no need to check this assertion.  Compute $A=R D R^{-1}$.  Also, what are the eigenvalues of $A$?
+\vfill
+
+\epartpts{c}{5}  Compute and simplify $e^{At}$ for the matrix in part \textbf{(b)}.
+\vfill
+
+
+\newpage
+\probpts{3}{10}   Consider the ODE BVP
+\begin{equation}
+    u''(x) + 4 u(x) = f(x), \qquad u(0)=\alpha, \quad u(3) = \beta,
+\end{equation}
+for $f(x)$ a given continuous function and $\alpha,\beta$ any real numbers.  Propose an FD scheme, on an equally-spaced grid of $m$ subintervals, for this problem.  (\emph{Hints.  Describe the spacing and the grid.  State the main FD equation.  State how the boundary conditions are handled.  Make the range of indices clear in each expression.  You do not need to prove or explain anything.})
+\vfill
+
+
+\newpage
+\prob{4}  \ppartpts{a}{5}  For an ODE BVP problem, and an FD scheme with equal grid spacing $h>0$, for example as on the previous page, define the \textbf{local truncation error} $\tau^h$.  (\emph{Hints.  You need only \emph{define} it, not simplify or expand it.})
+\vfill
+
+\epartpts{b}{5}  In the same context of part \textbf{(a)}, denote the exact solution by $u(x)$ and the FD solution by $U^h$.  Define the \textbf{(numerical) error} $E^h$.
+\vfill
+
+\epartpts{c}{5}  Continuing in the context of parts \textbf{(a)} and \textbf{(b)}, define what it means for the FD scheme to be \textbf{convergent}.
+\vfill
+
+\epartpts{d}{5}  If the ODE BVP is also linear then, when the FD scheme is applied, the result is a matrix equation $A^h U^h = F^h$.  In this context, define what it means for the scheme to be \textbf{stable}.
+\vfill
+
+\epartpts{Extra Credit}{1}   Continuing in the context of part \textbf{(d)}, what is the \textbf{error equation}?  Derive this equation.
+\vfill
+
+
+\newpage
+\probpts{5}{5}  Suppose $f(t,u)$ is a function on $t\in\RR$ and $u \in \RR^s$.  Suppose $\|\cdot\|$ denotes a vector norm on $\RR^s$.  Define what it means for $f$ to be \textbf{Lipschitz continuous in} $u$.  (\emph{Hint.  There is no need to be more specific about the domain; you are defining Lipschitz continuity on all of $\RR^s$.})
+\vfill
+
+\probpts{6}{10}  Convert this third-order scalar ODE IVP \textbf{into an IVP for a first-order system}:
+    $$y''' - t \sin(y) y' + 4 y = \arctan(t), \qquad y(1) = 3, \, y'(1) = 2, \, y''(1) = 1$$ 
+Start with steps of a derivation---show your work---but please put your final ODE IVP system in the box below.
+\vfill
+
+{\large
+$$\hspace{2.0in} \boxed{\begin{matrix}  \phantom{sdkljfa adfda asdf asdf asdf sdakfl asdfklj asdf asdlfkj asdf} \\ \phantom{kjads} \\ \phantom{kjads} \\ \phantom{kjads} \\ \phantom{kjads} \\ \phantom{kjads} \\ \phantom{kjads} \end{matrix}}$$
+}
+\bigskip
+
+
+\newpage
+\probpts{7}{10}  Consider an ODE system
+    $$u'(t) = f(t, u(t))$$
+with initial condition $u(t_0)=\eta \in \RR^s$ and solution $u(t) \in \RR^s$.  Write a pseudocode for the \textbf{backward Euler method}.  The user provides a final time $t_f>t_0$, and the number $N$ of equal steps to use.  Your pseudocode will be graded for clarity, completeness, and generality.
+
+\medskip
+\noindent \textbf{Caveat:  One step of your pseudocode will be necessarily vague and incomplete!}  At this line, clearly identify, in a comment, what needs to happen.  Do not implement any approximation scheme here.
+
+\medskip
+\noindent \emph{Hints:  The first line below is in Matlab-style syntax.  However, syntax is not critical.  For example, you may switch to Python-type syntax, crossing-out and replacing the first line.  Remember to compute the step $k>0$.  Note that your pseudocode should return the entire trajectory.}
+
+\vspace{0.5in}
+\noindent {\large \texttt{function [tt, UU] = backwardEuler(f, t0, tf, eta, N)}}
+\vfill
+
+
+\newpage
+\prob{8}  \ppartpts{a}{5}  Make a large and well-annotated picture/cartoon of a single step of the \textbf{explicit midpoint method}:
+\begin{align*}
+U^* &= U^n + \frac{k}{2} f(t_n,U^n) \hspace{4.0in} \\
+U^{n+1} &= U^n + k f\left(t_n+\frac{k}{2},U^*\right)
+\end{align*}
+Specifically, in the $(t,u)$ plane, show the location where the step starts, show slopes for the locations where $f(t,u(t))$ is evaluated, and show the location which is the result of the step.
+\vfill
+
+\epartpts{b}{5}  Do one step of the explicit midpoint method on the scalar ODE IVP
+    $$u'(t) = t - 5 u(t), \quad u(0) = 3,$$
+assuming $k=2.0$.  That is, compute $U^1$.
+\vfill
+
+
+\newpage
+\probpts{Extra Credit}{3}  Again consider an ODE IVP system $u'(t) = f(t, u(t))$, $u(t_0)=\eta$, with solution $u(t) \in \RR^s$.  Write a pseudocode for the \textbf{(implicit) trapezoid method}.  Again, as in problem \textbf{7}, inputs include a final time $t_f>t_0$ and the number of steps $N$.  In this pseudocode, include an implementation of the Newton method to approximately solve the implicit equations at each step, and use a tolerance and a norm to state a reasonable stopping criterion for the Newton iteration.  Your pseudocode will be graded for clarity, completeness, and generality.
+\vfill
+
+
+\newpage
+\bigskip
+\hrulefill
+\begin{center}
+{\footnotesize
+\textsc{blank space for scratch work}
+}
+\end{center}
+\vfill
+
+\end{document}

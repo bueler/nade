@@ -5,8 +5,8 @@ exams:
   date: Friday 21 March
   info: <b>in class</b>
   reviewguide: midreview.pdf
-  blank: midS23.pdf
-  solutions: midS23solns.pdf
+  blank: mid.pdf
+  solutions: midsolns.pdf
 - name: Final Exam = 2 case summaries
   date: Thursday 1 May
   info: "<b>in class</b>, 3:15--5:15pm"
