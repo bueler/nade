@@ -5,7 +5,7 @@ title: Exams
 
 ## Exams
 
-The table below gives the date and coverage for the two Exams; also see the [Schedule](assets/general/S25/schedule.pdf).  Note that solutions will be posted at the [Canvas page for the course](https://canvas.alaska.edu/courses/24194) as soon as possible.
+The table below gives the date and coverage for the two Exams; also see the [Schedule](assets/general/S25/schedule.pdf).
 
 {% include exam_table.md  data=site.data.exams %}
 
