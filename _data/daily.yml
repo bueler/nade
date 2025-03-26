@@ -1,8 +1,21 @@
 semester: Spring 2025
 home: assets/
 daily:
+- name: Wednesday 26 March
+  covered: zero stability
+- name: Monday 24 March
+  covered: proof of Euler convergence
+  chapter: 6
+- name: Friday 21 March
+  covered: Midterm Exam
+- name: Wednesday 19 March
+  covered: one step error
+- name: Monday 17 March
+  covered: local truncation error
+- name: Monday 3/10 to Friday 3/14
+  covered: SPRING BREAK
 - name: Friday 7 March
-  covered: explicit midpoint, trapezoid, truncation error
+  covered: explicit midpoint, implicit trapezoid
 - name: Wednesday 5 March
   covered: direction fields, forward & backward Euler
 - name: Monday 3 March
