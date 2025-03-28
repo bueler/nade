@@ -1,8 +1,13 @@
 semester: Spring 2025
 home: assets/
 daily:
+- name: Monday 31 March
+  covered: absolute stability
+  chapter: 7
+- name: Friday 28 March
+  covered: multistep and zero stability
 - name: Wednesday 26 March
-  covered: zero stability; project go!
+  covered: one step convergence; project go!
 - name: Monday 24 March
   covered: proof of Euler convergence
   chapter: 6
