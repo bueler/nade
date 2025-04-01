@@ -2,7 +2,7 @@ semester: Spring 2025
 home: assets/
 daily:
 - name: Friday 4 April
-  covered: stiffness
+  covered: stiffness; Project Proposal really due!
   chapter: 8
 - name: Wednesday 2 April
   covered: absolute stability for systems
