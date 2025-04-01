@@ -26,6 +26,17 @@ The first block of codes comes from examples used in lecture as demonstrations, 
 
 ## from homework solutions
 
+From Assignment 6:
+
+  * [fe1.m](assets/codes/S25/fe1.m)
+  * [rk4.m](assets/codes/S25/rk4.m)
+  * [oderates.m](assets/codes/S25/oderates.m)
+  * [fearthmoon.m](assets/codes/S25/fearthmoon.m)
+  * [twobody.m](assets/codes/S25/twobody.m)
+  * [lunarmonth.m](assets/codes/S25/lunarmonth.m)
+  * [bdf2.m](assets/codes/S25/bdf2.m)
+  * [verifybdf2.m](assets/codes/S25/verifybdf2.m)
+
 From Assignment 5:
 
   * [randrealeigs.m](assets/codes/S25/randrealeigs.m)
