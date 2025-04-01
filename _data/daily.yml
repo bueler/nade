@@ -1,8 +1,13 @@
 semester: Spring 2025
 home: assets/
 daily:
+- name: Friday 4 April
+  covered: stiffness
+  chapter: 8
+- name: Wednesday 2 April
+  covered: systems
 - name: Monday 31 March
-  covered: absolute stability
+  covered: regions of absolute stability
   chapter: 7
 - name: Friday 28 March
   covered: multistep and zero stability
