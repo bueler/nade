@@ -93,20 +93,20 @@ width=#3in]{#1.eps}}
 \thispagestyle{empty}
 
 \bigskip
-Please read Chapters 6, 7, and 8 from the textbook (R.~J.~LeVeque, \emph{Finite Difference Methods for Ordinary and Partial Diff.~Eqns.}, SIAM Press 2007).  Within this material we are de-emphasizing multistep methods, so sections 5.9, 6.4, 7.3, 7.6.1, and 7.7 are all optional.  Full understanding of the other sections is expected; actually set aside a bit of time and \emph{read}!
+Please read Chapters 6, 7, and 8 of the textbook (R.~J.~LeVeque, \emph{Finite Difference Methods for Ordinary and Partial Diff.~Eqns.}, SIAM Press 2007).  Within this material we are de-emphasizing multistep methods, so sections 5.9, 6.4, 7.3, 7.6.1, and 7.7 are all optional.  However, full understanding of the other sections is expected; please actually set aside a bit of time and \emph{read}!
 
 \medskip
 
 
 \prob{Problem P28.}  Please reproduce Table 7.1.  That is, consider the scalar ODE IVP
 	$$u'(t) = \lambda \left( u(t) - \cos(t) \right) - \sin(t), \qquad u(0)=1$$
-Use $\lambda=-2100$.  Apply forward Euler\footnote{Re-using an old code is just fine, but of course pay attention to the details!} to compute approximations of $u(T)$ for $T=2$, for the given values of $k$, and report the final-time numerical errors $|U^N - u(T)|$ as in the Table.  Confirm by this experiment that there is a critical value of $k$ around 0.00095 where the error finally drops from enormous values to something comparable to, and soon much smaller than, the solution magnitude itself.
+Use $\lambda=-2100$.  Apply forward Euler\footnote{Re-using an old code is just fine, but of course please pay attention to the details!} to compute approximations of $u(T)$ for $T=2$, for the given values of $k$, and report the final-time numerical errors $|U^N - u(T)|$ as in the Table.  Confirm by this experiment that there is a critical value of $k$ around 0.00095 where the error finally drops from enormous values to something comparable to, and then much smaller than, the solution magnitude itself.
 
 \medskip
-\noindent \emph{The book's explains why: $|1+k\lambda| \le 1$ only if $k|\lambda|<2$ or equivalently $k < 2/|\lambda| = 2/2100 = 0.00095238$.  There is no need to include this in your answer; just confirm experimentally.}
+\noindent \emph{The book's explains why: $|1+k\lambda| \le 1$ only if $k|\lambda|<2$ or equivalently $k < 2/|\lambda| = 2/2100 = 0.00095238$.  There is no need to include this analysis in your answer; please just confirm it experimentally.}
 
 
-\prob{Problem P29.}  Consider the ``$\theta$-methods'' for $u' = f(t,u)$:
+\prob{Problem P29.}  Consider $\theta$-\emph{methods} for $u' = f(t,u)$:
    $$U^{n+1} = U^n + k\Big[(1-\theta)f(t_n,U^n) + \theta f(t_{n+1},U^{n+1})\Big]$$
 Here $0\le \theta \le 1$ is a fixed parameter.
 
@@ -115,35 +115,41 @@ Here $0\le \theta \le 1$ is a fixed parameter.
 \epart{b} Show they are A-stable for any $\theta \geq 1/2$.
 
 
-\prob{Problem P30.}  \ppart{a}  For the classical RK4 method, which is Example 5.13 in the textbook, show that the stability function is $R(z) = 1 + z + \frac{1}{2} z^2 + \frac{1}{3!} z^3 + \frac{1}{4!} z^4$.  (\emph{Hint.  Just apply RK4 to the test equation.  I started this calculation in class but I skipped details; please fill them in.})
+\prob{Problem P30.}  \ppart{a}  For the classical RK4 method, which is Example 5.13 in the textbook, show that the stability function is $R(z) = 1 + z + \frac{1}{2} z^2 + \frac{1}{3!} z^3 + \frac{1}{4!} z^4$.  (\emph{Hint.  Apply to the test equation.  I skipped details for this during lecture; please fill them in.})
 
-\epart{b}  Use a filled-contour plotter, like Matlab's \texttt{contourf} as shown in class, to plot the region of absolute stability of RK4.
+\epart{b}  Use a filled-contour plotter, like Matlab's \texttt{contourf} as shown in class, to plot the region of absolute stability of RK4.  (\emph{Hint.  I did this in lecture for an RK2 method.})
 
 
-\prob{Problem P31.}  Consider this (one-step) Runge-Kutta method, an implicit interpretation of the midpoint method:
+\prob{Problem P31.}  Consider this Runge-Kutta method, an \emph{implicit} and one-step interpretation of the midpoint method:
 \begin{align*}
 U^* &= U^n + \frac{k}{2} f\big(t_n + k/2, U^*\big),\\
 U^{n+1} &= U^n + k f\big(t_n + k/2, U^*\big).
 \end{align*}
-The first stage is backward Euler to \emph{implicitly} compute a value at the midpoint in time.  The second stage is a midpoint method using this value.  One may show that this has LTE $\tau^n = O(k^2)$; it is second order.  Determine the region of absolute stability for this (combined) method; this can be done exactly!  Is this method A-stable?  Is it L-stable?
+The first stage uses backward Euler to (implicitly) compute a value at the midpoint.  The second stage is a midpoint method using this value.\footnote{One may show that this scheme has LTE $\tau^n = O(k^2)$, but here there is no request to do so.}  Please determine the region of absolute stability for this (combined) method; please do this exactly!  Is this method A-stable?  Is it L-stable?
 
 
 \prob{Problem P32.}  For a famously stiff problem, consider the heat PDE
 \begin{equation}
 u_t = u_{xx}  \label{heat}
 \end{equation}
-Here $u(t,x)$ is the temperature in a rod of length one ($0 \le x \le 1$).  Let us set boundary temperatures to zero ($u(t,0)=0$ and $u(t,1)=0$), and assume there is some initial temperature distribution $u(0,x)=\eta(x)$.
+Here $u(t,x)$ might be the temperature in a rod of length one ($0 \le x \le 1$).  Let us set boundary temperatures to zero ($u(t,0)=u(t,1)=0$), and assume some initial temperature distribution $u(0,x)=\eta(x)$.
 
-Suppose apply the \emph{method of lines} (MOL) to \eqref{heat}.  That is, we discretize the spatial ($x$) derivatives using the notation from Chapter 2.  Specifically, let us use $m+1$ subintervals, $h=1/(m+1)$, and $x_j = j h$ for $j=0,1,2,\dots,m+1$.  Now $U_j(t) \approx u(t,x_j)$.  By eliminating unknowns $U_0=0$ and $U_{m+1}=0$, and keeping the time derivatives as ordinary derivatives, from \eqref{heat} we get a linear ODE system of dimension $m$,
+Suppose we apply the \emph{method of lines} (MOL) to \eqref{heat}.  That is, we discretize the spatial derivatives using the notation from Chapter 2.  Specifically, let us use $m+1$ subintervals, $h=1/(m+1)$, and $x_j = j h$ for $j=0,1,2,\dots,m+1$.  Now $U_j(t) \approx u(t,x_j)$.  By eliminating unknowns $U_0=0$ and $U_{m+1}=0$, and keeping the time derivatives as ordinary derivatives, from \eqref{heat} we get a linear ODE system of dimension $m$,
 \begin{equation}
-U(t)' = A U(t)  \label{mol}
+U(t)' = A_m U(t)  \label{mol}
 \end{equation}
-where $U(t) \in \RR^m$ and $A$ is \emph{exactly} the matrix in the textbook's equation (2.10).  For a given $m$, note $U(0)$ is computed by evaluating the above formula for $u(0,x)=\eta(x)$ at each $x_j$.
+where $U(t) \in \RR^m$ and $A=A_m$ is \emph{exactly} the matrix in the textbook's equation (2.10).  Note that $U(0)_j = \eta(x_j)$ from the initial condition.
 
-\epart{a}  FIXME
+The eigenvalues of $A_m$ are given by equation (2.23) in the textbook:
+	$$\lambda_p = \frac{2}{h^2} \left(\cos(p\pi h) - 1\right),$$
+for $p=1,\dots,m$.
 
-\epart{b}  Now consider the $m=99$ case, so $h=0.01$, and let $k=t_f/N=1/N$ be the time step length.  For BE, compute and show the solution using $N=100$ time steps.  For FE, $N=100$ will generate extraordinary explosion.  (Confirm this but don't show it.)  Determine the largest-possible absolutely-stable time step $k$ from the eigenvalues of $A$ and the stability region of FE.  Finally, compare the computational costs of the two runs by counting floating-point multiplications.\footnote{For an $m\times m$ tridiagonal matrix $A$, $A v$ costs $3m$ multiplications while $A^{-1} v$ costs $5m$ multiplications.}  You will conclude that an implicit is indeed effective in this case.
+\epart{a} Please explain why all eigenvalues $\lambda_p$ are points on the negative real axis.  Then justify the following approximation of the largest-magnitude (and most negative) eigenvalue:
+	$$\lambda_m \approx - 4 (m+1)^2.$$
+(\emph{Hint.  Use a Taylor expansion of $\cos(\theta)$ around the right location.})
 
-\epart{1 point of extra credit}  Find the exact solution, presumably using a Fourier sine series.  Plot it beside the $N=100$ BE solution.  BE looks pretty good on this problem!
+\epart{b}  Suppose forward Euler is applied to solve \eqref{mol} with equal time steps $k>0$.  How small must $k$ be chosen so that all of the values $z_p=\lambda_p k$, for $p=1,\dots,m$, are inside the region of absolute stability of forward Euler?  Your answer will depend on $m$, but not $p$.  You may use the approximation in part \textbf{(a)} for your analysis.
+
+\epart{c}  What happens to the maximum stable time step for forward Euler, i.e.~the answer from \textbf{b}, when you double the spatial grid resolution?  With the same doubling, what happens to the cost of solving the heat equation problem out to some time $T>0$?
 
 \end{document}
