@@ -1,9 +1,13 @@
 semester: Spring 2025
 home: assets/
 daily:
-- name: Friday 4 April
-  covered: stiffness; Project Proposal really due!
+- name: Monday 7 April
+  covered: stiffness
   chapter: 8
+- name: Friday 4 April
+  covered: worksheet; Project Proposal really due!
+  worksheet: worksheets/S25/stable2ndorder.pdf
+  worksheetname: stable time steps for 2nd-order schemes
 - name: Wednesday 2 April
   covered: absolute stability for systems
 - name: Monday 31 March
@@ -46,8 +50,8 @@ daily:
   covered: advection-diffusion
 - name: Friday 14 February
   covered: advection, boundary layer
-  handout: worksheets/S25/singular.pdf
-  handoutname: 1st-order DEs, 2nd-order DEs, singular perturbations
+  worksheet: worksheets/S25/singular.pdf
+  worksheetname: 1st-order DEs, 2nd-order DEs, singular perturbations
 - name: Wednesday 12 February
   covered: nonlinear BVP
 - name: Monday 10 February

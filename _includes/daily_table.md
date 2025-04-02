@@ -12,6 +12,9 @@
     {% if material.more %}
         <br>{{ material.more }}
     {% endif %}
+    {% if material.worksheet %}
+        <br>worksheet: <a href="{{ data.home }}/{{ material.worksheet }}">{{ material.worksheetname }} (PDF)</a>
+    {% endif %}
     {% if material.handout %}
         <br>handout: <a href="{{ data.home }}/{{ material.handout }}">{{ material.handoutname }} (PDF)</a>
     {% endif %}

@@ -74,26 +74,26 @@
 
 \bigskip
 
-\Large\centerline{\textbf{Worksheet:  Stable time-steps for 2nd-order ODE IVP solvers}}
+\Large\centerline{\textbf{Worksheet:  Stable time-steps for 2nd-order ODE schemes}}
 \medskip
 \normalsize
 
 \thispagestyle{empty}
 
 \bigskip\bigskip
-\noindent \textbf{METHODS.}  Consider these 3 ODE IVP methods for an autonomous ODE system $u'=f(u)$:
+\noindent \textbf{METHODS.}\footnote{R.~J.~LeVeque, \emph{Finite Difference Methods for Ordinary and Partial Diff.~Eqns.}, SIAM Press 2007}  Consider these 3 ODE IVP methods for an autonomous ODE system $u'=f(u)$:
 
 \medskip
 \renewcommand{\arraystretch}{1.4}
 \begin{tabular}{l|l|l}
-\emph{method}\phantom{sdfaadsfasdfasdxxx} & \emph{book reference}\footnote{R.~J.~LeVeque, \emph{Finite Difference Methods for Ordinary and Partial Diff.~Eqns.}, SIAM Press 2007}\phantom{xx} & \emph{formula} \\ \hline
+\emph{method}\phantom{sdfaadsfasdfasdxxx} & \emph{book reference}\phantom{xx} & \emph{formula} \\ \hline
 TR: trapezoidal         & (5.22) & $U^{n+1} = U^n + \frac{k}{2} \left(f(U^n) + f(U^{n+1})\right)$ \\
 EM: explicit midpoint   & (5.30) & $U^{n+1} = U^n + k f\left(U^n + \frac{k}{2} f(U^n)\right)$ \\
 AB2: Adams-Bashforth    & p.~132 & $U^{n+2} = U^{n+1} + \frac{k}{2} \left(-f\left(U^{n}\right) + 3f\left(U^{n+1}\right)\right)$
 \end{tabular}
 
 \medskip
-\noindent All 3 methods have $O(k^2)$ local truncation error.  Note EM is an RK2 method.
+\noindent All 3 methods have $O(k^2)$ local truncation error.  Note EM is an explicit RK2 method.
 
 \bigskip
 \noindent \textbf{PROBLEMS.}  Consider the following three linear ODE systems:
@@ -102,16 +102,24 @@ AB2: Adams-Bashforth    & p.~132 & $U^{n+2} = U^{n+1} + \frac{k}{2} \left(-f\lef
 \renewcommand{\labelenumi}{S\arabic{enumi}.\,}
 \begin{enumerate}
 \item $u' = A u$ where $u(t)\in\RR^3$ and
+
+\vspace{-7mm}
+{\small
     $$A = \begin{bmatrix}
     2 & 2 & 2 \\
     2 & 1 & 1 \\
     2 & 1 & -5
     \end{bmatrix}$$
+}
 \item $u' = A u$ where $u(t)\in\RR^2$ and
+
+\vspace{-6mm}
+{\small
     $$A = \begin{bmatrix}
     0 & 2 \\
     -2 & 0
     \end{bmatrix}$$
+}
 \item $u' = A u$ where $u(t)\in\RR^{25}$ and $A$ is the tridiagonal matrix shown in equation (2.10) for the $m=25$ case (i.e.~$h=1/26$ case); this $A$ approximates a second derivative in space
 \end{enumerate}
 
@@ -120,9 +128,9 @@ AB2: Adams-Bashforth    & p.~132 & $U^{n+2} = U^{n+1} + \frac{k}{2} \left(-f\lef
 \noindent \textbf{TASKS.}
 \renewcommand{\labelenumi}{\textbf{(\alph{enumi})}\,}
 \begin{enumerate}
-\item For each of the \underline{one-step} METHODS, find the stability function $R(z)$, for $z=k\lambda$, and write a \Matlab etc.~code, using \texttt{contourf} or \texttt{imagesc} or similar as needed, to plot the region of absolute stability.
-\item For the AB2 METHOD, which is multistep, FIXME
-\item For each of the PROBLEMS, use \Matlab etc.~to compute all of the eigenvalues $\lambda_p$ of $A$.
+\item For each of the one-step METHODS, find the stability function $R(z)$, for $z=k\lambda$, and write a \Matlab etc.~code, using \texttt{contourf} or \texttt{imagesc} or similar as needed, to plot the region of absolute stability.
+\item For the AB2 METHOD, which is a multistep scheme, a slightly different approach is needed to plot the stability region.  Following the approach of section 7.3, use the facts that $\rho(\zeta) = \zeta^2 - \zeta$, $\sigma(\zeta) = (3/2) \zeta - (1/2)$ to compute a quadratic polynomial $\pi(\zeta; z)$.  Then you can either follow the approach of 7.6.1 or check the root condition at every point in a mesh and apply \texttt{contourf} etc.\footnote{Give this task a shot here on the worksheet.  But it will not be on homework, and don't sweat it.}
+\item For each PROBLEM, compute/approximate all of the eigenvalues $\lambda_p$ of $A$.
 \newcommand{\kstab}{k_{\text{stab}}}
 \item For each pair (METHOD, PROBLEM), determine the maximum absolutely-stable time step $\kstab$, or explain why there is no stability restriction on the time step ($\kstab=+\infty$).  For $\kstab<\infty$ cases show a figure which has the relevant $z$-values ($z=\kstab \lambda_p$) plotted on top of the stability region.
 \item For each of the PROBLEMS, give expert advice: which METHOD is best and why?  For this question think of various ways in which a given method does or does not preserve ``qualities'' relevant to the particular problem.  Computational cost is a consideration too; assume your computer is slow.  (\emph{Hints. See section 7.5 and think about $\kstab$ and $k_{\text{acc}}$.  See also sections 8.3 and 8.4; A-stable and L-stable properties are relevant.})
