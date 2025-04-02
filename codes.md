@@ -9,6 +9,7 @@ The first block of codes comes from examples used in lecture as demonstrations, 
 
 ## from lecture
 
+  * [edgeofstability.m](assets/codes/S25/edgeofstability.m)
   * [rk2region.m](assets/codes/S25/rk2region.m)
   * [stabfuns.m](assets/codes/S25/stabfuns.m)
   * [festiff.m](assets/codes/S25/festiff.m)
