@@ -82,19 +82,16 @@
 \normalspacing
 
 
-\prob{TASK a)}  I computed stability functions for the first two methods:
+\prob{TASK (a)}  I computed stability functions for the first two methods:
 \begin{align*}
 R_{\text{TR}}(z) &= \frac{1+z/2}{1-z/2}, \\
 R_{\text{RK2}}(z) &= 1 + z + \frac{z^2}{2}.
 \end{align*}
-The stability regions are $S = \{z\in\CC\,:\,|R(z)|\le 1\}$.  For BDF2 I computed that
-    $$\pi(\zeta; z) = (3-2z) \zeta^2 - 4 \zeta + 1$$
-with roots $\zeta = (2 \pm \sqrt{1+2z}) / (3-2z)$ so the stability region is
-    $$S_{\text{BDF2}} = \left\{z\in\CC\,:\,\left|\frac{2+\sqrt{1+2z}}{3-2z}\right|\le 1\right\} \cap \left\{z\in\CC\,:\,\left|\frac{2-\sqrt{1+2z}}{3-2z}\right|\le 1\right\}.$$
+The stability regions are $S = \{z\in\CC\,:\,|R(z)|\le 1\}$.  For AB2 FIXME
 
-I wrote the following code which generates Figure 1:
+FIXME I wrote the following code which generates Figure 1:
 
-\mfile{regions.m}{/home/ed/repos/bueler.github.io/M615S17/matlab/regions.m}
+\mfile{regions.m}{regions.m}
 
 Nontrivial quantitative results to note are that on the real axis RK2 has a stability interval $[-2,0]$ while BDF2 is not absolutely stable on the interval $[0,4]$.
 
@@ -104,7 +101,7 @@ Nontrivial quantitative results to note are that on the real axis RK2 has a stab
 \label{fig:regions}
 \end{figure}
 
-\prob{TASK b)}  Note that the S1 and S3 matrices are symmetric, so the eigenvalues are real in those cases.  I wrote the following easy code to get the eigenvalues:
+\prob{TASK b)}  FIXME Note that the S1 and S3 matrices are symmetric, so the eigenvalues are real in those cases.  I wrote the following easy code to get the eigenvalues:
 
 \mfile{alleigens.m}{/home/ed/repos/bueler.github.io/M615S17/matlab/alleigens.m}
 

@@ -1,10 +1,10 @@
 \documentclass[11pt]{amsart}
 %prepared in AMSLaTeX, under LaTeX2e
-\addtolength{\oddsidemargin}{-.9in} 
-\addtolength{\evensidemargin}{-.9in}
-\addtolength{\topmargin}{-.9in}
-\addtolength{\textwidth}{1.7in}
-\addtolength{\textheight}{1.5in}
+\addtolength{\oddsidemargin}{-.7in} 
+\addtolength{\evensidemargin}{-.7in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textwidth}{1.3in}
+\addtolength{\textheight}{1.0in}
 
 \renewcommand{\baselinestretch}{1.05}
 
@@ -74,27 +74,31 @@
 
 \bigskip
 
-\Large\centerline{\textbf{DRAFT Worksheet:  Stable time-steps for 2nd-order ODE IVP solvers}}
+\Large\centerline{\textbf{Worksheet:  Stable time-steps for 2nd-order ODE IVP solvers}}
 \medskip
 \normalsize
 
 \thispagestyle{empty}
 
 \bigskip\bigskip
-\noindent \textbf{METHODS.}  Consider the following three ODE IVP methods, as they apply to an autonomous ODE system $u'=f(u)$.  All have $O(k^2)$ local truncation error, and all are stated in the textbook (R.~J.~LeVeque, 2007).  Note BDF2 is the 2nd-order backward differentiation formula.
+\noindent \textbf{METHODS.}  Consider these 3 ODE IVP methods for an autonomous ODE system $u'=f(u)$:
 
-\bigskip
+\medskip
 \renewcommand{\arraystretch}{1.4}
-\begin{tabular}{lll}
-\emph{method}\phantom{sdfaadsfasdfasdxxx} & \emph{book reference}\phantom{xx} & \emph{formula} \\ \hline
+\begin{tabular}{l|l|l}
+\emph{method}\phantom{sdfaadsfasdfasdxxx} & \emph{book reference}\footnote{R.~J.~LeVeque, \emph{Finite Difference Methods for Ordinary and Partial Diff.~Eqns.}, SIAM Press 2007}\phantom{xx} & \emph{formula} \\ \hline
 TR: trapezoidal         & (5.22) & $U^{n+1} = U^n + \frac{k}{2} \left(f(U^n) + f(U^{n+1})\right)$ \\
-RK2: explicit midpoint  & (5.30) & $U^{n+1} = U^n + k f\left(U^n + \frac{k}{2} f(U^n)\right)$ \\
-BDF2                    & p.~173 & $U^{n+2} = + \frac{4}{3} U^{n+1} - \frac{1}{3} U^n + \frac{2}{3} k f\left(U^{n+2}\right)$
+EM: explicit midpoint   & (5.30) & $U^{n+1} = U^n + k f\left(U^n + \frac{k}{2} f(U^n)\right)$ \\
+AB2: Adams-Bashforth    & p.~132 & $U^{n+2} = U^{n+1} + \frac{k}{2} \left(-f\left(U^{n}\right) + 3f\left(U^{n+1}\right)\right)$
 \end{tabular}
 
+\medskip
+\noindent All 3 methods have $O(k^2)$ local truncation error.  Note EM is an RK2 method.
 
 \bigskip
 \noindent \textbf{PROBLEMS.}  Consider the following three linear ODE systems:
+
+\medskip
 \renewcommand{\labelenumi}{S\arabic{enumi}.\,}
 \begin{enumerate}
 \item $u' = A u$ where $u(t)\in\RR^3$ and
@@ -108,18 +112,20 @@ BDF2                    & p.~173 & $U^{n+2} = + \frac{4}{3} U^{n+1} - \frac{1}{3
     0 & 2 \\
     -2 & 0
     \end{bmatrix}$$
-\item $u' = A u$ where $u(t)\in\RR^{25}$ and $A$ is the tridiagonal matrix for the $m=25$ case (i.e.~$h=1/26$ case) of the method-of-lines-discretization of the heat equation $u_t = u_{xx}$; this $A$ models a diffusion process.
+\item $u' = A u$ where $u(t)\in\RR^{25}$ and $A$ is the tridiagonal matrix shown in equation (2.10) for the $m=25$ case (i.e.~$h=1/26$ case); this $A$ approximates a second derivative in space
 \end{enumerate}
 
 
 \bigskip
 \noindent \textbf{TASKS.}
-\renewcommand{\labelenumi}{\alph{enumi})\,}
+\renewcommand{\labelenumi}{\textbf{(\alph{enumi})}\,}
 \begin{enumerate}
-\item For each of the METHODS, write a \Matlab etc.~code, presumably using \texttt{meshgrid} and \texttt{contour} or \texttt{contourf}, to plot the absolute stability region.
-\item For each of the PROBLEMS, use \Matlab etc.~to compute the eigenvalues $\lambda_p$ of $A$.
-\item For each pair (METHOD, PROBLEM), either determine that there is no stability restriction on the time step, or determine the maximum absolutely-stable time step $k_{\text{stab}}$.  For the latter cases, show a figure which has the relevant $z$-values (i.e.~$z=k_{\text{stab}} \lambda_p$) plotted on top of the stability region.
-\item For each of the PROBLEMS, give expert advice: which METHOD is best and why?  (\emph{Hints}.  Generally, think of various ways in which a given method does or does not preserve ``qualities'' relevant to the particular problem.  Computational cost is a consideration too; assume your computer is weak.  See section 7.5 and think about $k_{\text{stab}}$ and $k_{\text{acc}}$.  See also sections 8.3 and 8.4.)
+\item For each of the \underline{one-step} METHODS, find the stability function $R(z)$, for $z=k\lambda$, and write a \Matlab etc.~code, using \texttt{contourf} or \texttt{imagesc} or similar as needed, to plot the region of absolute stability.
+\item For the AB2 METHOD, which is multistep, FIXME
+\item For each of the PROBLEMS, use \Matlab etc.~to compute all of the eigenvalues $\lambda_p$ of $A$.
+\newcommand{\kstab}{k_{\text{stab}}}
+\item For each pair (METHOD, PROBLEM), determine the maximum absolutely-stable time step $\kstab$, or explain why there is no stability restriction on the time step ($\kstab=+\infty$).  For $\kstab<\infty$ cases show a figure which has the relevant $z$-values ($z=\kstab \lambda_p$) plotted on top of the stability region.
+\item For each of the PROBLEMS, give expert advice: which METHOD is best and why?  For this question think of various ways in which a given method does or does not preserve ``qualities'' relevant to the particular problem.  Computational cost is a consideration too; assume your computer is slow.  (\emph{Hints. See section 7.5 and think about $\kstab$ and $k_{\text{acc}}$.  See also sections 8.3 and 8.4; A-stable and L-stable properties are relevant.})
 \end{enumerate}
 
 \vfill
