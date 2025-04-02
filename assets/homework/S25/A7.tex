@@ -98,12 +98,52 @@ Please read Chapters 6, 7, and 8 from the textbook (R.~J.~LeVeque, \emph{Finite 
 \medskip
 
 
-\prob{Problem P28.}  
+\prob{Problem P28.}  Please reproduce Table 7.1.  That is, consider the scalar ODE IVP
+	$$u'(t) = \lambda \left( u(t) - \cos(t) \right) - \sin(t), \qquad u(0)=1$$
+Use $\lambda=-2100$.  Apply forward Euler\footnote{Re-using an old code is just fine, but of course pay attention to the details!} to compute approximations of $u(T)$ for $T=2$, for the given values of $k$, and report the final-time numerical errors $|U^N - u(T)|$ as in the Table.  Confirm by this experiment that there is a critical value of $k$ around 0.00095 where the error finally drops from enormous values to something comparable to, and soon much smaller than, the solution magnitude itself.
 
-\prob{Problem P29.}  
+\medskip
+\noindent \emph{The book's explains why: $|1+k\lambda| \le 1$ only if $k|\lambda|<2$ or equivalently $k < 2/|\lambda| = 2/2100 = 0.00095238$.  There is no need to include this in your answer; just confirm experimentally.}
 
-\prob{Problem P30.}  
 
-\prob{Problem P31.}  
+\prob{Problem P29.}  Consider the ``$\theta$-methods'' for $u' = f(t,u)$:
+   $$U^{n+1} = U^n + k\Big[(1-\theta)f(t_n,U^n) + \theta f(t_{n+1},U^{n+1})\Big]$$
+Here $0\le \theta \le 1$ is a fixed parameter.
+
+\epart{a} Cases $\theta = 0,1/2,1$ are all familiar methods.  Name them.  Then find the exact absolute stability regions for $\theta = 0,1/4,1/2,3/4,1$.  (\emph{Hint. Apply method to the test equation, and simplify.  Write the complex number $z=k\lambda$ as $z=x+iy$.  Find discs!})
+
+\epart{b} Show they are A-stable for any $\theta \geq 1/2$.
+
+
+\prob{Problem P30.}  \ppart{a}  For the classical RK4 method, which is Example 5.13 in the textbook, show that the stability function is $R(z) = 1 + z + \frac{1}{2} z^2 + \frac{1}{3!} z^3 + \frac{1}{4!} z^4$.  (\emph{Hint.  Just apply RK4 to the test equation.  I started this calculation in class but I skipped details; please fill them in.})
+
+\epart{b}  Use a filled-contour plotter, like Matlab's \texttt{contourf} as shown in class, to plot the region of absolute stability of RK4.
+
+
+\prob{Problem P31.}  Consider this (one-step) Runge-Kutta method, an implicit interpretation of the midpoint method:
+\begin{align*}
+U^* &= U^n + \frac{k}{2} f\big(t_n + k/2, U^*\big),\\
+U^{n+1} &= U^n + k f\big(t_n + k/2, U^*\big).
+\end{align*}
+The first stage is backward Euler to \emph{implicitly} compute a value at the midpoint in time.  The second stage is a midpoint method using this value.  One may show that this has LTE $\tau^n = O(k^2)$; it is second order.  Determine the region of absolute stability for this (combined) method; this can be done exactly!  Is this method A-stable?  Is it L-stable?
+
+
+\prob{Problem P32.}  For a famously stiff problem, consider the heat PDE
+\begin{equation}
+u_t = u_{xx}  \label{heat}
+\end{equation}
+Here $u(t,x)$ is the temperature in a rod of length one ($0 \le x \le 1$).  Let us set boundary temperatures to zero ($u(t,0)=0$ and $u(t,1)=0$), and assume there is some initial temperature distribution $u(0,x)=\eta(x)$.
+
+Suppose apply the \emph{method of lines} (MOL) to \eqref{heat}.  That is, we discretize the spatial ($x$) derivatives using the notation from Chapter 2.  Specifically, let us use $m+1$ subintervals, $h=1/(m+1)$, and $x_j = j h$ for $j=0,1,2,\dots,m+1$.  Now $U_j(t) \approx u(t,x_j)$.  By eliminating unknowns $U_0=0$ and $U_{m+1}=0$, and keeping the time derivatives as ordinary derivatives, from \eqref{heat} we get a linear ODE system of dimension $m$,
+\begin{equation}
+U(t)' = A U(t)  \label{mol}
+\end{equation}
+where $U(t) \in \RR^m$ and $A$ is \emph{exactly} the matrix in the textbook's equation (2.10).  For a given $m$, note $U(0)$ is computed by evaluating the above formula for $u(0,x)=\eta(x)$ at each $x_j$.
+
+\epart{a}  FIXME
+
+\epart{b}  Now consider the $m=99$ case, so $h=0.01$, and let $k=t_f/N=1/N$ be the time step length.  For BE, compute and show the solution using $N=100$ time steps.  For FE, $N=100$ will generate extraordinary explosion.  (Confirm this but don't show it.)  Determine the largest-possible absolutely-stable time step $k$ from the eigenvalues of $A$ and the stability region of FE.  Finally, compare the computational costs of the two runs by counting floating-point multiplications.\footnote{For an $m\times m$ tridiagonal matrix $A$, $A v$ costs $3m$ multiplications while $A^{-1} v$ costs $5m$ multiplications.}  You will conclude that an implicit is indeed effective in this case.
+
+\epart{1 point of extra credit}  Find the exact solution, presumably using a Fourier sine series.  Plot it beside the $N=100$ BE solution.  BE looks pretty good on this problem!
 
 \end{document}
