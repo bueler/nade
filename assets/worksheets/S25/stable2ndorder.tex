@@ -68,6 +68,9 @@
 
 \newcommand{\ds}{\displaystyle}
 
+\newcommand{\kstab}{k_{\text{stab}}}
+
+
 \begin{document}
 \scriptsize \noindent Math 615 NADE (Bueler) \hfill \quad \fbox{\emph{Not turned in!}}
 \normalsize
@@ -129,9 +132,8 @@ AB2: Adams-Bashforth    & p.~132 & $U^{n+2} = U^{n+1} + \frac{k}{2} \left(-f\lef
 \renewcommand{\labelenumi}{\textbf{(\alph{enumi})}\,}
 \begin{enumerate}
 \item For each of the one-step METHODS, find the stability function $R(z)$, for $z=k\lambda$, and write a \Matlab etc.~code, using \texttt{contourf} or \texttt{imagesc} or similar as needed, to plot the region of absolute stability.
-\item For the AB2 METHOD, which is a multistep scheme, a slightly different approach is needed to plot the stability region.  Following the approach of section 7.3, use the facts that $\rho(\zeta) = \zeta^2 - \zeta$, $\sigma(\zeta) = (3/2) \zeta - (1/2)$ to compute a quadratic polynomial $\pi(\zeta; z)$.  Then you can either follow the approach of 7.6.1 or check the root condition at every point in a mesh and apply \texttt{contourf} etc.\footnote{Give this task a shot here on the worksheet.  But it will not be on homework, and don't sweat it.}
+\item For the AB2 METHOD, which is a multistep scheme, a slightly different approach is needed to plot the stability region.  Following the approach of section 7.3, use the facts that $\rho(\zeta) = \zeta^2 - \zeta$, $\sigma(\zeta) = (3/2) \zeta - (1/2)$ to compute a quadratic polynomial $\pi(\zeta; z)$.  Then you can either follow the approach of 7.6.1, or check the root condition at every point in a mesh and apply \texttt{contourf} etc. to plot the stability region.\footnote{Give this task a shot here on the worksheet.  But it will not be on homework, and don't sweat it.}
 \item For each PROBLEM, compute/approximate all of the eigenvalues $\lambda_p$ of $A$.
-\newcommand{\kstab}{k_{\text{stab}}}
 \item For each pair (METHOD, PROBLEM), determine the maximum absolutely-stable time step $\kstab$, or explain why there is no stability restriction on the time step ($\kstab=+\infty$).  For $\kstab<\infty$ cases show a figure which has the relevant $z$-values ($z=\kstab \lambda_p$) plotted on top of the stability region.
 \item For each of the PROBLEMS, give expert advice: which METHOD is best and why?  For this question think of various ways in which a given method does or does not preserve ``qualities'' relevant to the particular problem.  Computational cost is a consideration too; assume your computer is slow.  (\emph{Hints. See section 7.5 and think about $\kstab$ and $k_{\text{acc}}$.  See also sections 8.3 and 8.4; A-stable and L-stable properties are relevant.})
 \end{enumerate}
