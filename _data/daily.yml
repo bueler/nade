@@ -7,7 +7,7 @@ daily:
 - name: Friday 4 April
   covered: worksheet; Project Proposal really due!
   worksheet: worksheets/S25/stable2ndorder.pdf
-  worksheetname: stable time steps for 2nd-order schemes
+  worksheetname: stable time steps for 2nd-order schemes (solutions on Canvas page)
 - name: Wednesday 2 April
   covered: absolute stability for systems
 - name: Monday 31 March

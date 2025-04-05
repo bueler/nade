@@ -7,8 +7,10 @@ title: Matlab/Octave Codes
 
 The first block of codes comes from examples used in lecture as demonstrations, listed in reverse chronological order.
 
-## from lecture
+## from lecture and worksheets
 
+  * [regions.m](assets/codes/S25/regions.m)
+  * [alleigens.m](assets/codes/S25/alleigens.m)
   * [edgeofstability.m](assets/codes/S25/edgeofstability.m)
   * [rk2region.m](assets/codes/S25/rk2region.m)
   * [stabfuns.m](assets/codes/S25/stabfuns.m)
