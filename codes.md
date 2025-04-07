@@ -9,6 +9,7 @@ The first block of codes comes from examples used in lecture as demonstrations, 
 
 ## from lecture and worksheets
 
+  * [stiffcompare.m](assets/codes/S25/stiffcompare.m)
   * [regions.m](assets/codes/S25/regions.m)
   * [alleigens.m](assets/codes/S25/alleigens.m)
   * [edgeofstability.m](assets/codes/S25/edgeofstability.m)
