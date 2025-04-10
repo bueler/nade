@@ -1,10 +1,10 @@
 \documentclass[12pt]{amsart}
 %prepared in AMSLaTeX, under LaTeX2e
-\addtolength{\oddsidemargin}{-.6in} 
-\addtolength{\evensidemargin}{-.6in}
-\addtolength{\topmargin}{-.5in}
-\addtolength{\textwidth}{1.2in}
-\addtolength{\textheight}{1.0in}
+\addtolength{\oddsidemargin}{-.65in} 
+\addtolength{\evensidemargin}{-.65in}
+\addtolength{\topmargin}{-.4in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\textheight}{0.8in}
 
 \renewcommand{\baselinestretch}{1.05}
 
@@ -93,11 +93,11 @@ width=#3in]{#1.eps}}
 \thispagestyle{empty}
 
 \bigskip
-Please read Chapters 8 and 9 of the textbook (R.~J.~LeVeque, \emph{Finite Difference Methods for Ordinary and Partial Diff.~Eqns.}, SIAM Press 2007).  Also, if you are interested in advection, e.g.~because your project involves it, then read subsections 10.1 through 10.4.  In any case, Assignment \#9 will be a brief treatment of Chapter 10.
+Please read Chapters 8 and 9 of the textbook (R.~J.~LeVeque, \emph{Finite Difference Methods for Ordinary and Partial Diff.~Eqns.}, SIAM Press 2007).  Also, if you are interested in advection, e.g.~because your project involves it, then read subsections 10.1 through 10.4 now.  In any case, Assignment \#9 will cover Chapter 10.
 
 \medskip
 
-\prob{Problem P33.}  Formula (8.6) on page 175 gives the TR-BDF2 implicit one-step scheme, a very good idea for stiff problems.  By applying the scheme to the test equation $u'=\lambda u$, find the stability function $R(z)$ of this scheme.  Plot the region of absolute stability by using a contour plotter or image technique; both were shown in class.  Confirm that the scheme is A-stable and L-stable as claimed.
+\prob{Problem P33.}  Formula (8.6) on page 175 gives the TR-BDF2 implicit one-step scheme, a good one for stiff problems.  By applying the scheme to the test equation $u'=\lambda u$, find the stability function $R(z)$ of this scheme.  Confirm that the scheme is A-stable and L-stable as claimed.  Plot the region of absolute stability by using a contour plotter or image technique; both were shown in class.
 
 
 \prob{Problem P34.}  Consider the heat equation $u_t = D\, u_{xx}$ for $D>0$ constant, $x\in [0,1]$, and Dirichlet boundary conditions $u(t,0)=0$ and $u(t,1)=0$.  Suppose we have initial condition $u(0,x) = \sin(5\pi x)$.
@@ -106,9 +106,9 @@ Please read Chapters 8 and 9 of the textbook (R.~J.~LeVeque, \emph{Finite Differ
     $$u(t,x) = e^{-25 \pi^2 D t} \sin(5 \pi x)$$
 is an exact solution.  (\emph{It is \emph{the} exact solution, but you do not have to show this.})
 
-\epart{b}  Implement the backward Euler (BE) method, as applied to MOL ODE system (9.10), to solve this heat equation problem.  Specifically, use diffusivity $D = 1/20$ and final time $t_f=0.1$.  Note that you do not need to use Newton's method to solve the implicit equation, a linear system, but you should use sparse storage and \Matlab's backslash or similar.  Feel free to reuse or modify code from \textbf{P33} on Assignment \#7.
+\epart{b}  Implement the backward Euler (BE) method, as applied to MOL ODE system (9.10), to solve this heat equation problem.  Specifically, use diffusivity $D = 1/20$ and final time $t_f=0.1$.  Please use sparse storage and \Matlab's backslash, or similar, to solve the linear system at each step.
 
-\epart{c}  Suppose we set $k=h$ for the ``refinement path''.  (\emph{Of course, for BE stability \emph{does not} constrain our refinement path.})  What do you expect for the convergence rate $O(h^p)$?  Then measure it by using the exact solution from \textbf{a)}, at the final time, and the infinity norm $\|\cdot\|_\infty$, and $h=0.02, 0.01,0.005,0.002,0.001,0.0005$.  Make a log-log convergence plot of $h$ versus the error.
+\epart{c}  Suppose we set $k=h$ to specify the ``refinement path''.  (Note that, for BE, stability \emph{does not} constrain our refinement path.)  What do you expect for the convergence rate $O(h^p)$?  Then measure the rate by using the exact solution from \textbf{(a)}, at the final time, and the infinity norm $\|\cdot\|_\infty$, and $h=0.02, 0.01,0.005,0.002,0.001,0.0005$.  Please make a log-log convergence plot of the error versus $h$.
 
 
 \prob{Problem P35.}  Consider the following scheme, which applies centered differences to both sides of the heat equation $u_t=u_{xx}$:
@@ -116,11 +116,11 @@ is an exact solution.  (\emph{It is \emph{the} exact solution, but you do not ha
 U_{j+1}^{n+1}).$$
 This is called the \emph{Richardson} method.  It is \textbf{not} recommended.
 
-\epart{a} Compute the truncation error to determine the order of accuracy of this method, in space and time.  The answer will be in form $\tau(t,x) = O(k^p) + O(h^q)$; determine $p,q$.
+\epart{a} Compute the truncation error to determine the order of accuracy of this method, in space and time.  The answer will be in form $\tau(t,x) = O(k^p + h^q)$; determine $p,q$.  (\emph{Hint. Compare Example 9.1.})
 
-\epart{b} Derive the Richardson method by applying the midpoint ODE method, equation (5.23), to the MOL ODE system (9.10).  Also, find a picture of the region of absolute stability of the midpoint method; it is shown elsewhere in the textbook.  Is the Richardson method likely to generate reasonable results?  In your answer, consider the eigenvalues of the matrix $A$, which are addressed in both sections 2.10 and 9.3.
+\epart{b} Derive the Richardson method by applying the midpoint ODE method, equation (5.23), to the MOL ODE system (9.10).  Also, find the picture of the region of absolute stability of the midpoint method in the textbook.  Is the Richardson method likely to generate reasonable results?  In your answer, consider the eigenvalues of the matrix $A$; see sections 2.10 and 9.3.
 
 \medskip
-\noindent \emph{Historical note: L.~F.~Richardson did many things more important than, and more successful than, inventing this scheme!  For one thing, he invented numerical weather forecasting, and tried it, before the advent of the electronic computer.}
+\noindent \emph{Historical note: L.~F.~Richardson did many things more important than, and more successful than, inventing this scheme!  He successfully applied a finite difference scheme to an elliptic PDE for the first time, and also he invented numerical weather forecasting, and tried it, all before the advent of the electronic computer.}
 
 \end{document}
