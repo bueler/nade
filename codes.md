@@ -30,6 +30,11 @@ The first block of codes comes from examples used in lecture as demonstrations, 
 
 ## from homework solutions
 
+From Assignment 7:
+
+  * [stabtable.m](assets/codes/S25/stabtable.m)
+  * [rk4region.m](assets/codes/S25/rk4region.m)
+
 From Assignment 6:
 
   * [fe1.m](assets/codes/S25/fe1.m)
