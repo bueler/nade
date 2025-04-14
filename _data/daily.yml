@@ -1,6 +1,13 @@
 semester: Spring 2025
 home: assets
 daily:
+- name: Monday 14 April
+  covered: local truncation error, refinement paths, stability
+- name: Friday 11 April
+  covered: RK-Chebyshev, FTCS for heat equation
+  chapter: 9
+- name: Wednesday 9 April
+  covered: A-stable, A(alpha)-stable, L-stable, BDF
 - name: Monday 7 April
   covered: stiffness
   chapter: 8
