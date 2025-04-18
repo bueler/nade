@@ -1,0 +1,128 @@
+\documentclass[12pt]{amsart}
+%prepared in AMSLaTeX, under LaTeX2e
+\addtolength{\oddsidemargin}{-.65in} 
+\addtolength{\evensidemargin}{-.65in}
+\addtolength{\topmargin}{-.4in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\textheight}{0.8in}
+
+\renewcommand{\baselinestretch}{1.05}
+
+\usepackage{verbatim,fancyvrb}
+\usepackage{soul}
+\usepackage{palatino}
+\usepackage[dvipsnames]{xcolor}
+
+\newtheorem*{thm}{Theorem}
+\newtheorem*{defn}{Definition}
+\newtheorem*{example}{Example}
+\newtheorem*{problem}{Problem}
+\newtheorem*{remark}{Remark}
+
+\newcommand{\mtt}{\texttt}
+\usepackage{alltt,xspace}
+\newcommand{\mfile}[1]
+{\medskip\begin{quote}\scriptsize \begin{alltt}\input{#1.m}\end{alltt} \normalsize\end{quote}\medskip}
+
+\usepackage[final]{graphicx}
+\newcommand{\mfigure}[1]{\includegraphics[height=2.5in,
+width=3.5in]{#1.eps}}
+\newcommand{\regfigure}[2]{\includegraphics[height=#2in,
+keepaspectratio=true]{#1.eps}}
+\newcommand{\widefigure}[3]{\includegraphics[height=#2in,
+width=#3in]{#1.eps}}
+
+\usepackage{amssymb}
+
+\usepackage[pdftex, colorlinks=true, plainpages=false, linkcolor=black, citecolor=red, urlcolor=red]{hyperref}
+
+% macros
+\newcommand{\br}{\mathbf{r}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\by}{\mathbf{y}}
+
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+
+\newcommand{\eps}{\epsilon}
+\newcommand{\grad}{\nabla}
+\newcommand{\lam}{\lambda}
+\newcommand{\lap}{\triangle}
+
+\newcommand{\ip}[2]{\ensuremath{\left<#1,#2\right>}}
+
+%\renewcommand{\det}{\operatorname{det}}
+\newcommand{\onull}{\operatorname{null}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\range}{\operatorname{range}}
+
+\newcommand{\Julia}{\textsc{Julia}\xspace}
+\newcommand{\Matlab}{\textsc{Matlab}\xspace}
+\newcommand{\Octave}{\textsc{Octave}\xspace}
+\newcommand{\Python}{\textsc{Python}\xspace}
+
+\newcommand{\prob}[1]{\bigskip\noindent\textbf{#1}\quad }
+
+\newcommand{\chapexers}[2]{\prob{Chapter #1, pages #2, Exercises:}}
+\newcommand{\exer}[2]{\prob{Exercise #1}}
+
+\newcommand{\pts}[1]{(\emph{#1 pts}) }
+\newcommand{\epart}[1]{\medskip\noindent\textbf{(#1)}\quad }
+\newcommand{\ppart}[1]{\,\textbf{(#1)}\quad }
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=ellipse,draw,inner sep=2pt] (char) {#1};}}
+
+
+\begin{document}
+\scriptsize \noindent Math 615 NADE (Bueler) \hfill 18 April, 2025
+\normalsize
+
+\medskip\bigskip
+
+\Large\centerline{\textbf{Assignment \#9}}
+\large
+\bigskip
+
+\centerline{\textbf{Due Friday, 25 April 2025, at the start of class}}
+\bigskip
+\normalsize
+
+\thispagestyle{empty}
+
+\bigskip
+Please read Chapters 9 and 10 of the textbook (R.~J.~LeVeque, \emph{Finite Difference Methods for Ordinary and Partial Diff.~Eqns.}, SIAM Press 2007).  We will not get to Chapter 11 in regular lecture or homework, but it could be beneficial to browse it for insight into your project.
+
+\medskip
+
+\prob{Problem P36.}  Consider the advection equation $u_t + a u_x = 0$ for $u(t,x)$.  Suppose $a>0$, and consider (10.21), the \emph{forward time, first-order upwinding} scheme:\footnote{Commonly just ``first-order upwinding''.}
+    $$U_j^{n+1} = U_j^{n} - \frac{ak}{h}(U_{j}^n - U_{j-1}^n).$$
+
+\epart{a}  Derive the scheme by applying first-order finite differences to the advection equation.  Draw and label the stencil.
+
+\epart{b}  Implement this method for $x\in[0,1]$ and $a = 1$.  Assume as a boundary condition that $u(t,0)=0$; no other boundary condition will be needed.  For the initial condition, let
+    $$u(x,0)=\begin{cases} 1, & 0.1 < x < 0.3 \\ 0, & \text{otherwise} \end{cases}$$
+The scheme is only conditionally stable, subject to the CFL condition $|a|k/h \le 1$.  Therefore, given user input of $m$ or $h$, choose the time step from this condition.  (\emph{The solution to this part is the code itself.})
+
+\epart{c}  The exact solution of the problem in \textbf{(b)} is easily found by thinking about how advection works.  Sketch the exact solution at $t=0.5$ and $t=1$.  Then show, for $h=0.1$, the numerical solution from your code in \textbf{(b)} at the same times.  Now add the result from $h=0.01$.  In a couple of sentences, describe the character of the convergence you are (\emph{or should be}) seeing.
+
+\epart{d}  Describe briefly, showing an easy code modification if you wish, how you would modify the code from \textbf{(b)} to handle the more general advection equation $u_t + a(t,x) u_x = 0$, where the continuous function $a(t,x)$ is real-valued but can have any sign and magnitude.
+
+
+\prob{Problem P37.}  Consider (10.13) for solving the advection equation $u_t + a u_x = 0$, for $u(t,x)$, where $a\in\RR$ is a constant of either sign:
+    $$U_j^{n+1} = U_j^{n-1} - \frac{ak}{h}(U_{j+1}^n - U_{j-1}^n).$$
+This applies centered differences to all derivatives; it is the \emph{leapfrog} method.\footnote{Note that Lax-Wendroff is generally recommended as a better scheme for advection than leapfrog, supposing one wants a simple and linear scheme formula.  However if you are willing to use serious and modern methods then the story changes.  What you actually do is go back to first-order upwinding and modify it with a higher-order, nonlinear flux-limiting or slope-limiting scheme, often from a finite-volume frame of mind.}
+
+\epart{a} Compute the local truncation error $\tau(t,x)$ of this method, and find its order of accuracy; that is, determine $p,q$ in $\tau(t,x) = O(k^p + h^q)$.
+
+\epart{b} Apply a von Neumann analysis.  (\emph{Hint.  See the worksheet for Wednesday 4/23.})
+
+\epart{c} State the MOL ODE system $U(t)' = A U(t)$ from which the above method comes, assuming periodic boundary conditions on the interval $x\in[0,1]$, giving details for $A$.  What are the eigenvalues of $A$?  Derive the method by applying the midpoint ODE method to it.  From the stability region of the midpoint method, explain what is understood about the stability of this PDE method.  (\emph{Hint. Examine Chapter 10.  You may extract most of this answer from the book.})
+
+\epart{d} Implement this leapfrog method on the following problem:  $x\in[0,1]$, $a = -0.5$, $u(0,x)=\sin(8\pi x)$.  Assume periodic boundary conditions.  To make the implementation work you will have to compute the first step by some other scheme; describe and justify what you do.  (\emph{The solution to this part is the code itself.})
+
+\epart{e} Suppose the final time is $t_f=10$.  Then the exact solution in part \textbf{(d)} is $u(t_f,x) = \sin(8\pi x)$; please explain why.  Then use $h=0.1,0.05,0.02,0.01,0.005,0.002$ and $k=h$ and show a log-log convergence plot using the infinity norm for the error.  What $O(h^p)$ do you expect for the rate of convergence, and what do you measure, and what is the right data to measure?
+
+\end{document}
