@@ -1,0 +1,128 @@
+\documentclass[11pt]{amsart}
+%prepared in AMSLaTeX, under LaTeX2e
+\addtolength{\oddsidemargin}{-.9in} 
+\addtolength{\evensidemargin}{-.9in}
+\addtolength{\topmargin}{-.9in}
+\addtolength{\textwidth}{1.7in}
+\addtolength{\textheight}{1.5in}
+
+\renewcommand{\baselinestretch}{1.05}
+
+\usepackage{verbatim} % for "comment" environment
+
+\usepackage{palatino}
+
+\usepackage[final]{graphicx}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\usepackage{enumitem,xspace,fancyvrb}
+
+\newtheorem*{thm}{Theorem}
+\newtheorem*{defn}{Definition}
+\newtheorem*{example}{Example}
+\newtheorem*{problem}{Problem}
+\newtheorem*{remark}{Remark}
+
+\DefineVerbatimEnvironment{mVerb}{Verbatim}{numbersep=2mm,frame=lines,framerule=0.1mm,framesep=2mm,xleftmargin=4mm,fontsize=\footnotesize}
+
+% macros
+\usepackage{amssymb}
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bB}{\mathbf{B}}
+\newcommand{\bE}{\mathbf{E}}
+\newcommand{\bF}{\mathbf{F}}
+\newcommand{\bJ}{\mathbf{J}}
+
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\bi}{\mathbf{i}}
+\newcommand{\bj}{\mathbf{j}}
+\newcommand{\bk}{\mathbf{k}}
+\newcommand{\br}{\mathbf{r}}
+\newcommand{\bu}{\mathbf{u}}
+\newcommand{\bv}{\mathbf{v}}
+\newcommand{\bw}{\mathbf{w}}
+\newcommand{\bx}{\mathbf{x}}
+
+\newcommand{\ppr}[1]{\frac{\partial #1}{\partial r}}
+\newcommand{\ppt}[1]{\frac{\partial #1}{\partial t}}
+\newcommand{\ppx}[1]{\frac{\partial #1}{\partial x}}
+\newcommand{\ppy}[1]{\frac{\partial #1}{\partial y}}
+\newcommand{\ppz}[1]{\frac{\partial #1}{\partial z}}
+
+\newcommand{\Div}{\ensuremath{\nabla\cdot}}
+\newcommand{\Curl}{\ensuremath{\nabla\times}}
+
+\newcommand{\eps}{\epsilon}
+\newcommand{\grad}{\nabla}
+\newcommand{\ip}[2]{\ensuremath{\left<#1,#2\right>}}
+\newcommand{\lam}{\lambda}
+\newcommand{\lap}{\triangle}
+
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\prob}[1]{\bigskip\noindent\textbf{#1.}\quad }
+
+\newcommand{\Matlab}{\textsc{Matlab}\xspace}
+
+\newcommand{\ds}{\displaystyle}
+
+\begin{document}
+\scriptsize \noindent Math 615 NADE (Bueler) \hfill \fbox{\emph{Nothing to turn in!}}
+\normalsize\medskip
+
+\Large\centerline{\textbf{Von Neumann analysis: plug and chug}}
+\medskip
+\normalsize
+
+\thispagestyle{empty}
+\begin{quote}
+\emph{Section 9.6 of the textbook\footnote{R.~J.~LeVeque, \emph{Finite Difference Methods for Ordinary and Partial Diff.~Eqns.}, SIAM Press 2007} introduces von Neumann analysis, but without showing how people actually \emph{do} it.  This worksheet reveals the standard style.  The textbook eventually says it clearly int the first sentences of section 10.5.}
+\end{quote}
+
+
+\prob{Example. FTCS on heat equation}  It is easiest to explain the idea relative to an example.  Suppose we apply the FTCS scheme to the heat equation $u_t = D u_{xx}$ with constant diffusivity $D>0$:
+\begin{equation}
+\frac{U_j^{n+1} - U_j^n}{k} = D \frac{U_{j-1}^n - 2 U_j^n + U_{j+1}^n}{h^2}  \label{ftcs}
+\end{equation}
+To find what time steps $k>0$ would be stable for a given spacing $h>0$, von Neumann substituted
+\begin{equation}
+U_j^n = g(\xi)^n e^{ijh\xi}  \label{ansatz}
+\end{equation}
+into scheme \eqref{ftcs}.  Here $\xi \in \RR$ is the \emph{wave number} for the spatial wave $e^{ijh\xi}$, in which $i=\sqrt{-1} \in \CC$ (as usual).  The scalar function $g(\xi)$ is  called the \emph{amplification factor} of the scheme.  The spatial wave is complex, but it really is a wave, and for the interval $0\le x \le 1$ the grid is $x_j = jh$ and thus
+    $$e^{ijh\xi} = e^{i \xi x_j} = \cos(\xi x_j) + i \sin(\xi x_j).$$
+
+To understand stability we want to find $g(\xi)$.  To compute it, substitute form \eqref{ansatz} into scheme \eqref{ftcs}.  Indices ``$n+1$,'' ``$j-1$,'' and ``$j+1$'' will turn into powers.  Then use the properties of the exponential.  After simplification and trigonometric identities---please do the details in Exercise 1 below---we get
+    $$g(\xi) = 1 - \frac{4Dk}{h^2} \sin^2\left(\frac{\xi h}{2}\right).$$
+
+Absolute stability $|U_j^{n+1}| \le |U_j^{n}|$ corresponds to $|g(\xi)|\le 1$ for all $\xi \in \RR$.  For this scheme we get the condition $\displaystyle k \le \frac{h^2}{2D}$.  The same condition is derived via MOL in section 9.3.  In conclusion, the time step $k$ must be very small when the spacing $h$ is small.
+
+\bigskip
+\prob{Exercise 1. FTCS on heat equation}  Label the stencil, and then fill in the above details.
+
+\bigskip
+\hfill \input{tikz/ftcsstencil.tex}
+\vfill
+
+
+\clearpage
+\newpage
+\prob{Exercise 2. Crank-Nicolson on heat equation}  State the scheme.  von Neumann it.
+
+\bigskip
+\hfill \input{tikz/cnstencil.tex}
+\vfill
+
+\prob{Exercise 3. Forward time and upwinding on the advection equation $u_t + a u_x = 0$, $a>0$ constant}  State the scheme, draw and label a stencil, and do the analysis.
+\vfill
+
+\prob{Exercise 4. CTCS (leapfrog) on the same advection equation}  Same instructions.
+\vfill
+
+
+
+
+
+\end{document}

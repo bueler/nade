@@ -1,6 +1,17 @@
 semester: Spring 2025
 home: assets
 daily:
+- name: Wednesday 23 April
+  covered: finite difference schemes for advection
+  worksheet: worksheets/S25/vonneumann.pdf
+  worksheetname: von Neumann stability analysis
+- name: Monday 21 April
+  covered: advection equation
+  chapter: 10
+- name: Friday 18 April
+  covered: backward Euler and von Neumann analysis on heat equation
+- name: Wednesday 16 April
+  covered: maximum principle convergence proof for FTCS on heat equation
 - name: Monday 14 April
   covered: local truncation error, refinement paths, stability
 - name: Friday 11 April

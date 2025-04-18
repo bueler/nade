@@ -1,0 +1,19 @@
+\begin{tikzpicture}[scale=1.5]
+\node (left) at  (0.0,0.0) {};
+\node (old) at   (1.0,0.0) {};
+\node (right) at (2.0,0.0) {};
+\node (lnew) at  (0.0,1.0) {};
+\node (new) at   (1.0,1.0) {};
+\node (rnew) at  (2.0,1.0) {};
+
+\filldraw (left) circle (2.0pt);
+\filldraw (old) circle (2.0pt);
+\filldraw (right) circle (2.0pt);
+\draw (lnew) circle (2.0pt);
+\draw (new) circle (2.0pt);
+\draw (rnew) circle (2.0pt);
+
+\draw[line width=1.0pt] (left) -- (old) -- (right);
+\draw[line width=1.0pt] (old) -- (new);
+\draw[line width=1.0pt] (lnew) -- (new) -- (rnew);
+\end{tikzpicture}
