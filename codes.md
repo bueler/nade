@@ -30,6 +30,12 @@ The first block of codes comes from examples used in lecture as demonstrations, 
 
 ## from homework solutions
 
+From Assignment 8:
+
+  * [trbdf2region.m](assets/codes/S25/trbdf2region.m)
+  * [beheat.m](assets/codes/S25/beheat.m)
+  * [testbeheat.m](assets/codes/S25/testbeheat.m)
+
 From Assignment 7:
 
   * [stabtable.m](assets/codes/S25/stabtable.m)
