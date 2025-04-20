@@ -1,0 +1,137 @@
+\documentclass[12pt]{amsart}
+\addtolength{\topmargin}{-0.6in} % usually -0.25in
+\addtolength{\textheight}{1.1in} % usually 1.25in
+\addtolength{\oddsidemargin}{-0.7in}
+\addtolength{\evensidemargin}{-0.7in}
+\addtolength{\textwidth}{1.5in} %\setlength{\parindent}{0pt}
+
+\newcommand{\normalspacing}{\renewcommand{\baselinestretch}{1.04}\tiny\normalsize}
+
+\normalspacing
+
+% macros
+\usepackage{amssymb,xspace}
+\usepackage{tikz}
+\usepackage[pdftex,colorlinks=true]{hyperref}
+
+
+\newtheorem*{thm}{Theorem}
+\newtheorem*{lem}{Lemma}
+
+\newcommand{\mtt}{\texttt}
+\newcommand{\mtl}[1]{{\texttt{>>#1}}}
+\usepackage{alltt}
+\usepackage{fancyvrb}
+
+\newcommand{\bu}{\mathbf{u}}
+\newcommand{\bv}{\mathbf{v}}
+
+\newcommand{\CC}{{\mathbb{C}}}
+\newcommand{\RR}{{\mathbb{R}}}
+\newcommand{\ZZ}{{\mathbb{Z}}}
+\newcommand{\ZZn}{{\mathbb{Z}}_n}
+\newcommand{\NN}{{\mathbb{N}}}
+
+\newcommand{\eps}{\epsilon}
+\newcommand{\grad}{\nabla}
+\newcommand{\lam}{\lambda}
+\newcommand{\ip}[2]{\mathrm{\left<#1,#2\right>}}
+\newcommand{\erf}{\operatorname{erf}}
+
+\renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\Arg}{\operatorname{Arg}}
+
+\newcommand{\Span}{\operatorname{span}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\range}{\operatorname{range}}
+\newcommand{\trace}{\operatorname{tr}}
+\newcommand{\Null}{\operatorname{null}}
+
+\newcommand{\Matlab}{\textsc{Matlab}\xspace}
+\newcommand{\Octave}{\textsc{Octave}\xspace}
+\newcommand{\pylab}{\textsc{pylab}\xspace}
+\newcommand{\longMOP}{\textsc{Matlab}\big|\textsc{Octave}\big|\textsc{pylab}\xspace}
+\newcommand{\MOP}{\textsc{M}\big|\textsc{O}\big|\textsc{p}\xspace}
+
+\newcommand{\prob}[1]{\bigskip\noindent\large\textbf{#1.} \normalsize}
+\newcommand{\bookprob}[1]{\bigskip\noindent\large\textbf{Exercise #1.} \normalsize}
+\newcommand{\probpart}[1]{\smallskip\noindent\textbf{(#1)}\quad }
+\newcommand{\aprobpart}[1]{\textbf{(#1)}\quad }
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+
+\begin{document}
+\scriptsize \noindent Math 615 NADE (Bueler)
+\thispagestyle{empty}
+
+\bigskip
+\Large\textbf{\centerline{In-class Final Exam: 2 Case Summaries}}
+
+\medskip
+\large\textbf{\centerline{Thursday, 1 May 2025, 3:15--5:15pm, Chapman 107}}
+
+\normalsize
+\medskip
+
+\begin{center}
+\fbox{%
+\begin{minipage}{0.95\textwidth}
+\textbf{Please choose one ODE and one PDE problem from the lists at the bottom.  For each one, write a Case Summary on a separate sheet.}
+
+\textbf{You may not bring notes to this Final Exam.}
+\end{minipage}
+}
+\end{center}
+
+
+\bigskip
+A Case Summary reviews the finite difference (FD) numerical analysis of one of the differential equation (DE) problems we have seen during the course.  It documents a problem and method, in advance of writing a code.  It should have the same content as a 10 to 15 minute white-board presentation on how you would solve the problem numerically, as you might give to a fellow student who has not seen that particular problem, but who has taken similar-level classes.
+
+\smallskip
+You are strongly encouraged to draft and practice your planned Case Summaries in advance.  When preparing, make sure to read relevant sections of the textbook.  Get feedback on your drafts from other students or me/faculty/friends/family/pets.  Think about how you will remember enough detail so as to recreate the Summary during the in-class Exam.
+
+\smallskip
+\textbf{Each Summary should be at most one full page.}  Equations are important, but please write complete sentences for the major ideas.  Add at most three sketches as needed.  (A Summary which is \emph{only} equations and sketches cannot achieve a good grade.)  Make sure to \textbf{state the problem} (DE and initial/boundary conditions), comment on or supply an \textbf{exact solution}, recommend one or two \textbf{FD discretization}(s), summarize the \textbf{truncation error}, and summarize \textbf{stability}.  Then consider and fill-in any relevant additional ideas for the problem and the chosen method.  (See ``Consider:'' below for the specific problems.)  The goal is \emph{not} to prove anything, but to accurately and precisely summarize what we know---or what we easily could know---about the problem and the available method(s).
+
+\medskip
+\noindent \hrulefill
+
+\newcommand{\ecomment}[1]{ \hfill \mbox{\emph{#1}} }
+
+\renewcommand{\labelenumi}{\circled{\arabic{enumi}}}
+\begin{enumerate}
+\setlength{\itemsep}{4pt}
+
+\item A general linear 2nd-order ODE BVP. \ecomment{eqn (2.64)}
+
+\noindent Consider: how to solve the linear system.
+\item The nonlinear 2nd-order ODE BVP for a pendulum.  \ecomment{eqn (2.77)}
+
+\noindent Consider: Newton's method, how to solve the linear Newton steps.
+\item A non-homogeneous, constant-coefficient linear ODE IVP system.  \ecomment{eqn (5.6)}
+
+\noindent Consider: matrix exponentials, compare $2$ schemes, absolute stability regions.
+\end{enumerate}
+
+\noindent \hrulefill
+
+\renewcommand{\labelenumi}{\circled{\alph{enumi}}}
+\begin{enumerate}
+\setlength{\itemsep}{4pt}
+\item The Poisson problem PDE in 2D. \ecomment{eqn (3.5)}
+
+\noindent Consider: ordering the unknowns, how to solve the linear system.
+\item The time-dependent heat equation PDE in 1D. \ecomment{eqn (9.1)}
+
+\noindent Consider: compare order of accuracy and stability of $2$ schemes.
+\item The time-dependent scalar advection equation PDE in 1D.  \ecomment{eqn (10.1)}
+
+\noindent Consider: compare order of accuracy and stability of $2$ schemes.
+\end{enumerate}
+
+\end{document}
+
