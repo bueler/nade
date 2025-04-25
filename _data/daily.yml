@@ -2,7 +2,7 @@ semester: Spring 2025
 home: assets
 daily:
 - name: Friday 25 April
-  covered: Courant-Friedrichs-Lewy (CFL) condition, modified equation analysis, method-of-lines (MOL) analysis
+  covered: Courant-Friedrichs-Lewy (CFL) condition, modified equation analysis
 - name: Wednesday 23 April
   covered: finite difference schemes for advection
   worksheet: worksheets/S25/vonneumann.pdf
