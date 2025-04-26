@@ -31,6 +31,12 @@ The first block of codes comes from examples used in lecture as demonstrations, 
 
 ## from homework solutions
 
+From Assignment 9:
+
+  * [upwind.m](assets/codes/S25/upwind.m)
+  * [leapfrog.m](assets/codes/S25/leapfrog.m)
+  * [testleapfrog.m](assets/codes/S25/testleapfrog.m)
+
 From Assignment 8:
 
   * [trbdf2region.m](assets/codes/S25/trbdf2region.m)
