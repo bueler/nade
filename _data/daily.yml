@@ -1,6 +1,10 @@
 semester: Spring 2025
 home: assets
 daily:
+- name: Monday 28 April
+  covered: advanced advection
+  handout: worksheets/S25/showtell.pdf
+  handoutname: 2D advection with PETSc (show-and-tell)
 - name: Friday 25 April
   covered: Courant-Friedrichs-Lewy (CFL) condition, modified equation analysis
 - name: Wednesday 23 April
