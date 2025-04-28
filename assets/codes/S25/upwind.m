@@ -14,10 +14,11 @@ m = ceil(1.0 / h);
 h = 1.0 / m;
 
 if a < 0, error('only written for a >= 0'), end
+
 if a == 0
     k = h;            % irrelevant ... no motion
 else
-    k = 0.8 * h / a;  % 80% of CFL time step
+    k = 0.8 * h / abs(a);  % using 80% of CFL time step, as generic case
 end
 NN = ceil(tf / k);
 k = tf / NN;          % guarantees that  k NN = tf
