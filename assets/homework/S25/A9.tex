@@ -77,7 +77,7 @@ width=#3in]{#1.eps}}
 
 
 \begin{document}
-\scriptsize \noindent Math 615 NADE (Bueler) \hfill 18 April, 2025
+\scriptsize \noindent Math 615 NADE (Bueler) \hfill version 2; \today
 \normalsize
 
 \medskip\bigskip
@@ -104,7 +104,7 @@ Please read Chapters 9 and 10 of the textbook (R.~J.~LeVeque, \emph{Finite Diffe
 
 \epart{b}  Implement this method for $x\in[0,1]$ and $a = 1$.  Assume as a boundary condition that $u(t,0)=0$; no other boundary condition will be needed.  For the initial condition, let
     $$u(x,0)=\begin{cases} 1, & 0.1 < x < 0.3 \\ 0, & \text{otherwise} \end{cases}$$
-The scheme is only conditionally stable, subject to the CFL condition $|a|k/h \le 1$.  Therefore, given user input of $m$ or $h$, choose the time step from this condition.  (\emph{The solution to this part is the code itself.})
+The scheme is only conditionally stable, subject to the CFL condition $|a|k/h \le 1$.  Therefore, given user input of $m$ or $h$, choose the time step from this condition.  \emph{However}, please do not choose the very special case $k=h/|a|$, which will cause the hard-to-interpret weird behavior of getting the exact solution!  Instead, use 80\%, or so, of the maximum allowed time step.  (\emph{The solution to this part is the code itself.})
 
 \epart{c}  The exact solution of the problem in \textbf{(b)} is easily found by thinking about how advection works.  Sketch the exact solution at $t=0.5$ and $t=1$.  Then show, for $h=0.1$, the numerical solution from your code in \textbf{(b)} at the same times.  Now add the result from $h=0.01$.  In a couple of sentences, describe the character of the convergence you are (\emph{or should be}) seeing.
 
