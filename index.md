@@ -47,6 +47,6 @@ Log in to [canvas.alaska.edu/courses/24194](https://canvas.alaska.edu/courses/24
     * [Lax equivalence theorem](https://en.wikipedia.org/wiki/Lax_equivalence_theorem) for finite difference methods
 
 ---
-_Site design derived from [coordinated Calc I](https://uaf-math251.github.io/), an original [Jekyll](https://jekyllrb.com/) design by [David Maxwell](https://damaxwell.github.io/)._
+_Site design derived from [coordinated Calc I](https://uaf-math.github.io/calc1/), an original [Jekyll](https://jekyllrb.com/) design by [David Maxwell](https://damaxwell.github.io/)._
 
 [<img src="assets/images/GitHub-Mark-32px.png" align="right">](https://github.com/bueler/nade "github repository for this site")
